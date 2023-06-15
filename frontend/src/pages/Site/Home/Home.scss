@@ -1,19 +1,323 @@
-body{
-    height: 2000px;
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin b-ground {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .hero {
-    width: 100%;
-    height: 635px;
-    background-image: url(https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/04/landing-asia.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+  background-image: url(https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 
-    .hero__wrapper{
-        width: 100%;
-        height: 100%;
-        background-color: rgba(34, 34, 34, 0.5);
+  .hero__wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(34, 34, 34, 0.5);
+
+    &__middle {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      width: 1170px;
+      height: 168px;
+      background-color: rgba(107, 105, 87, 0.95);
+      border: 15px solid rgba(71, 77, 75, 0.61);
+      padding: 20px 10px 40px;
+
+      form {
+        select {
+          width: 223px;
+          height: 44px;
+          background-color: #252525b3;
+          color: #b0a377;
+          display: flex;
+          font-size: 17px;
+          flex-direction: column;
+          align-items: center;
+          padding: 7px;
+          border-radius: 5px;
+          border: none;
+          font-weight: 600;
+          cursor: pointer;
+
+          &:focus {
+            outline: none;
+          }
+
+          option {
+            background-color: #252525;
+            color: #9d9d9d;
+            font-style: 400;
+          }
+        }
+        label {
+          margin-bottom: 6px;
+          color: white;
+          font-size: 17px;
+          font-weight: 500;
+        }
+      }
+
+      button {
+        width: 223px;
+        height: 44px;
+        background-color: #252525;
+        color: #b0a377;
+        font-size: 17px;
+        font-weight: 600;
+        border-radius: 5px;
+        border: none;
+      }
     }
+
+    &__title {
+      width: 900px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+
+      p {
+        margin-bottom: 0px;
+      }
+      span {
+        color: #b0a377;
+      }
+    }
+
+    &__bottom {
+      width: 100%;
+      height: 101px;
+      background-color: #252525;
+      padding: 10px 0px;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        display: flex;
+        list-style: none;
+
+        a {
+          text-decoration: none;
+
+          li {
+            @include center;
+            font-size: 25px;
+            flex-direction: column;
+            width: 168px;
+            height: 100%;
+            color: #9d9d9d;
+            border-right: 1px solid black;
+
+            p {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              gap: 5px;
+              text-align: center;
+              color: #9d9d9d;
+              font-size: 14px;
+              margin-bottom: 0px;
+
+              .act-icon {
+                font-size: 22px;
+              }
+
+              &:hover {
+                color: #b0a377;
+                transition: 0.4s;
+
+                .act-icon {
+                  color: #b0a377;
+                  transition: 0.4s;
+                  transform: translateY(-5px);
+                }
+              }
+            }
+          }
+
+          .last-li {
+            border: none;
+          }
+        }
+      }
+    }
+  }
 }
+
+//section 2
+.adventures {
+  width: 100%;
+  height: 785px;
+  padding: 60px 0px;
+  background-color: brown;
+
+  &__content {
+    text-align: center;
+  }
+
+  &__gallery {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+
+    &__left {
+      padding: 0px 15px;
+      background-color: green;
+      width: 555px;
+      height: 524px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .gallery__div {
+        width: 166.66px;
+        height: 160.78px;
+        background-color: black;
+        margin: 0px 0px 14px;
+
+        &__wrapper {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          padding-bottom: 15px;
+          justify-content: flex-end;
+          align-items: center;
+
+           a {
+            color: #fff !important;
+            text-align: center;
+            width: 70px;
+            height: 70px;
+            @include center;
+            font-size: 0.6rem;
+            transform: scale(1);
+            transition: all ease .4s;
+
+            .adv-icon{
+                display: none;
+            }
+          }
+          a:hover{
+            transform: scale(4.1);
+          }
+
+          a:hover .adv-icon{
+            display: block;
+          }
+
+          &:hover {
+            background-color: #474d4beb;
+            transition: 0.4s;
+          }
+
+          span {
+            color: white;
+            font-size: 14px;
+            letter-spacing: 2px;
+            font-weight: 700;
+          }
+        }
+      }
+
+      .gallery__divs1 {
+        background-image: url(https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/04/img-01.jpg);
+        @include b-ground;
+      }
+
+      .gallery__divs2 {
+        background-image: url(https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/04/img-02.jpg);
+        @include b-ground;
+      }
+
+      .gallery__divs3 {
+        background-image: url(https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/04/img-03.jpg);
+        @include b-ground;
+      }
+
+      .gallery__divs4 {
+        background-image: url(https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/04/home-gallery-03.jpg);
+        @include b-ground;
+      }
+
+      .gallery__divs5 {
+        background-image: url(https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/04/img-05.jpg);
+        @include b-ground;
+      }
+
+      .gallery__divs6 {
+        background-image: url(https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/04/home-gallery-04.jpg);
+        @include b-ground;
+      }
+
+      .gallery__divs7 {
+        background-image: url(https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/04/home-gallery-05.jpg);
+        @include b-ground;
+      }
+
+      .gallery__divs8 {
+        background-image: url(https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/04/img-08-1.jpg);
+        @include b-ground;
+      }
+
+      .gallery__divs9 {
+        background-image: url(https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/04/img-09-2.jpg);
+        @include b-ground;
+      }
+    }
+
+    &__right {
+      background-color: purple;
+      width: 555px;
+      height: 388px;
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+  }
+}
+
+// @media screen and (max-width: 1350px) {
+//     .hero__wrapper{
+//         &__middle{
+//             width: 1000px;
+//             height: 150px;
+
+//             form{
+//                 select {
+//                     width: 200px;
+//                     height: 38px;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// @media screen and (max-width: 1440px) {
+//   .hero__wrapper ul {
+//     width: 100%;
+//     overflow-y: scroll;
+//     overflow-y: hidden;
+//     scroll-behavior: smooth;
+//   }
+// }

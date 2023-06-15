@@ -11,6 +11,8 @@
 }
 
 .header {
+  background-color: #2d2d2d;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   z-index: 99999;
   overflow: hidden;
   position:absolute;
@@ -19,28 +21,28 @@
   width: 100%;
   height: 101px;
   padding: 0px 15px;
-  border-bottom: 1px solid rgba(45, 45, 45, 0.8);
   @include display;
-  // position: fixed;
-  // top: 0;
-  // left: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
 
   &__left {
     width: 240px;
     height: 100%;
-    border-right: 1px solid rgba(45, 45, 45, 0.8);
+    border-right:1px solid black;
     @include center;
 
     img {
       width: 160px;
       height: 34.42px;
+      cursor: pointer;
     }
   }
 
   &__middle {
     ul {
       display: flex;
-      gap: 35px;
+      gap: 30px;
       list-style: none;
       margin: 0;
       padding: 0px;
@@ -48,6 +50,7 @@
 
       li {
         a {
+          font-weight: 400;
           text-decoration: none;
           color: white;
         }
@@ -60,7 +63,6 @@
 
     ul {
       @include display;
-      gap: 10px;
       list-style: none;
       margin: 0;
       padding: 0px;
@@ -73,8 +75,8 @@
         justify-content: center;
         align-items: center;
         font-size: 22px;
-        border-left: 1px solid rgba(45, 45, 45, 0.8);
-        border-right: 1px solid rgba(45, 45, 45, 0.8);
+        border-left: 1px solid black;
+        border-right: 1px solid black;
 
         a {
           color: white;
@@ -82,4 +84,43 @@
       }
     }
   }
+
+  &__hamburger{
+    display: none;
+
+    .hamburger{
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+    }
+  }
+}
+
+
+@media screen and (max-width: 992px) {
+  .header{
+    background-color: #1f2933;
+  }
+    .header__middle {
+      display: none;
+    }
+
+    .header__left {
+      width: 150px;
+      img {
+      width: 120px;
+      height: 27px;
+    }
+  }
+
+    .header__right{
+      display: none;
+    }
+
+    .header__hamburger{
+      display: block;
+      padding-right: 20px;
+    }
 }

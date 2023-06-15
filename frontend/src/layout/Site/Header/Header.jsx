@@ -3,6 +3,7 @@ import "./Header.scss";
 import { Link } from "react-router-dom";
 import { FaUserCircle } from 'react-icons/fa';
 import { MdShoppingCart } from 'react-icons/md';
+import { RxHamburgerMenu } from 'react-icons/rx';
 
 function Header() {
   return (
@@ -48,6 +49,9 @@ function Header() {
                 <Link to="cart"><MdShoppingCart /></Link>
               </li>
             </ul>
+        </div>
+        <div className="header__hamburger">
+          <RxHamburgerMenu className="hamburger" />
         </div>
       </div>
     </>
