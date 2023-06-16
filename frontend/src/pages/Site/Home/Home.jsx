@@ -14,6 +14,8 @@ function Home() {
       <Helmet>
         <title>Home</title>
       </Helmet>
+
+    {/* Section-1 */}
       <div className="hero">
         <div className="hero__wrapper">
           <div className="hero__wrapper__title">
@@ -22,6 +24,7 @@ function Home() {
               <span>FIND</span> ADVENTURES
             </p>
           </div>
+
           <div className="hero__wrapper__middle">
             <form>
               <label>Destination</label>
@@ -40,7 +43,6 @@ function Home() {
               </select>
             </form>
 
-            {/* all actitivities */}
 
             <form>
               <label>Activity</label>
@@ -56,8 +58,6 @@ function Home() {
                 <option>WildLife Safari</option>
               </select>
             </form>
-
-            {/* aby date */}
 
             <form>
               <label>Month</label>
@@ -80,6 +80,7 @@ function Home() {
 
             <button>Go To Explore</button>
           </div>
+          
           <div className="hero__wrapper__bottom">
             <ul>
               <Link>
@@ -149,9 +150,9 @@ function Home() {
             </ul>
           </div>
         </div>
-      </div>
+      </div> 
 
-      {/* section-2 */}
+      {/* Section-2 */}
       <div className="adventures">
         <div className="adventures__content">
           <h2>THE ADVENTURES</h2>
@@ -226,6 +227,24 @@ function Home() {
               Morbi accumsan ipsum velit.
             </p>
             <button>EXPLORE</button>
+          </div>
+        </div>
+      </div>
+
+      {/* Section-3 */}
+      <div className="block">
+        <p>Get special discount on select treks, this week. <Link> Call +1 5775 7525</Link></p>
+      </div>
+
+      {/* Section-4 */}
+      <div className="popular">
+        <div className="popular__content">
+          <h2>POPULAR TOURS</h2>
+          <p>We have a unique way of meeting your adventurous expectations!</p>
+        </div>
+        <div className="popular__datas">
+          <div className="datas__card">
+         
           </div>
         </div>
       </div>
