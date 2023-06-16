@@ -3,10 +3,11 @@ import "./Home.scss";
 import Helmet from "react-helmet";
 import { Link } from "react-router-dom";
 import { TbJumpRope } from "react-icons/tb";
-import { FaCity, FaBiking, FaHiking , FaUmbrellaBeach , FaSnowboarding , FaMountain } from "react-icons/fa";
-import { GiHiking, GiHuntingHorn, GiDeer , GiDesert , GiJungle , GiVillage } from "react-icons/gi";
-import { MdSailing, MdScubaDiving , MdWaterDrop } from "react-icons/md";
+import { FaCity, FaBiking, FaHiking, FaUmbrellaBeach, FaSnowboarding, FaMountain, FaPaw } from "react-icons/fa";
+import { GiWorld , GiHiking, GiDuration, GiTreeBranch, GiHuntingHorn, GiDeer, GiDesert, GiJungle, GiVillage, GiSpermWhale } from "react-icons/gi";
+import { MdLocalActivity , MdSailing, MdScubaDiving, MdWaterDrop } from "react-icons/md";
 import { BiWater } from 'react-icons/bi'
+import { GiLobArrow } from 'react-icons/gi'
 
 function Home() {
   return (
@@ -15,7 +16,7 @@ function Home() {
         <title>Home</title>
       </Helmet>
 
-    {/* Section-1 */}
+      {/* Section-1 */}
       <div className="hero">
         <div className="hero__wrapper">
           <div className="hero__wrapper__title">
@@ -80,7 +81,7 @@ function Home() {
 
             <button>Go To Explore</button>
           </div>
-          
+
           <div className="hero__wrapper__bottom">
             <ul>
               <Link>
@@ -150,7 +151,7 @@ function Home() {
             </ul>
           </div>
         </div>
-      </div> 
+      </div>
 
       {/* Section-2 */}
       <div className="adventures">
@@ -164,55 +165,55 @@ function Home() {
           <div className="adventures__gallery__left">
             <div className="gallery__divs1 gallery__div">
               <div className="gallery__div__wrapper">
-                <Link><GiDesert className="adv-icon"/></Link>
+                <Link><GiDesert className="adv-icon" /></Link>
                 <span>BEACH</span>
               </div>
             </div>
             <div className="gallery__divs2 gallery__div">
               <div className="gallery__div__wrapper">
-                <Link><FaUmbrellaBeach className="adv-icon"/></Link>
+                <Link><FaUmbrellaBeach className="adv-icon" /></Link>
                 <span>DESERT</span>
               </div>
             </div>
             <div className="gallery__divs3 gallery__div">
               <div className="gallery__div__wrapper">
-                <Link><BiWater className="adv-icon"/></Link>
+                <Link><BiWater className="adv-icon" /></Link>
                 <span>ICONIC</span>
               </div>
             </div>
             <div className="gallery__divs4 gallery__div">
               <div className="gallery__div__wrapper">
-              <Link><GiJungle className="adv-icon"/></Link>
+                <Link><GiJungle className="adv-icon" /></Link>
                 <span>JUNGLE</span>
               </div>
             </div>
             <div className="gallery__divs5 gallery__div">
               <div className="gallery__div__wrapper">
-              <Link><FaMountain className="adv-icon"/></Link>
+                <Link><FaMountain className="adv-icon" /></Link>
                 <span>MOUNTAIN</span>
               </div>
             </div>
             <div className="gallery__divs6 gallery__div">
               <div className="gallery__div__wrapper">
-              <Link><GiVillage className="adv-icon"/></Link>
+                <Link><GiVillage className="adv-icon" /></Link>
                 <span>RURAL</span>
               </div>
             </div>
             <div className="gallery__divs7 gallery__div">
               <div className="gallery__div__wrapper">
-              <Link><FaSnowboarding className="adv-icon"/></Link>
+                <Link><FaSnowboarding className="adv-icon" /></Link>
                 <span>SNOW & ICE</span>
               </div>
             </div>
             <div className="gallery__divs8 gallery__div">
               <div className="gallery__div__wrapper">
-              <Link><FaCity className="adv-icon"/></Link>
+                <Link><FaCity className="adv-icon" /></Link>
                 <span>URBAN</span>
               </div>
             </div>
             <div className="gallery__divs9 gallery__div">
               <div className="gallery__div__wrapper">
-                <Link><MdWaterDrop className="adv-icon"/></Link>
+                <Link><MdWaterDrop className="adv-icon" /></Link>
                 <span>WATER</span>
               </div>
             </div>
@@ -236,15 +237,85 @@ function Home() {
         <p>Get special discount on select treks, this week. <Link> Call +1 5775 7525</Link></p>
       </div>
 
-      {/* Section-4 */}
+      {/* Section-4 --> API'den datalar gelecek */}
       <div className="popular">
         <div className="popular__content">
           <h2>POPULAR TOURS</h2>
           <p>We have a unique way of meeting your adventurous expectations!</p>
         </div>
+
+        {/* API-den gelecek data-1 */}
         <div className="popular__datas">
-          <div className="datas__card">
-         
+          <div className="popular__datas__card">
+            <div className="popular__datas__card__img">
+              <img src="https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/05/tour-37-550x358.jpg" alt="img" />
+            </div>
+            <div className="popular__datas__card__img__wrapper">
+              <div className="popular__icon">
+                <Link><GiLobArrow /></Link>
+              </div>
+              <div className="popular__cost">
+                <em>from</em>
+                <span>$779</span>
+              </div>
+              <div className="day">
+                <span>18 Days</span>
+              </div>
+            </div>
+
+            <div className="popular__datas__card__content">
+              <Link>Mountain Biking Trip</Link>
+              <p>Son agreed others exeter period myself few yet nature.
+                Mention mr manners opinion if garrets enabled.
+                To an occasional dissimilar impossible sentiments.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* section-5 */}
+      <div className="statistic">
+        <div className="statistic__card1 s-card">
+          <FaPaw className="s-icon" />
+          <span>15000+</span>
+          <p>WILDLIFE SPECIES</p>
+        </div>
+        <div className="statistic__card2 s-card">
+          <GiSpermWhale className="s-icon" />
+          <span>3077</span>
+          <p>ARCTIC EXPERIENCES</p>
+        </div>
+        <div className="statistic__card3 s-card">
+          <GiTreeBranch className="s-icon" />
+          <span>13</span>
+          <p>NATIONAL PARKS</p>
+        </div>
+        <div className="statistic__card4 s-card">
+          <GiDuration className="s-icon" />
+          <span>8973</span>
+          <p>DAYS IN THE WILD</p>
+        </div>
+      </div>
+
+      {/* section-6 --> API'den datalar gelecek */}
+      <div className="bestSeller">
+        <div className="bestSeller__content">
+          <h2>BEST SELLERS OF 2016</h2>
+          <p>Our collection of the most popular adventures in 2023.</p>
+        </div>
+        <div className="bestSeller__datas">
+          <div className="bestSeller__datas__card">
+            <div className="bestSeller__datas__card__img">
+              <img src="https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/05/tour-05-min-550x358.jpg" alt="img" />
+            </div>
+            <div className="bestSeller__datas__card__title">
+              <Link>Jungle Safari in Africa</Link>
+              <span>Hunting Trip, Jungle, Wildlife Safari</span>
+              <div id="bestSeller__Activity">
+                <span><GiWorld /> 10 Places</span>
+                <span><MdLocalActivity /> 3 Activities</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

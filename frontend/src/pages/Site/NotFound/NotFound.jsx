@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 function NotFound() {
   return (
     <section class="page_404">
+      <div className="inner">
+      </div>
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
