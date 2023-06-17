@@ -1,0 +1,50 @@
+.slider {
+    width: 1170px;
+    height: 284px;
+
+
+    &__div {
+        width: 1170px;
+        height: 284px;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        // gap: 55px;
+        text-align: center;
+
+        &__img {
+            margin: 0 auto;
+            width: 108px;
+            height: 108px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid white;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: white;
+
+            h4 {
+                width: 80%;
+                border-bottom: 1px solid gray;
+                padding: 20px 0;
+            }
+
+            p {
+                width: 80%;
+                line-height: 30px;
+            }
+        }
+    }
+}

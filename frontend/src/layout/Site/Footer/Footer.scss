@@ -1,0 +1,94 @@
+.footer {
+    width: 100%;
+    padding: 40px 250px;
+    background-image: url(https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/04/footer-pattern-1-1-2-2.png);
+
+    &__contact {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+
+        h4 {
+            color: #6b6957;
+            font-weight: 700;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        ul {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+            color: #9d9d9d;
+            margin: 0;
+            padding: 0;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                li {
+                    align-items: center;
+                    display: flex;
+                    gap: 10px;
+                    font-size: 18px;
+
+                    a {
+                        text-decoration: none;
+                        color: #9d9d9d;
+                    }
+                }
+
+                
+                .home-li {
+                    display: flex;
+                    align-items: flex-start;
+
+                    .home-icon {
+                        margin-top: 4px;
+                    }
+                }
+            }
+        }
+        
+
+        .f__icons {
+            li {
+                a {
+                    font-size: 28px;
+                    color: #6b6957;
+
+                    .f-icon:hover {
+                        color: #b0a377;
+                        transition: 0.3s;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.footer__bottom {
+    width: 100%;
+    height: 66px;
+    padding: 20px 250px;
+    background-color: #252525;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+        width: 294px;
+        height: 20px;
+    }
+
+    span {
+        color: #9d9d9d;
+    }
+}

@@ -3,11 +3,14 @@ import "./Home.scss";
 import Helmet from "react-helmet";
 import { Link } from "react-router-dom";
 import { TbJumpRope } from "react-icons/tb";
-import { FaCity, FaBiking, FaHiking, FaUmbrellaBeach, FaSnowboarding, FaMountain, FaPaw } from "react-icons/fa";
-import { GiWorld , GiHiking, GiDuration, GiTreeBranch, GiHuntingHorn, GiDeer, GiDesert, GiJungle, GiVillage, GiSpermWhale } from "react-icons/gi";
-import { MdLocalActivity , MdSailing, MdScubaDiving, MdWaterDrop } from "react-icons/md";
+import { FaFacebookF, FaTwitter, FaCity, FaBiking, FaHiking, FaUmbrellaBeach, FaSnowboarding, FaMountain, FaPaw  } from "react-icons/fa";
+import { GiWorld, GiHiking, GiDuration, GiTreeBranch, GiHuntingHorn, GiDeer, GiDesert, GiJungle, GiVillage, GiSpermWhale } from "react-icons/gi";
+import { MdLocalActivity, MdSailing, MdScubaDiving, MdWaterDrop } from "react-icons/md";
 import { BiWater } from 'react-icons/bi'
 import { GiLobArrow } from 'react-icons/gi'
+import Slider from "../../../components/Site/Slider/Slider";
+import Slider2 from "../../../components/Site/Slider2/Slider2";
+
 
 function Home() {
   return (
@@ -300,7 +303,7 @@ function Home() {
       {/* section-6 --> API'den datalar gelecek */}
       <div className="bestSeller">
         <div className="bestSeller__content">
-          <h2>BEST SELLERS OF 2016</h2>
+          <h2>BEST SELLERS OF 2023</h2>
           <p>Our collection of the most popular adventures in 2023.</p>
         </div>
         <div className="bestSeller__datas">
@@ -310,13 +313,114 @@ function Home() {
             </div>
             <div className="bestSeller__datas__card__title">
               <Link>Jungle Safari in Africa</Link>
-              <span>Hunting Trip, Jungle, Wildlife Safari</span>
-              <div id="bestSeller__Activity">
-                <span><GiWorld /> 10 Places</span>
-                <span><MdLocalActivity /> 3 Activities</span>
+              <div className="bestSeller__title__spans">
+                <span className="bestSeller__trip">Hunting Trip , </span>
+                <span className="bestSeller__trip">Jungle ,</span>
+                <span className="bestSeller__trip"> Wildlife Safari</span>
+              </div>
+              <div className="bestSeller__activity">
+                <span className="bestSeller__icon"><GiWorld /> 10 Places</span>
+                <span className="bestSeller__icon"><MdLocalActivity /> 3 Activities</span>
+              </div>
+            </div>
+            <div className="bestSeller__datas__card__text">
+              <p>Son agreed others exeter period myself few yet nature.
+                Mention mr manners opinion if garrets enabled.
+                To an occasional dissimilar impossible sentiments.</p>
+              <Link>Explore</Link>
+            </div>
+            <div className="bestSeller__datas__card__count">
+              <span>$1449</span>
+              <div className="bestSeller__datas__card__count__icons">
+                <Link to="https://www.facebook.com/" target="_blank"><FaFacebookF className="bestSeller__countIcon" /></Link>
+                <Link to="https://twitter.com/?lang=en" target="_blank"><FaTwitter className="bestSeller__countIcon" /></Link>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* section-7 */}
+      <div className="browse">
+        <div className="browse__left">
+          <Link>BROWSE BY DESTINATION</Link>
+        </div>
+        <div className="browse__right">
+          <Link>BROWSE BY ADVENTURE</Link>
+        </div>
+      </div>
+
+      {/* section-8 */}
+      <div className="guides">
+        <div className="guides__content">
+          <h2>MEET THE GUIDES</h2>
+          <p>Our highly trained and efficient guides at your service</p>
+        </div>
+        <div className="guides__cards">
+        <div className="guides__cards__card">
+            <div className="guide__img">
+              <img src="	https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/05/guide-03.jpg" alt="img" />
+            </div>
+            <div className="guides__cards__card__wrapper">
+              <div className="guides__cards__card__wrapper__icon">
+                    <Link to="https://twitter.com/?lang=en"><FaTwitter /></Link>
+                    <Link to="https://www.facebook.com/"><FaFacebookF /></Link>
+              </div>
+                <div className="guides__cards__card__wrapper__div">
+                  <h3>Jason Stratham</h3>
+                  <span>TOURISM EXPERT</span>
+                </div>
+            </div>
+          </div>
+          <div className="guides__cards__card">
+            <div className="guide__img">
+              <img src="https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/05/guide-02.jpg" alt="img" />
+            </div>
+            <div className="guides__cards__card__wrapper">
+              <div className="guides__cards__card__wrapper__icon">
+                    <Link to="https://twitter.com/?lang=en"><FaTwitter /></Link>
+                    <Link to="https://www.facebook.com/"><FaFacebookF /></Link>
+              </div>
+                <div className="guides__cards__card__wrapper__div">
+                  <h3>Cleona Tropez</h3>
+                  <span>ADVENTURE GURU</span>
+                </div>
+            </div>
+          </div>
+          <div className="guides__cards__card">
+            <div className="guide__img">
+              <img src="https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/05/guide-01.jpg" alt="img" />
+            </div>
+            <div className="guides__cards__card__wrapper">
+              <div className="guides__cards__card__wrapper__icon">
+                    <Link to="https://twitter.com/?lang=en"><FaTwitter /></Link>
+                    <Link to="https://www.facebook.com/"><FaFacebookF /></Link>
+              </div>
+                <div className="guides__cards__card__wrapper__div">
+                  <h3>Martin Blake</h3>
+                  <span>TREKKING GUIDE</span>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* section-9 */}
+      <div className="parallax">
+        <div className="parallax__wrapper">
+          <Slider />
+        </div>
+      </div>
+
+      {/* section-10 */}
+      <div className="partners">
+        <div className="partners__content">
+          <h2>PARTNER</h2>
+          <p>People who always support and endorse our good work</p>
+        </div>
+
+        <div className="partners__slider">
+          <Slider2 />
         </div>
       </div>
     </>
