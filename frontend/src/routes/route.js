@@ -8,7 +8,6 @@ import Cart from "../pages/Site/Cart/Cart";
 import Contact from "../pages/Site/Contact/Contact";
 import Home from "../pages/Site/Home/Home";
 import Listings from "../pages/Site/Listings/Listings";
-import Shop from "../pages/Site/Shop/Shop";
 import SiteRoot from "../pages/Site/SiteRoot/SiteRoot";
 import User from "../pages/Site/User/User";
 import NotFound from "../pages/Site/NotFound/NotFound";
@@ -33,10 +32,6 @@ export const ROUTES = [
       {
         path: "activities",
         element: <Activities />
-      },
-      {
-        path: "shop",
-        element: <Shop />
       },
       {
         path: "contact",
