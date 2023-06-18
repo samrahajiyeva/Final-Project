@@ -423,6 +423,7 @@ function Home() {
           <Slider2 />
         </div>
       </div>
+
     </>
   );
 }

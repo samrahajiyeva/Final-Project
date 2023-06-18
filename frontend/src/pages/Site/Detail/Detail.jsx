@@ -1,8 +1,13 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
 function Detail() {
   return (
-    <div>Detail</div>
+    <>
+    <Helmet>
+      <title>Detail</title>
+    </Helmet>
+    </>
   )
 }
 

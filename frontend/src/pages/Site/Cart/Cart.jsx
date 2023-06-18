@@ -1,8 +1,13 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
 function Cart() {
   return (
-    <div>Cart</div>
+    <>
+    <Helmet>
+      <title>Cart</title>
+    </Helmet>
+    </>
   )
 }
 

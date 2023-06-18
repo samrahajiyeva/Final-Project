@@ -1,0 +1,203 @@
+@mixin b-ground {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+//section 1
+.sec__1 {
+    width: 100%;
+    height: 470px;
+    background-image: url(https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2019/04/contact-us.jpg);
+    @include b-ground;
+
+
+    &__wrapper {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        @include center;
+        color: rgb(255, 255, 255 , 0.7);
+
+        &__text{
+            padding-top: 40px;
+            width: 80%;
+
+            h2{
+                font-size: 45px;
+            }
+            p{
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+
+//section 2
+.sec__2 {
+    width: 100%;
+    padding: 60px 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    &__top {
+        text-align: center;
+
+        h2 {
+            font-size: 40px;
+            color: #474d4b;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        p {
+            color: #1f2933;
+            font-size: 20px;
+        }
+    }
+
+    &__middle{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        &__cards__1{
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            width: 370px;
+            padding: 10px 25px;
+
+            &__head{
+                box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+                width: 100%;
+                height: 100px;
+                background-color: #44228f;
+                @include center;
+                color: white;
+                font-size: 30px;
+                display: flex;
+                gap: 10px;
+                margin-bottom: 40px;
+
+                span{
+                    color: white;
+                    font-size: 25px;
+                    font-weight: bold;
+                }
+            }
+
+            &__body{
+                h3{
+                    color: #1f2933;
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+
+                p{
+                    font-size: 15px;
+                    color: #1f2933;
+                    line-height: 25px;
+                }
+            }
+        }
+
+        
+        &__cards__2{
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            width: 370px;
+            padding: 10px 25px;
+
+            &__head{
+                box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+                width: 100%;
+                height: 100px;
+                background-color: #474d4b;
+                @include center;
+                color: white;
+                font-size: 30px;
+                display: flex;
+                gap: 10px;
+                margin-bottom: 40px;
+
+                span{
+                    color: white;
+                    font-size: 25px;
+                    font-weight: bold;
+                }
+            }
+
+            &__body{
+                h3{
+                    color: #1f2933;
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+
+                p{
+                    font-size: 15px;
+                    color: #1f2933;
+                    line-height: 25px;
+                }
+            }
+        }
+
+        
+        &__cards__3{
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            width: 370px;
+            padding: 10px 25px;
+
+            &__head{
+                box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+                width: 100%;
+                height: 100px;
+                background-color: #44228f;
+                @include center;
+                color: white;
+                font-size: 30px;
+                display: flex;
+                gap: 10px;
+                margin-bottom: 40px;
+
+                span{
+                    color: white;
+                    font-size: 25px;
+                    font-weight: bold;
+                }
+            }
+
+            &__body{
+                h3{
+                    color: #1f2933;
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+
+                p{
+                    font-size: 15px;
+                    color: #1f2933;
+                    line-height: 25px;
+                }
+            }
+        }
+    }
+
+    &__bottom{
+        width: 100%;
+        height: 500px;
+
+        iframe{
+            border: 0;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}

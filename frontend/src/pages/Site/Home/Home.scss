@@ -65,6 +65,7 @@
             background-color: #252525;
             color: #9d9d9d;
             font-style: 400;
+            font-size: 15px;
           }
         }
 
@@ -354,6 +355,12 @@
     a {
       text-decoration: none;
       color: white;
+      font-weight: 500;
+
+      &:hover {
+        color: #b0a377;
+        transition: 0.3s;
+      }
     }
   }
 }
