@@ -3,7 +3,7 @@ import './Footer.scss'
 import { Link } from 'react-router-dom'
 import { FaFacebookF , FaTwitter , FaInstagram , FaGooglePlusG , FaYoutube  } from 'react-icons/fa'
 import { BsFillTelephoneFill , BsFillPrinterFill } from 'react-icons/bs'
-import { MdEmail } from 'react-icons/md'
+import { MdEmail , MdPayment } from 'react-icons/md'
 import { AiFillHome } from 'react-icons/ai'
 
 function Footer() {
@@ -24,10 +24,19 @@ function Footer() {
 
               <div>
                 <li>
+                  <BsFillTelephoneFill /> <span>(020) 8577 7777</span>
+                </li>
+                <li>
+                  <MdPayment /> <span>(020) 8577 5771</span>
+                </li>
+              </div>
+
+              <div>
+                <li>
                 <MdEmail /><Link to="mailto:support@waituk.net">support@waituk.net</Link>
                 </li>
                 <li  className='home-li'>
-                  <AiFillHome className='home-icon'/><span>707 London Road Isleworth <br /> Middx TW7 7QD</span>
+                  <AiFillHome className='home-icon'/><span>707 London Road Isleworth</span>
                 </li>
               </div>
             </ul>

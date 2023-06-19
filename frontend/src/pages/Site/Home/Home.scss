@@ -672,6 +672,11 @@
         border-bottom: 1px solid #dedede;
         gap: 25px;
 
+        .bestSeller__explore:hover {
+          background-color: #b0a377;
+          transition: 0.3s;
+        }
+
         p {
           margin-bottom: 0px;
           color: #1f2933;

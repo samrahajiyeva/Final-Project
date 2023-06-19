@@ -1,0 +1,275 @@
+@mixin b-ground {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+//section - 1
+.listhero {
+    width: 100%;
+    height: 470px;
+    background-image: url(https://weather-and-climate.com/cms/uploads/article/balloon-in-cappadocia-turkey.jpg);
+    background-attachment: fixed;
+    @include b-ground;
+
+
+    &__wrapper {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        @include center;
+        color: rgb(255, 255, 255, 0.7);
+
+        &__text {
+            padding-top: 60px;
+            width: 76%;
+
+            h2 {
+                font-size: 45px;
+            }
+
+            p {
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+//section - 2
+.list {
+    background-color: #f8f8f8;
+    width: 100%;
+    padding: 60px 15px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+
+    &__sidebar {
+        border-radius: 5px;
+        background-color: white;
+        width: 23%;
+        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+        &__title {
+            box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+            width: 100%;
+            padding: 20px 30px;
+            color: #1f2933;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+
+
+            h3 {
+                font-size: 18px;
+                font-weight: 700;
+                margin: 0;
+            }
+        }
+
+        &__filter {
+            width: 100%;
+        }
+    }
+
+    &__datas {
+        width: 77%;
+        box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+        border-radius: 5px;
+
+        &__title {
+            background-color: white;
+            box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+
+            strong {
+                color: #1f2933;
+                font-size: 17px;
+            }
+
+            .form-select {
+                width: 20%;
+                background-color: #b0a377;
+                border: none;
+                color: white;
+                font-weight: bold;
+
+                option {
+                    font-weight: bold;
+                }
+            }
+        }
+
+        &__elements {
+            width: 100%;
+            padding: 30px 10px;
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            flex-wrap: wrap;
+
+            &__card {
+                border-radius: 5px;
+                background-color: white;
+                padding: 10px;
+                width: 330px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+
+
+                &__title {
+                    padding: 15px 0 27px;
+                    display: flex;
+                    flex-direction: column;
+                    border-bottom: 1px solid #dedede;
+                    gap: 3px;
+
+                    a {
+                        color: #5c5e62;
+                        text-decoration: none;
+                        font-size: 25px;
+                        font-weight: 700;
+                    }
+
+                    .list__activity {
+                        display: flex;
+                        align-items: center;
+                        gap: 15px;
+
+                        span {
+                            font-size: 14px;
+                            gap: 4px;
+                            display: block;
+                            display: flex;
+                            align-items: center;
+                            color: #1f2933;
+                        }
+                    }
+
+                    .list__title__spans {
+                        span {
+                            color: #7b8794;
+                            font-size: 15px;
+                            font-weight: 500;
+
+                            &:hover {
+                                cursor: pointer;
+                                color: #b0a377
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                &__text {
+                    padding-bottom: 14px;
+                    display: flex;
+                    flex-direction: column;
+                    border-bottom: 1px solid #dedede;
+                    gap: 25px;
+
+                    .list__explore:hover {
+                        background-color: #b0a377;
+                        transition: 0.3s;
+                    }
+
+                    p {
+                        margin-bottom: 0px;
+                        color: #1f2933;
+                        font-size: 14px;
+                    }
+
+                    a {
+                        @include center;
+                        text-decoration: none;
+                        background-color: #6b6957;
+                        width: 150px;
+                        height: 27.6px;
+                        font-size: 16px;
+                        font-weight: 700;
+                        color: white;
+                        border-radius: 3px;
+                    }
+                }
+
+                &__count {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    &__icons {
+                        @include center;
+                        gap: 15px;
+                        font-size: 18px;
+
+                        a {
+                            text-decoration: none;
+
+                            .list__countIcon {
+                                color: #565335;
+
+                                &:hover {
+                                    color: #0000ee;
+                                    transition: 0.4s;
+                                }
+                            }
+                        }
+                    }
+
+                    span {
+                        font-size: 18px;
+                        font-weight: 800;
+                    }
+                }
+
+                &:hover {
+                    transition: 0.5s;
+                    background-color: white;
+                    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+
+                    .list__datas__elements__card__count span {
+                        color: #87856e;
+                    }
+
+                    img {
+                        transform: scale(1.2);
+                        transition: 0.3s;
+                    }
+
+                    .list__datas__elements__card__title a {
+                        color: #b0a377;
+                    }
+
+                }
+
+
+                &__img {
+                    width: 100%;
+                    height: 200px;
+                    overflow: hidden;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

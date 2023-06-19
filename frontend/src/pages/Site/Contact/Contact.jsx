@@ -70,9 +70,9 @@ function Contact() {
           </div>
         </div>
 
-        <div className="sec__2__bottom">
+        {/* <div className="sec__2__bottom">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3121656.012188483!2d47.75453!3d40.17585849999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307cd91aa21ddf%3A0xe6c9526b3e83cd08!2sAzerbaijan!5e0!3m2!1sen!2saz!4v1687093139838!5m2!1sen!2saz" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+        </div> */}
       </div>
     </>
   )

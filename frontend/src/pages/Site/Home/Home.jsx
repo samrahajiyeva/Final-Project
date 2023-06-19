@@ -327,7 +327,7 @@ function Home() {
               <p>Son agreed others exeter period myself few yet nature.
                 Mention mr manners opinion if garrets enabled.
                 To an occasional dissimilar impossible sentiments.</p>
-              <Link>Explore</Link>
+              <Link className="bestSeller__explore">Explore</Link>
             </div>
             <div className="bestSeller__datas__card__count">
               <span>$1449</span>
