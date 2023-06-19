@@ -1,23 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Contact.scss'
 import { TbDeviceLandlinePhone } from 'react-icons/tb'
 import { BsTelephoneFill } from 'react-icons/bs'
 import { MdPayment } from 'react-icons/md'
 import { Helmet } from 'react-helmet'
+import Loading from '../../../components/Site/Loading/Loading'
 
 
 function Contact() {
+  const [loading, setLoading] = useState(false)
+  useEffect(() => {
+    setLoading(true)
+    window.scrollTo({ top: 0 })
+    setTimeout(() => {
+      setLoading(false)
+    }, 1500)
+  }, [])
   return (
     <>
-    <Helmet>
-      <title>Contact</title>
-    </Helmet>
+    {
+      loading?
+      <Loading />:
+      <div>
+      <Helmet>
+        <title>Contact</title>
+      </Helmet>
       {/* SECTION 1 */}
       <div className="sec__1">
         <div className="sec__1__wrapper">
           <div className="sec__1__wrapper__text">
-          <h2>Contact Us</h2>
-          <p>The most detailed and modern Adventure Theme ever!</p>
+            <h2>Contact Us</h2>
+            <p>The most detailed and modern Adventure Theme ever!</p>
           </div>
         </div>
       </div>
@@ -74,6 +87,8 @@ function Contact() {
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3121656.012188483!2d47.75453!3d40.17585849999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307cd91aa21ddf%3A0xe6c9526b3e83cd08!2sAzerbaijan!5e0!3m2!1sen!2saz!4v1687093139838!5m2!1sen!2saz" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div> */}
       </div>
+      </div>
+      }
     </>
   )
 }
