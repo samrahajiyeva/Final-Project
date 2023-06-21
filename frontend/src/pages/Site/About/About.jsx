@@ -7,6 +7,7 @@ import { TbJumpRope } from 'react-icons/tb'
 import image from '../../../images/localimg.png';
 import Slider2 from '../../../components/Site/Slider2/Slider2'
 import Loading from '../../../components/Site/Loading/Loading'
+import { Link, useNavigate } from 'react-router-dom'
 
 function About() {
   const [loading, setLoading] = useState(false)

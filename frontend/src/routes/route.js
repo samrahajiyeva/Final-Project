@@ -10,6 +10,8 @@ import Home from "../pages/Site/Home/Home";
 import Listings from "../pages/Site/Listings/Listings";
 import SiteRoot from "../pages/Site/SiteRoot/SiteRoot";
 import User from "../pages/Site/User/User";
+import Login from "../pages/Site/Login/Login";
+import Register from "../pages/Site/Register/Register";
 import NotFound from "../pages/Site/NotFound/NotFound";
 
 export const ROUTES = [
@@ -48,6 +50,14 @@ export const ROUTES = [
       {
         path: "cart",
         element: <Cart />
+      },
+      {
+        path: "login",
+        element: <Login />
+      },
+      {
+        path: "register",
+        element: <Register />
       },
       {
         path: "*",

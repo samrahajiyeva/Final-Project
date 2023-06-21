@@ -40,7 +40,7 @@ function Header() {
         <div className="header__right">
             <ul>
               <li>
-                <Link to="user"><FaUserCircle /></Link>
+                <Link to="login"><FaUserCircle /></Link>
               </li>
               <li>
                 <Link to="cart"><MdShoppingCart /></Link>

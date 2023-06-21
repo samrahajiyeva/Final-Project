@@ -5,11 +5,11 @@ import Footer from '../../../layout/Site/Footer/Footer'
 
 function SiteRoot() {
   return (
-   <>
-    <Header />
-    <Outlet />
-    <Footer />
-   </>
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
   )
 }
 
