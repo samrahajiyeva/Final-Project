@@ -13,6 +13,7 @@ import User from "../pages/Site/User/User";
 import Login from "../pages/Site/Login/Login";
 import Register from "../pages/Site/Register/Register";
 import NotFound from "../pages/Site/NotFound/NotFound";
+import Shop from "../pages/Site/Shop/Shop";
 
 export const ROUTES = [
   {
@@ -30,6 +31,10 @@ export const ROUTES = [
       {
         path: "listings",
         element: <Listings />
+      },
+      {
+        path: "shop",
+        element: <Shop />
       },
       {
         path: "activities",

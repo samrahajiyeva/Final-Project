@@ -136,8 +136,7 @@ export default function SimpleAccordion() {
         <AccordionDetails className='t-details'>
           <Typography className='t-detail'>
               <Range />
-              <span>$0 - $10000</span>
-              <button>Filter</button>
+            
           </Typography>
         </AccordionDetails>
       </Accordion>

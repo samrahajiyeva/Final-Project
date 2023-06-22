@@ -1,0 +1,195 @@
+
+@mixin b-ground {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+//section 1
+.shop-sec__1 {
+    width: 100%;
+    height: 470px;
+    background-image: url(https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/04/list-view-right-sidebar-2-2.jpg);
+    @include b-ground;
+
+
+    &__wrapper {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        @include center;
+        color: rgb(255, 255, 255 , 0.7);
+
+        &__text{
+            padding-top: 60px;
+            width: 76%;
+
+            h2{
+                font-size: 45px;
+            }
+            p{
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+.shop-sec__2 {
+    width: 100%;
+    padding: 60px 70px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+
+    &__card {
+        background-color: white;
+        padding: 10px;
+        width: 370px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        border-radius: 30px;
+  
+  
+        &__title {
+          padding: 15px 0 27px;
+          display: flex;
+          flex-direction: column;
+          border-bottom: 1px solid #dedede;
+          gap: 3px;
+  
+          a {
+            color: #5c5e62;
+            text-decoration: none;
+            font-size: 25px;
+            font-weight: 700;
+          }
+  
+          .bestSeller__activity {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+  
+            span {
+              font-size: 14px;
+              gap: 4px;
+              display: block;
+              display: flex;
+              align-items: center;
+              color: #1f2933;
+            }
+          }
+  
+          .bestSeller__title__spans {
+            span {
+              color: #7b8794;
+              font-size: 15px;
+              font-weight: 500;
+  
+              &:hover {
+                cursor: pointer;
+                color: #565335;
+              }
+  
+            }
+  
+          }
+  
+        }
+  
+        &__text {
+          padding-bottom: 14px;
+          display: flex;
+          flex-direction: column;
+          border-bottom: 1px solid #dedede;
+          gap: 25px;
+  
+          .bestSeller__explore:hover {
+            background-color: #b0a377;
+            transition: 0.3s;
+          }
+  
+          p {
+            margin-bottom: 0px;
+            color: #1f2933;
+            font-size: 14px;
+          }
+  
+          a {
+            @include center;
+            text-decoration: none;
+            background-color: #6b6957;
+            width: 150px;
+            height: 27.6px;
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            border-radius: 3px;
+          }
+        }
+  
+        &__count {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+  
+          &__icons {
+            @include center;
+            gap: 15px;
+            font-size: 18px;
+  
+            a {
+              text-decoration: none;
+  
+              .shop__countIcon {
+                color: #565335;
+  
+                &:hover {
+                  color: #0000ee;
+                  transition: 0.4s;
+                }
+              }
+            }
+          }
+  
+          span {
+            font-size: 18px;
+            font-weight: 800;
+          }
+        }
+  
+        &:hover {
+          transition: 0.5s;
+          background-color: white;
+          box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  
+          img {
+            transform: scale(1.2);
+            transition: 0.3s;
+          }
+  
+        }
+  
+  
+        &__img {
+          width: 100%;
+          height: 228px;
+          overflow: hidden;
+  
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+}
+

@@ -1,27 +1,9 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./Header.scss";
+import React from 'react'
 
-
-const Header = () => {
-  const navigate = useNavigate();
+function Header() {
   return (
-    <div id="admin-header">
-      <div className="header">
-        <div className="header-body">
-          <div className="btn">
-            <button onClick={() => navigate("/")}>
-              <i className="fa-solid fa-right-to-bracket"></i>
-              GO TO SITE
-            </button>
-          </div>
-        </div>
-        <div className="user-item">
+    <div>Header</div>
+  )
+}
 
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Header;
+export default Header
