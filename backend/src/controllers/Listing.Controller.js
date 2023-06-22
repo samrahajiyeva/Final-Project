@@ -1,71 +1,47 @@
 const Listing = require("../models/Listing.Models")
 
+//get
 const GetListing = async (req, res) => {
-    Listing.find({}, (err, docs) => {
-        if (!err) {
-            res.send(docs)
-        } else {
-            res.status(500).json({ message: err })
-        }
-    })
+    const data = await Listing.find()
+    res.send(data)
 }
 
+
+//get by id
 const GetListingById = async (req, res) => {
     const { id } = req.params
-    Listing.findById(id, (err, doc) => {
-        if (!err) {
-            if (doc) {
-                res.status(200)
-                res.send(doc)
-            } else {
-                res.status(404).json({ message: "Not Found!!!" })
-            }
-        } else {
-            res.status(500).json({ message: err })
+    const target = await Listing.findById(id)
+    res.send(target)
+}
+
+
+
+//post
+const PostListing = async (req, res) => {
+    const newListing = new Listing(
+        {
+            ...req.body
         }
-    })
+    )
+    await newListing.save()
+    res.send(newListing)
 }
 
-const PostListing = async (req, res, next) => {
-    try {
-        const Listing = new Listing({
-            img: req.body.img,
-            title: req.body.title,
-            tripType: req.body.tripType,
-            place: req.body.place,
-            activity: req.body.activity,
-            content: req.body.content,
-            price: req.body.price
-        })
-        Listing.save()
-        res.status(200).json({ message: "Create" })
-    } catch (error) {
-        next(err);
-    }
-}
 
+//delete
 const DeleteListing = async (req, res) => {
     const { id } = req.params
-    Listing.findByIdAndDelete(id, (err) => {
-        if (!err) {
-            res.status(200).json({ message: "Delete" })
-        } else {
-            res.status(404).json({ message: err })
-        }
-    })
+    await Listing.findByIdAndDelete(id)
+    res.send(`${id}'li element silindi`)
 }
+
 
 const UpdateListing = async (req, res) => {
-    const { id } = req.params
-    Listing.findByIdAndUpdate(id, req.body, (err, doc) => {
-        if (!err) {
-            res.status(200).json({ message: "Update" })
-        } else {
-            res.status(404).json({ message: err })
-        }
-    })
-
+    const { id } = req.params;
+    const updatedListing = await Listing.findByIdAndUpdate(id, req.body);
+    res.send(`${id}'li element guncellendi`)
 }
+
 
 module.exports = {
     GetListing,
