@@ -1,17 +1,11 @@
 const mongoose=require ('mongoose')
 const { Activity }=require('../models/activity.model')
-const {storage} =require("../middlewares/multer")
+// const {storage} =require("../middlewares/multer")
 
 const activityController={
-   getAll:(req,res)=>{
-    Activity.find({},(err,docs)=>{
-        if(!err){
-            res.json(docs)
-        }else{
-            res.status(500).json(err)
-        }
-    })
-   
+   getAll: async (req,res)=>{
+   const activities = await Activity.find()
+   res.send(activities)
 },
 getById:(req,res)=>{
     let id =req.params.id
@@ -21,24 +15,14 @@ getById:(req,res)=>{
         }
     })
 },
-add: (req, res, next) => {
-
-    let activity=new Activity({
-        ...req.body,image:req.files[0].filename
+add:async (req, res, next) => {
+    let activities=await new Activity({
+        ...req.body
     })
-    activity.save((err,docs)=>{
-        if(!err){
-            res.send(`activity created ${docs}`)
-        }
-    })
+    activities.save()
 },
 edit:async(req,res)=>{
     let id =req.params.id
-    const files=req.files
-    const imageArr=[]
-    for (let i=0; i<files.length;i++){
-        imageArr.push(files[i].filename)
-    }
     Activity.findByIdAndUpdate(
         id,
         {
@@ -54,7 +38,7 @@ edit:async(req,res)=>{
         },
     )
 },
-delete:(req,res)=>{
+delete: async(req,res)=>{
     let id =req.params.id
     Activity.findByIdAndDelete(id,(err,doc)=>{
         if(!err){

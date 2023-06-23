@@ -1,16 +1,11 @@
 const mongoose = require('mongoose')
 const { User } = require('../models/user.model')
-const { storage } = require("../middlewares/multer")
+// const { storage } = require("../middlewares/multer")
 
 const userController = {
-    getAll: (req, res) => {
-        User.find({}, (err, docs) => {
-            if (!err) {
-                res.json(docs)
-            } else {
-                res.status(500).json(err)
-            }
-        })
+    getAll: async(req, res) => {
+        const users = await User.find()
+        res.send(users)
 
     },
     getById: (req, res) => {
@@ -21,24 +16,15 @@ const userController = {
             }
         })
     },
-    add: (req, res, next) => {
+    add: async(req, res, next) => {
 
-        let user=new User({
-            ...req.body,image:req.files[0].filename
+        let user = new User({
+            ...req.body
         })
-        user.save((err,docs)=>{
-            if(!err){
-                res.send(`user created ${docs}`)
-            }
-        })
+        user.save()
     },
     edit: async (req, res) => {
         let id = req.params.id
-        const files = req.files
-        const imageArr = []
-        for (let i = 0; i < files.length; i++) {
-            imageArr.push(files[i].filename)
-        }
         User.findByIdAndUpdate(
             id,
             {

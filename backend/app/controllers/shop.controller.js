@@ -1,16 +1,11 @@
 const mongoose=require ('mongoose')
 const { Shop }=require('../models/shop.model')
-const {storage} =require("../middlewares/multer")
+// const {storage} =require("../middlewares/multer")
 
 const shopController={
-   getAll:(req,res)=>{
-    Shop.find({},(err,docs)=>{
-        if(!err){
-            res.json(docs)
-        }else{
-            res.status(500).json(err)
-        }
-    })
+   getAll: async(req,res)=>{
+    const shops = await Shop.find()
+    res.send(shops)
    
 },
 getById:(req,res)=>{
@@ -21,24 +16,15 @@ getById:(req,res)=>{
         }
     })
 },
-add: (req, res, next) => {
+add: async(req, res, next) => {
 
-    let shop=new Shop({
-        ...req.body,image:req.files[0].filename
+    let shops = await new Shop({
+        ...req.body
     })
-    shop.save((err,docs)=>{
-        if(!err){
-            res.send(`shop created ${docs}`)
-        }
-    })
+    shops.save()
 },
 edit:async(req,res)=>{
     let id =req.params.id
-    const files=req.files
-    const imageArr=[]
-    for (let i=0; i<files.length;i++){
-        imageArr.push(files[i].filename)
-    }
     Shop.findByIdAndUpdate(
         id,
         {

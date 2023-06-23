@@ -1,17 +1,11 @@
 const mongoose=require ('mongoose')
 const { Blog }=require('../models/blog.model')
-const {storage} =require("../middlewares/multer")
+// const {storage} =require("../middlewares/multer")
 
 const blogController={
-   getAll:(req,res)=>{
-    Blog.find({},(err,docs)=>{
-        if(!err){
-            res.json(docs)
-        }else{
-            res.status(500).json(err)
-        }
-    })
-   
+   getAll: async(req,res)=>{
+    const blogs = await Blog.find()
+    res.send(blogs)
 },
 getById:(req,res)=>{
     let id =req.params.id
@@ -21,24 +15,15 @@ getById:(req,res)=>{
         }
     })
 },
-add: (req, res, next) => {
+add: async (req, res, next) => {
 
-    let blog=new Blog({
-        ...req.body,image:req.files[0].filename
+    let blogs= await new Blog({
+        ...req.body
     })
-    blog.save((err,docs)=>{
-        if(!err){
-            res.send(`blog created ${docs}`)
-        }
-    })
+    blogs.save()
 },
 edit:async(req,res)=>{
     let id =req.params.id
-    const files=req.files
-    const imageArr=[]
-    for (let i=0; i<files.length;i++){
-        imageArr.push(files[i].filename)
-    }
     Blog.findByIdAndUpdate(
         id,
         {

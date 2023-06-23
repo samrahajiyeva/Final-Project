@@ -4,16 +4,17 @@ const Shop = mongoose.model(
     'Shop',
     new mongoose.Schema(
         {
-            images: [
-                {
-                    type: String,
-                    isPoster: {
-                        type: Boolean,
-                        default: false,
-                    },
-                    src: String,
-                },
-            ],
+            // images: [
+            //     {
+            //         type: String,
+            //         isPoster: {
+            //             type: Boolean,
+            //             default: false,
+            //         },
+            //         src: String,
+            //     },
+            // ],
+            image: String,
             title: String,
             content: String,
             price: Number
@@ -24,4 +25,4 @@ const Shop = mongoose.model(
     ),
 )
 
-module.exports = { Blog }
+module.exports = { Shop }

@@ -1,14 +1,21 @@
 import React from 'react'
 import Header from '../../../layout/Site/Header/Header'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import Footer from '../../../layout/Site/Footer/Footer'
 
 function SiteRoot() {
+  const location=useLocation()
   return (
     <>
-      <Header />
+{
+  location.pathname !=="/login" && <Header />
+}
+      
       <Outlet />
-      <Footer />
+      {
+  location.pathname !=="/login" &&  <Footer />
+}
+     
     </>
   )
 }

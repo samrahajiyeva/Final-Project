@@ -16,14 +16,14 @@
 .shop-sec__1 {
     width: 100%;
     height: 470px;
-    background-image: url(https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/04/list-view-right-sidebar-2-2.jpg);
+    background-image: url(https://img.freepik.com/free-photo/full-shot-woman-taking-selfie_23-2149153257.jpg?1&w=1380&t=st=1687506843~exp=1687507443~hmac=b59d2da4a8e041d99eb97b8d3a1275444de0368606659f514f7670045b901674);
     @include b-ground;
 
 
     &__wrapper {
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(0, 0, 0, 0.75);
         @include center;
         color: rgb(255, 255, 255 , 0.7);
 
@@ -42,6 +42,7 @@
 }
 
 .shop-sec__2 {
+  background-color: #f8f8f8;
     width: 100%;
     padding: 60px 70px;
     display: flex;
@@ -51,12 +52,13 @@
 
     &__card {
         background-color: white;
-        padding: 10px;
-        width: 370px;
+        padding: 40px;
+        width: 350px;
+        height: 510px;
         display: flex;
         flex-direction: column;
         gap: 10px;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
         border-radius: 30px;
   
   
@@ -74,7 +76,7 @@
             font-weight: 700;
           }
   
-          .bestSeller__activity {
+          .shop__activity {
             display: flex;
             align-items: center;
             gap: 15px;
@@ -89,7 +91,7 @@
             }
           }
   
-          .bestSeller__title__spans {
+          .shop__title__spans {
             span {
               color: #7b8794;
               font-size: 15px;
@@ -113,7 +115,7 @@
           border-bottom: 1px solid #dedede;
           gap: 25px;
   
-          .bestSeller__explore:hover {
+          .shop__explore:hover {
             background-color: #b0a377;
             transition: 0.3s;
           }
@@ -176,6 +178,11 @@
             transform: scale(1.2);
             transition: 0.3s;
           }
+
+          span {
+            color: #b0a377;
+            transition: 0.3s;
+          }
   
         }
   
@@ -188,6 +195,7 @@
           img {
             width: 100%;
             height: 100%;
+            object-fit: contain;
           }
         }
       }

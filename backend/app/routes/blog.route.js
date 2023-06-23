@@ -1,7 +1,7 @@
 const express = require('express')
 const { blogController } = require('../controllers/blog.controller')
 const store = require('../middlewares/multer')
-const blogValidation = require('../validation/blog.validation')
+const blogValidation = require('../validations/blog.validation')
 const router = express.Router()
 
 //get All
@@ -11,16 +11,16 @@ router.route('/:id').get(blogController.getById)
 //Add
 router.post(
     '/',
-    store.array('images', 5),
-    shopValidation,
-    shopController.add,
+    // store.array('images', 5),
+    // blogValidation,
+    blogController.add,
 )
 //edit
 router.put(
     '/:id',
-    store.array('images', 5),
-    shopValidation,
-    shopController.edit,
+    // store.array('images', 5),
+    // blogValidation,
+    blogController.edit,
 )
 //delete
 router.route('/:id').delete(blogController.delete)

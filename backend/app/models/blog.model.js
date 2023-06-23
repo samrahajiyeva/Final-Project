@@ -4,16 +4,17 @@ const Blog = mongoose.model(
     'Blog',
     new mongoose.Schema(
         {
-            images: [
-                {
-                    type: String,
-                    isPoster: {
-                        type: Boolean,
-                        default: false,
-                    },
-                    src: String,
-                },
-            ],
+            image: String,
+            // images: [
+            //     {
+            //         type: String,
+            //         isPoster: {
+            //             type: Boolean,
+            //             default: false,
+            //         },
+            //         src: String,
+            //     },
+            // ],
             title: String,
             date: String,
             content: String,

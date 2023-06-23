@@ -1,4 +1,5 @@
 const mongoose=require ('mongoose')
+const multer = require('multer')
 const { Listing }=require('../models/listing.model')
 const {storage} =require("../middlewares/multer")
 
@@ -15,19 +16,14 @@ getById:(req,res)=>{
         }
     })
 },
-add: async (req, res, next) => {
-    let list=await new Listing({
-        ...req.body,image:req.files[0].filename
+add: async(req, res, next) => {
+    let list= await new Listing({
+        ...req.body
     })
     list.save()
 },
 edit:async(req,res)=>{
     let id =req.params.id
-    const files=req.files
-    const imageArr=[]
-    for (let i=0; i<files.length;i++){
-        imageArr.push(files[i].filename)
-    }
     Listing.findByIdAndUpdate(
         id,
         {
@@ -43,7 +39,7 @@ edit:async(req,res)=>{
         },
     )
 },
-delete:(req,res)=>{
+delete:async(req,res)=>{
     let id =req.params.id
     Listing.findByIdAndDelete(id,(err,doc)=>{
         if(!err){

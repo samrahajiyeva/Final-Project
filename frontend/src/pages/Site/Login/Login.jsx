@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet'
 import './Login.scss'
 import Loading from '../../../components/Site/Loading/Loading'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { FaUserAlt } from 'react-icons/fa'
 
 function Login() {
   const [loading, setLoading] = useState(false)
@@ -26,11 +27,12 @@ function Login() {
             <Helmet>
               <title>Login</title>
             </Helmet>
+            <div className="login">
             <form>
-              <h3>Sign In</h3>
-
+              <div className="userprofile">
+                  <FaUserAlt className='user'/>
+              </div>
               <div className="mb-3">
-                <label>Email address</label>
                 <input
                   type="email"
                   className="form-control"
@@ -39,7 +41,6 @@ function Login() {
               </div>
 
               <div className="mb-3">
-                <label>Password</label>
                 <input
                   type="password"
                   className="form-control"
@@ -47,7 +48,7 @@ function Login() {
                 />
               </div>
 
-              <div className="mb-3">
+              {/* <div className="mb-3">
                 <div className="custom-control custom-checkbox">
                   <input
                     type="checkbox"
@@ -58,7 +59,7 @@ function Login() {
                     Remember me
                   </label>
                 </div>
-              </div>
+              </div> */}
 
               <div className="d-grid">
                 <button type="submit" className="btn btn-primary">
@@ -69,6 +70,7 @@ function Login() {
                 Have an account? <Link onClick={() => navigate('/register')}>Register</Link>
               </p>
             </form>
+            </div>
           </div>
       }
     </>
