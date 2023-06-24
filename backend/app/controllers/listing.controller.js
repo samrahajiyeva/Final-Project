@@ -1,51 +1,43 @@
-const mongoose=require ('mongoose')
+const mongoose = require('mongoose')
 const multer = require('multer')
-const { Listing }=require('../models/listing.model')
-const {storage} =require("../middlewares/multer")
+const { Listing } = require('../models/listing.model')
+const { storage } = require("../middlewares/multer")
 
-const listingController={
-   getAll:async (req,res)=>{
-    const lists = await Listing.find()
-    res.send(lists)
-},
-getById:(req,res)=>{
-    let id =req.params.id
-    Listing.findById(id,(err,doc)=>{
-        if(!err){
-            res.json(doc)
-        }
-    })
-},
-add: async(req, res, next) => {
-    let list= await new Listing({
-        ...req.body
-    })
-    list.save()
-},
-edit:async(req,res)=>{
-    let id =req.params.id
-    Listing.findByIdAndUpdate(
-        id,
-        {
-           ...req.body 
-        },
-        function (err,docs){
-            if(err){
-                console.log(err)
-            } else{
-                console.log(docs)
-            }
-            res.send('Listing Edited')
-        },
-    )
-},
-delete:async(req,res)=>{
-    let id =req.params.id
-    Listing.findByIdAndDelete(id,(err,doc)=>{
-        if(!err){
-            res.json('Listing delete')
-        }
-    })
-},
+const listingController = {
+    getAll: async (req, res) => {
+        const target = await Listing.find()
+        res.send(target)
+    },
+    getById: async(req, res) => {
+        const { id } = req.params
+        const target = await Listing.findById(id)
+        res.send(target)
+    },
+
+    add: async (req, res, next) => {
+        const {filename}= req.body
+        let newListing = new Listing({
+            image: req.file.filename,
+            title: req.body.title,
+            tripType: req.body.tripType,
+            place: req.body.place,
+            activity: req.body.activity,
+            content: req.body.content,
+            price: req.body.price
+        })
+        await newListing.save()
+        res.send(newListing)
+    },
+
+    edit: async (req, res) => {
+        const { id } = req.params
+        const updateListing = await Listing.findByIdAndUpdate(id, req.body);
+        res.send(`${id}'li element has been updated`, updateListing)
+    },
+    delete: async (req, res) => {
+        const { id } = req.params
+        await Listing.findByIdAndDelete(id)
+        res.send(`${id}'s element has been deleted`)
+    },
 }
-module.exports={listingController}
+module.exports = { listingController }

@@ -7,6 +7,10 @@ const activityRoute = require('./app/routes/activity.route')
 const blogRoute = require('./app/routes/blog.route')
 const shopRoute = require('./app/routes/shop.route')
 const userRoute = require('./app/routes/user.route')
+const path = require('path')
+const uploadPath=path.join(__dirname,'public')
+app.use('/public',express.static(uploadPath))
+
 app.use(cors())
 app.use(express.json())
 

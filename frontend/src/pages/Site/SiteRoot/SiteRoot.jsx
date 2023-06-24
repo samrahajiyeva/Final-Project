@@ -8,12 +8,12 @@ function SiteRoot() {
   return (
     <>
 {
-  location.pathname !=="/login" && <Header />
+  location.pathname !=="/login" &&  location.pathname !=="/register" &&<Header />
 }
       
       <Outlet />
       {
-  location.pathname !=="/login" &&  <Footer />
+  location.pathname !=="/login" &&   location.pathname !=="/register" && <Footer />
 }
      
     </>

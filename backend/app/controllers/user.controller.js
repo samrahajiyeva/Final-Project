@@ -3,50 +3,39 @@ const { User } = require('../models/user.model')
 // const { storage } = require("../middlewares/multer")
 
 const userController = {
-    getAll: async(req, res) => {
-        const users = await User.find()
-        res.send(users)
+    getAll: async (req, res) => {
+        const target = await User.find()
+        res.send(target)
 
     },
-    getById: (req, res) => {
-        let id = req.params.id
-        User.findById(id, (err, doc) => {
-            if (!err) {
-                res.json(doc)
-            }
-        })
+    getById: async (req, res) => {
+        const { id } = req.params
+        const target = await User.findById(id)
+        res.send(target)
     },
-    add: async(req, res, next) => {
 
-        let user = new User({
-            ...req.body
-        })
-        user.save()
-    },
-    edit: async (req, res) => {
-        let id = req.params.id
-        User.findByIdAndUpdate(
-            id,
-            {
-                ...req.body
-            },
-            function (err, docs) {
-                if (err) {
-                    console.log(err)
-                } else {
-                    console.log(docs)
-                }
-                res.send('User Edited')
-            },
-        )
-    },
-    delete: (req, res) => {
-        let id = req.params.id
-        User.findByIdAndDelete(id, (err, doc) => {
-            if (!err) {
-                res.json('User delete')
-            }
-        })
+    // add: async (req, res, next) => {
+    //     const { filename } = req.body
+    //     let newUsers = new User({
+    //         username: req.body.username,
+    //         email: req.body.email,
+    //         password: req.body.password,
+    //         isAdmin: req.body.isAdmin,
+    //     })
+    //     await newUsers.save()
+    //     res.send(newUsers)
+    // },
+
+    // edit: async (req, res) => {
+    //     const { id } = req.params
+    //     const updateUser = await User.findByIdAndUpdate(id, req.body);
+    //     res.send(`${id}'li element has been updated`, updateUser)
+    // },
+    
+    delete: async(req, res) => {
+        const { id } = req.params
+        await User.findByIdAndDelete(id)
+        res.send(`${id}'s user has been deleted`)
     },
 }
 module.exports = { userController }

@@ -1,51 +1,42 @@
-const mongoose=require ('mongoose')
-const { Blog }=require('../models/blog.model')
+const mongoose = require('mongoose')
+const { Blog } = require('../models/blog.model')
 // const {storage} =require("../middlewares/multer")
 
-const blogController={
-   getAll: async(req,res)=>{
-    const blogs = await Blog.find()
-    res.send(blogs)
-},
-getById:(req,res)=>{
-    let id =req.params.id
-    Blog.findById(id,(err,doc)=>{
-        if(!err){
-            res.json(doc)
-        }
-    })
-},
-add: async (req, res, next) => {
+const blogController = {
+    getAll: async (req, res) => {
+        const target = await Blog.find()
+        res.send(target)
+    },
+    getById: async (req, res) => {
+        const { id } = req.params
+        const target = await Blog.findById(id)
+        res.send(target)
+    },
 
-    let blogs= await new Blog({
-        ...req.body
-    })
-    blogs.save()
-},
-edit:async(req,res)=>{
-    let id =req.params.id
-    Blog.findByIdAndUpdate(
-        id,
-        {
-           ...req.body 
-        },
-        function (err,docs){
-            if(err){
-                console.log(err)
-            } else{
-                console.log(docs)
-            }
-            res.send('Blog Edited')
-        },
-    )
-},
-delete:(req,res)=>{
-    let id =req.params.id
-    Blog.findByIdAndDelete(id,(err,doc)=>{
-        if(!err){
-            res.json('Blog delete')
-        }
-    })
-},
+    add: async (req, res) => {
+        const { filename } = req.body
+        let newBlogs = new Blog({
+            image: req.file.filename,
+            title: req.body.title,
+            date: req.body.date,
+            content: req.body.content,
+            poster: req.body.poster,
+            comment: req.body.comment,
+        })
+        await newBlogs.save()
+        res.send(newBlogs)
+    },
+
+    edit: async (req, res) => {
+        const { id } = req.params
+        const updateBlog = await Blog.findByIdAndUpdate(id, req.body);
+        res.send(`${id}'li element has been updated`, updateBlog)
+    },
+
+    delete: async(req, res) => {
+        const { id } = req.params
+        await Blog.findByIdAndDelete(id)
+        res.send(`${id}'s element has been deleted`)
+    },
 }
-module.exports={blogController}
+module.exports = { blogController }
