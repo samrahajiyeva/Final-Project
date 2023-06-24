@@ -238,14 +238,14 @@ function Home() {
                     Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
                     Morbi accumsan ipsum velit.
                   </p>
-                  <button>EXPLORE</button>
+                  <Link to="listings" className="sec-2__btn">EXPLORE</Link>
                 </div>
               </div>
             </div>
 
             {/* Section-3 */}
             <div className="block">
-              <p>Get special discount on select treks, this week. <Link> Call +1 5775 7525</Link></p>
+              <p>Get special discount on select treks, this week. <Link to="contact"> Call +1 5775 7525</Link></p>
             </div>
 
             {/* Section-4 --> API'den datalar gelecek */}

@@ -7,16 +7,6 @@ const Activity = mongoose.model(
             title: String,
             content: String,
             image: String,
-            // images: [
-            //     {
-            //         type: String,
-            //         isPoster: {
-            //             type: Boolean,
-            //             default: false,
-            //         },
-            //         src: String,
-            //     },
-            // ],
             season: String,
             location: String,
         },

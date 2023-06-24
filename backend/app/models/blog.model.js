@@ -5,16 +5,6 @@ const Blog = mongoose.model(
     new mongoose.Schema(
         {
             image: String,
-            // images: [
-            //     {
-            //         type: String,
-            //         isPoster: {
-            //             type: Boolean,
-            //             default: false,
-            //         },
-            //         src: String,
-            //     },
-            // ],
             title: String,
             date: String,
             content: String,

@@ -8,6 +8,7 @@ const blogRoute = require('./app/routes/blog.route')
 const shopRoute = require('./app/routes/shop.route')
 const userRoute = require('./app/routes/user.route')
 app.use(cors())
+app.use(express.json())
 
 //Db Connection
 mongoose.connect("mongodb+srv://6zzkw91:iamcstudent@cluster0.qbxloy5.mongodb.net/").then(() => {

@@ -4,8 +4,16 @@ const store = require('../middlewares/multer')
 const listingValidation = require('../validations/listing.validation')
 const router = express.Router()
 const multer = require('multer')
-let multerStorage = multer.memoryStorage()
-let multerUploads = multer({storage: multerStorage, limits: { fileSize: 1024 * 1024 * 10 }})
+const storage = multer.diskStorage({
+    destination: (req, file,cb) => {
+        cb(null, "public");
+    },
+    filename:() =>{
+        cb(null , file.originalname)
+    }
+})
+
+const upload = multer({storage})
 
 //get All
 router.get("/",listingController.getAll)
@@ -14,17 +22,17 @@ router.route('/:id').get(listingController.getById)
 //Add
 router.post(
     '/',
-    // store.array('images', 5),
-    // listingValidation,
+    upload.single('image'),
     listingController.add,
 )
+
 //edit
 router.put(
     '/:id',
-    // store.array('images', 5),
-    // listingValidation,
+    upload.single('image'),
     listingController.edit,
 )
+
 //delete
 router.route('/:id').delete(listingController.delete)
 module.exports = router

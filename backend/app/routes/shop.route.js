@@ -3,6 +3,17 @@ const { shopController } = require('../controllers/shop.controller')
 const store = require('../middlewares/multer')
 const shopValidation = require('../validations/shop.validation')
 const router = express.Router()
+const multer = require('multer')
+const storage = multer.diskStorage({
+    destination:(req,file,cb)=>{
+        cb(null,"public/");
+    },
+    filename:(req,file,cb)=>{
+        cb(null,file.originalname)
+    }
+})
+
+const upload = multer({storage})
 
 //get All
 router.route('/').get(shopController.getAll)
@@ -11,15 +22,13 @@ router.route('/:id').get(shopController.getById)
 //Add
 router.post(
     '/',
-    // store.array('images', 5),
-    // shopValidation,
+    upload.single('image'),
     shopController.add,
 )
 //edit
 router.put(
     '/:id',
-    // store.array('images', 5),
-    // shopValidation,
+    upload.single('image'),
     shopController.edit,
 )
 //delete
