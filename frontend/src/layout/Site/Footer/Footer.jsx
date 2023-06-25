@@ -60,7 +60,7 @@ function Footer() {
           </div>
       </div>
       <div className="footer__bottom">
-        <span>©Copyright 2016 - Entrada - An Adventure Theme - by Waituk</span>
+        <span>©Copyright 2023 - Entrada </span>
         <img src="https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/04/payment-logo-sprite-2-2.png" alt="img" />
       </div>
     </>

@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
-const multer = require('multer')
 const { Listing } = require('../models/listing.model')
-const { storage } = require("../middlewares/multer")
+
 
 const listingController = {
     getAll: async (req, res) => {
@@ -14,7 +13,7 @@ const listingController = {
         res.send(target)
     },
 
-    add: async (req, res, next) => {
+    add: async (req, res) => {
         const {filename}= req.body
         let newListing = new Listing({
             image: req.file.filename,
@@ -32,7 +31,7 @@ const listingController = {
     edit: async (req, res) => {
         const { id } = req.params
         const updateListing = await Listing.findByIdAndUpdate(id, req.body);
-        res.send(`${id}'li element has been updated`, updateListing)
+        res.send(`${id}'li element has been updated`)
     },
     delete: async (req, res) => {
         const { id } = req.params

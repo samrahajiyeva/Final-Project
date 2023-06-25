@@ -30,7 +30,7 @@ const blogController = {
     edit: async (req, res) => {
         const { id } = req.params
         const updateBlog = await Blog.findByIdAndUpdate(id, req.body);
-        res.send(`${id}'li element has been updated`, updateBlog)
+        res.send(`${id}'li element has been updated`)
     },
 
     delete: async(req, res) => {

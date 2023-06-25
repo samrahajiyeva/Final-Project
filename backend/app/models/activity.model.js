@@ -5,6 +5,7 @@ const Activity = mongoose.model(
     new mongoose.Schema(
         {
             title: String,
+            day: Number,
             content: String,
             image: String,
             season: String,

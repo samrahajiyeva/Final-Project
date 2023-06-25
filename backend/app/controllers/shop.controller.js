@@ -29,7 +29,7 @@ const shopController = {
     edit: async (req, res) => {
         const { id } = req.params
         const updateShop = await shopController.findByIdAndUpdate(id, req.body);
-        res.send(`${id}'li element has been updated`, updateShop)
+        res.send(`${id}'li element has been updated`)
     },
     delete: async(req, res) => {
         const { id } = req.params

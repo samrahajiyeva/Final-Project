@@ -29,7 +29,7 @@ const activityController = {
     edit: async (req, res) => {
         const { id } = req.params
         const updateActivity = await Activity.findByIdAndUpdate(id, req.body);
-        res.send(`${id}'li element has been updated`, updateActivity)
+        res.send(`${id}'li element has been updated`)
     },
 
     delete: async (req, res) => {

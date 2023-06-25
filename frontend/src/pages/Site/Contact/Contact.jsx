@@ -30,7 +30,7 @@ function Contact() {
         <div className="sec__1__wrapper">
           <div className="sec__1__wrapper__text">
             <h2>Contact Us</h2>
-            <p>The most detailed and modern Adventure Theme ever!</p>
+            <p>The most detailed and modern Adventure ever!</p>
           </div>
         </div>
       </div>
