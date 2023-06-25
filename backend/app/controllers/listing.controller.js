@@ -17,6 +17,7 @@ const listingController = {
         const {filename}= req.body
         let newListing = new Listing({
             image: req.file.filename,
+            day: req.body.day,
             title: req.body.title,
             tripType: req.body.tripType,
             place: req.body.place,

@@ -28,27 +28,27 @@ function Login() {
               <title>Login</title>
             </Helmet>
             <div className="login">
-            <form>
-              <div className="userprofile">
-                  <FaUserAlt className='user'/>
-              </div>
-              <div className="mb-3">
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder="Enter email"
-                />
-              </div>
+              <form>
+                <div className="userprofile">
+                  <FaUserAlt className='user' />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="Enter email"
+                  />
+                </div>
 
-              <div className="mb-3">
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="Enter password"
-                />
-              </div>
+                <div className="mb-3">
+                  <input
+                    type="password"
+                    className="form-control"
+                    placeholder="Enter password"
+                  />
+                </div>
 
-              {/* <div className="mb-3">
+                {/* <div className="mb-3">
                 <div className="custom-control custom-checkbox">
                   <input
                     type="checkbox"
@@ -61,15 +61,15 @@ function Login() {
                 </div>
               </div> */}
 
-              <div className="d-grid">
-                <button type="submit" className="btn btn-primary">
-                  Submit
-                </button>
-              </div>
-              <p className="forgot-password text-right">
-                Have an account? <Link onClick={() => navigate('/register')}>Register</Link>
-              </p>
-            </form>
+                <div className="d-grid">
+                  <button type="submit" className="btn btn-primary">
+                    Submit
+                  </button>
+                </div>
+                <p className="forgot-password text-right">
+                  Have an account? <Link onClick={() => navigate('/register')}>Register</Link>
+                </p>
+              </form>
             </div>
           </div>
       }

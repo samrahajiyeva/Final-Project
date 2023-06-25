@@ -36,7 +36,7 @@ function About() {
               <div className="sec1__wrapper">
                 <div className="sec1__wrapper__text">
                   <h2>About Us</h2>
-                  <p>The most detailed and modern adventure tours theme of 2023</p>
+                  <p>The most detailed and modern adventure tours</p>
                 </div>
               </div>
             </div>

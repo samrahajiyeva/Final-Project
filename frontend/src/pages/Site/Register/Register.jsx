@@ -65,7 +65,7 @@ function Register() {
                   </button>
                 </div>
                 <p className="forgot-password text-right">
-                  Already registered <Link onClick={() => navigate('/login')}>sign in?</Link>
+                  Already registered? <Link onClick={() => navigate('/login')}>Sign In</Link>
                 </p>
               </form>
             </div>

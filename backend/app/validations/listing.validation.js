@@ -2,6 +2,7 @@ const { body, validationResult } = require('express-validator')
 
 const listingValidation = [
     body('title').notEmpty().withMessage('Listing Title is required'),
+    body('day').notEmpty().withMessage('Remaining Days is required!'),
     body('tripType').notEmpty().withMessage('Trip type is required !'),
     body('place').notEmpty().withMessage('Place is required !'),
     body('activity').notEmpty().withMessage('Activity is required !'),

@@ -11,9 +11,11 @@ import { GiLobArrow } from 'react-icons/gi'
 import Slider from "../../../components/Site/Slider/Slider";
 import Slider2 from "../../../components/Site/Slider2/Slider2";
 import Loading from "../../../components/Site/Loading/Loading";
+import axios from 'axios'
 
 
 function Home() {
+  const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
   useEffect(() => {
     setLoading(true)
@@ -23,6 +25,11 @@ function Home() {
     }, 1500)
   }, [])
 
+  useEffect(() => {
+    axios.get("http://localhost:8080/listing").then(res => {
+      setData(res.data)
+    })
+  }, [data])
 
   return (
     <>
@@ -257,30 +264,34 @@ function Home() {
 
               {/* API-den gelecek data-1 */}
               <div className="popular__datas">
-                <div className="popular__datas__card">
-                  <div className="popular__datas__card__img">
-                    <img src="https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/05/tour-37-550x358.jpg" alt="img" />
-                  </div>
-                  <div className="popular__datas__card__img__wrapper">
-                    <div className="popular__icon">
-                      <Link><GiLobArrow /></Link>
-                    </div>
-                    <div className="popular__cost">
-                      <em>from</em>
-                      <span>$779</span>
-                    </div>
-                    <div className="day">
-                      <span>18 Days</span>
-                    </div>
-                  </div>
+                {
+                  data && data.map((item, index) => {
+                    return (
+                      <div className="popular__datas__card" key={index}>
+                        <div className="popular__datas__card__img">
+                          <img src={`http://localhost:8080/public/${item.image}`} alt="img" />
+                        </div>
+                        <div className="popular__datas__card__img__wrapper">
+                          <div className="popular__icon">
+                            <Link><GiLobArrow /></Link>
+                          </div>
+                          <div className="popular__cost">
+                            <em>from</em>
+                            <span>${item.price}</span>
+                          </div>
+                          <div className="day">
+                            <span>{item.day} Days</span>
+                          </div>
+                        </div>
 
-                  <div className="popular__datas__card__content">
-                    <Link>Mountain Biking Trip</Link>
-                    <p>Son agreed others exeter period myself few yet nature.
-                      Mention mr manners opinion if garrets enabled.
-                      To an occasional dissimilar impossible sentiments.</p>
-                  </div>
-                </div>
+                        <div className="popular__datas__card__content">
+                          <Link>{item.title}</Link>
+                          <p>{item.content}</p>
+                        </div>
+                      </div>
+                    )
+                  })
+                }
               </div>
             </div>
 
@@ -315,36 +326,41 @@ function Home() {
                 <p>Our collection of the most popular adventures in 2023.</p>
               </div>
               <div className="bestSeller__datas">
-                <div className="bestSeller__datas__card">
-                  <div className="bestSeller__datas__card__img">
-                    <img src="https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/05/tour-05-min-550x358.jpg" alt="img" />
-                  </div>
-                  <div className="bestSeller__datas__card__title">
-                    <Link>Jungle Safari in Africa</Link>
-                    <div className="bestSeller__title__spans">
-                      <span className="bestSeller__trip">Hunting Trip , </span>
-                      <span className="bestSeller__trip">Jungle ,</span>
-                      <span className="bestSeller__trip"> Wildlife Safari</span>
-                    </div>
-                    <div className="bestSeller__activity">
-                      <span className="bestSeller__icon"><GiWorld /> 10 Places</span>
-                      <span className="bestSeller__icon"><MdLocalActivity /> 3 Activities</span>
-                    </div>
-                  </div>
-                  <div className="bestSeller__datas__card__text">
-                    <p>Son agreed others exeter period myself few yet nature.
-                      Mention mr manners opinion if garrets enabled.
-                      To an occasional dissimilar impossible sentiments.</p>
-                    <Link className="bestSeller__explore">Explore</Link>
-                  </div>
-                  <div className="bestSeller__datas__card__count">
-                    <span>$1449</span>
-                    <div className="bestSeller__datas__card__count__icons">
-                      <Link to="https://www.facebook.com/" target="_blank"><FaFacebookF className="bestSeller__countIcon" /></Link>
-                      <Link to="https://twitter.com/?lang=en" target="_blank"><FaTwitter className="bestSeller__countIcon" /></Link>
-                    </div>
-                  </div>
-                </div>
+                {
+                  data && data.map((item, index) => {
+                    return (
+                      <div className="bestSeller__datas__card">
+                        <div className="bestSeller__datas__card__img">
+                          <img src={`http://localhost:8080/public/${item.image}`} alt="img" />
+                        </div>
+                        <div className="bestSeller__datas__card__title">
+                          <Link>{item.title}</Link>
+                          <div className="bestSeller__title__spans">
+                            <span className="bestSeller__trip"> {item.tripType.split(' ')[0]} </span>
+                            <span className="bestSeller__trip"> {item.tripType.split(' ')[1]} </span>
+                            <span className="bestSeller__trip"> {item.tripType.split(' ')[2]} </span>
+                            <span className="bestSeller__trip"> {item.tripType.split(' ')[3]} </span>
+                          </div>
+                          <div className="bestSeller__activity">
+                            <span className="bestSeller__icon"><GiWorld /> {item.place} Places</span>
+                            <span className="bestSeller__icon"><MdLocalActivity /> {item.activity} Activities</span>
+                          </div>
+                        </div>
+                        <div className="bestSeller__datas__card__text">
+                          <p>{item.content}</p>
+                          <Link className="bestSeller__explore">Explore</Link>
+                        </div>
+                        <div className="bestSeller__datas__card__count">
+                          <span>${item.price}</span>
+                          <div className="bestSeller__datas__card__count__icons">
+                            <Link to="https://www.facebook.com/" target="_blank"><FaFacebookF className="bestSeller__countIcon" /></Link>
+                            <Link to="https://twitter.com/?lang=en" target="_blank"><FaTwitter className="bestSeller__countIcon" /></Link>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })
+                }
               </div>
             </div>
 

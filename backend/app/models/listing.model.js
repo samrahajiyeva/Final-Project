@@ -5,9 +5,10 @@ const Listing = mongoose.model(
     new mongoose.Schema(
         {
             image: String,
+            day: Number,
             title: String,
             tripType: String,
-            place: String,
+            place: Number,
             activity: Number,
             content: String,
             price: Number
