@@ -35,12 +35,8 @@ function Register() {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="First name"
+                    placeholder="Username"
                   />
-                </div>
-
-                <div className="mb-3">
-                  <input type="text" className="form-control" placeholder="Last name" />
                 </div>
 
                 <div className="mb-3">
