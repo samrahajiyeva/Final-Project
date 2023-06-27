@@ -44,61 +44,64 @@ function Home() {
             {/* Section-1 */}
             <div className="hero">
               <div className="hero__wrapper">
-                <div className="hero__wrapper__title">
-                  <FaHiking /> ... <FaCity />
-                  <p>
-                    <span>FIND</span> ADVENTURES
-                  </p>
+                <div className="hero-main">
+                  <div className="hero__wrapper__title">
+                    <FaHiking /> ... <FaCity />
+                    <p>
+                      <span>FIND</span> ADVENTURES
+                    </p>
+                  </div>
+
+                  <div className="hero__wrapper__middle">
+                    <form>
+                      <label>Destination</label>
+                      <select>
+                        <option>World</option>
+                        <option>Asia</option>
+                        <option>Europe</option>
+                        <option>Africa</option>
+                      </select>
+                    </form>
+
+
+                    <form>
+                      <label>Activity</label>
+                      <select>
+                        <option>All Activities</option>
+                        <option>Bungee Jump</option>
+                        <option>City Tours</option>
+                        <option>Hiking Trips</option>
+                        <option>Hunting Trip</option>
+                        <option>Mountain Biking</option>
+                        <option>Sailing Trips</option>
+                        <option>Scuba Diving</option>
+                        <option>WildLife Safari</option>
+                      </select>
+                    </form>
+
+                    <form>
+                      <label>Month</label>
+                      <select>
+                        <option>Any Date</option>
+                        <option>Jun 2023</option>
+                        <option>Jul 2023</option>
+                        <option>Aug 2023</option>
+                        <option>Sep 2023</option>
+                        <option>Oct 2023</option>
+                        <option>Nov 2023</option>
+                        <option>Dec 2023</option>
+                        <option>Jan 2023</option>
+                        <option>Feb 2023</option>
+                        <option>Mar 2023</option>
+                        <option>Apr 2023</option>
+                        <option>May 2023</option>
+                      </select>
+                    </form>
+
+                    <button>Go To Explore</button>
+                  </div>
                 </div>
 
-                <div className="hero__wrapper__middle">
-                  <form>
-                    <label>Destination</label>
-                    <select>
-                      <option>World</option>
-                      <option>Asia</option>
-                      <option>Europe</option>
-                      <option>Africa</option>
-                    </select>
-                  </form>
-
-
-                  <form>
-                    <label>Activity</label>
-                    <select>
-                      <option>All Activities</option>
-                      <option>Bungee Jump</option>
-                      <option>City Tours</option>
-                      <option>Hiking Trips</option>
-                      <option>Hunting Trip</option>
-                      <option>Mountain Biking</option>
-                      <option>Sailing Trips</option>
-                      <option>Scuba Diving</option>
-                      <option>WildLife Safari</option>
-                    </select>
-                  </form>
-
-                  <form>
-                    <label>Month</label>
-                    <select>
-                      <option>Any Date</option>
-                      <option>Jun 2023</option>
-                      <option>Jul 2023</option>
-                      <option>Aug 2023</option>
-                      <option>Sep 2023</option>
-                      <option>Oct 2023</option>
-                      <option>Nov 2023</option>
-                      <option>Dec 2023</option>
-                      <option>Jan 2023</option>
-                      <option>Feb 2023</option>
-                      <option>Mar 2023</option>
-                      <option>Apr 2023</option>
-                      <option>May 2023</option>
-                    </select>
-                  </form>
-
-                  <button>Go To Explore</button>
-                </div>
 
                 <div className="hero__wrapper__bottom">
                   <ul>
