@@ -3,6 +3,10 @@ import { Helmet } from 'react-helmet'
 import Loading from '../../../components/Site/Loading/Loading'
 import { Link, useNavigate } from 'react-router-dom'
 import './Register.scss'
+import { Formik } from 'formik'
+import * as Yup from 'yup'
+import axios from 'axios'
+import { Toaster, toast } from 'react-hot-toast'
 import { FaUserAlt } from 'react-icons/fa'
 
 function Register() {
@@ -26,49 +30,64 @@ function Register() {
             <Helmet>
               <title>Login</title>
             </Helmet>
+
+
             <div className="register">
-              <form>
-                <div className="userprofile">
-                  <FaUserAlt className='user' />
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Username"
-                  />
-                </div>
+              <Formik initialValues={{
+                username: "",
+                email: "",
+                password: ""
+              }}
+                //validation schema
+                validationSchema={Yup.object({
+                  username: Yup.string().required("Username is required!"),
+                  email: Yup.string()
+                    .email('Invalid email format')
+                    .required('Email is required'),
+                  password: Yup.string()
+                    .required('Password is required')
+                    .min(8, 'Password must be at least 8 characters long')
+                    .max(20, 'Password must not exceed 20 characters')
+                })}
 
-                <div className="mb-3">
-                  <input
-                    type="email"
-                    className="form-control"
-                    placeholder="Enter email"
-                  />
-                </div>
+                onSubmit={(values, { resetForm }) => {
+                  axios.post("", values).then(res => {
+                    toast.success("Succesfully Registered!")
+                  })
+                  console.log(values);
+                  resetForm()
+                }}
+              >
+                {
+                  ({ values, handleSubmit, handleChange, handleBlur , dirty, touched, errors }) => (
+                    <form onSubmit={handleSubmit}>
+                      <div className="userprofile">
+                        <FaUserAlt className='user' />
+                      </div>
+                      <input type="text" placeholder='Username' id='username' value={values.username} onChange={handleChange} onBlur={handleBlur}/>
 
-                <div className="mb-3">
-                  <input
-                    type="password"
-                    className="form-control"
-                    placeholder="Enter password"
-                  />
-                </div>
+                      <input type="email" placeholder='Email' id='email' value={values.email} onChange={handleChange} onBlur={handleBlur}/>
+                      {touched.email && errors.email && (
+                        <div className='error-message'>{errors.email}</div>
+                      )}
 
-                <div className="d-grid">
-                  <button type="submit" className="btn btn-primary">
-                    Sign Up
-                  </button>
-                </div>
-                <p className="forgot-password text-right">
-                  Already registered? <Link onClick={() => navigate('/login')}>Sign In</Link>
-                </p>
-              </form>
+                      <input type="password" placeholder='Password' id='password' value={values.password} onChange={handleChange} onBlur={handleBlur}/>
+                      {touched.password && errors.password && (
+                        <div className='error-message'>{errors.password}</div>
+                      )}
+
+                      <button type='submit' disabled={!dirty}>Submit</button>
+                    </form>
+                  )
+                }
+              </Formik>
             </div>
           </div>
       }
+      <Toaster />
     </>
   )
 }
 
 export default Register
+

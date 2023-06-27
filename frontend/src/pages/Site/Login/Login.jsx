@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import './Login.scss'
 import Loading from '../../../components/Site/Loading/Loading'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { Formik } from 'formik'
+import * as Yup from 'yup'
+import axios from 'axios'
+import { Toaster, toast } from 'react-hot-toast'
+import { Link, useNavigate } from 'react-router-dom'
 import { FaUserAlt } from 'react-icons/fa'
 
 function Login() {
@@ -27,55 +31,60 @@ function Login() {
             <Helmet>
               <title>Login</title>
             </Helmet>
+
             <div className="login">
-              <form>
-                <div className="userprofile">
-                  <FaUserAlt className='user' />
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="email"
-                    className="form-control"
-                    placeholder="Enter email"
-                  />
-                </div>
+              <Formik initialValues={{
+                email: "",
+                password: ""
+              }}
+                //validation schema
+                validationSchema={Yup.object({
+                  email: Yup.string()
+                    .email('Invalid email format')
+                    .required('Email is required'),
+                  password: Yup.string()
+                    .required('Password is required')
+                    .min(8, 'Password must be at least 8 characters long')
+                    .max(20, 'Password must not exceed 20 characters')
+                })}
 
-                <div className="mb-3">
-                  <input
-                    type="password"
-                    className="form-control"
-                    placeholder="Enter password"
-                  />
-                </div>
+                onSubmit={(values, { resetForm }) => {
+                  axios.post("http://localhost:8080/api/users/login", values).then(res => {
+                    toast.success("Login Successful!")
+                    navigate('/login')
+                  })
+                  resetForm()
+                }}
+              >
+                {
+                  ({ values, handleSubmit, handleChange, handleBlur, dirty, touched, errors }) => (
+                    <form onSubmit={handleSubmit}>
+                      <div className="userprofile">
+                        <FaUserAlt className='user' />
+                      </div>
+                      <input type="email" placeholder='Email' id='email' value={values.email} onChange={handleChange} onBlur={handleBlur} />
+                      {touched.email && errors.email && (
+                        <div className="error-message">{errors.email}</div>
+                      )}
 
-                {/* <div className="mb-3">
-                <div className="custom-control custom-checkbox">
-                  <input
-                    type="checkbox"
-                    className="custom-control-input"
-                    id="customCheck1"
-                  />
-                  <label className="custom-control-label" htmlFor="customCheck1">
-                    Remember me
-                  </label>
-                </div>
-              </div> */}
-
-                <div className="d-grid">
-                  <button type="submit" className="btn btn-primary">
-                    Submit
-                  </button>
-                </div>
-                <p className="forgot-password text-right">
-                  Have an account? <Link onClick={() => navigate('/register')}>Register</Link>
-                </p>
-              </form>
+                      <input type="password" placeholder='Password' id='password' value={values.password} onChange={handleChange} onBlur={handleBlur} />
+                      {touched.password && errors.password && (
+                        <div className="error-message">{errors.password}</div>
+                      )}
+                      <button type='submit' disabled={!dirty}>Submit</button>
+                      <p className="forgot-password text-right">
+                        Have an account? <Link onClick={() => navigate('/register')}>Register</Link>
+                      </p>
+                    </form>
+                  )
+                }
+              </Formik>
             </div>
           </div>
       }
+      <Toaster />
     </>
   )
 }
 
 export default Login
-
