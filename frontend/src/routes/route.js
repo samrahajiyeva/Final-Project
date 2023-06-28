@@ -1,6 +1,5 @@
 import AdminRoot from "../pages/Admin/AdminRoot/AdminRoot";
 import Dashboard from "../pages/Admin/Dashboard/Dashboard";
-import Datas from "../pages/Admin/Datas/Datas";
 import About from "../pages/Site/About/About";
 import Activities from "../pages/Site/Activities/Activities";
 import Blog from "../pages/Site/Blog/Blog";
@@ -14,6 +13,12 @@ import Login from "../pages/Site/Login/Login";
 import Register from "../pages/Site/Register/Register";
 import NotFound from "../pages/Site/NotFound/NotFound";
 import Shop from "../pages/Site/Shop/Shop";
+import ListingData from "../pages/Admin/ListingTable/ListingData";
+import ActivityData from "../pages/Admin/ActivityTable/ActivityData";
+import BlogData from "../pages/Admin/BlogTable/BlogData";
+import ShopData from "../pages/Admin/ShopTable/ShopData";
+import UserData from "../pages/Admin/UsersTable/UserData";
+
 
 export const ROUTES = [
   {
@@ -83,9 +88,25 @@ export const ROUTES = [
         element: <Dashboard />,
       },
       {
-        path: "datas",
-        element: <Datas />,
+        path: "listingdata",
+        element: <ListingData />
       },
+      {
+        path: "activitydata",
+        element: <ActivityData />
+      },
+      {
+        path: "blogdata",
+        element: <BlogData />
+      },
+      {
+        path: "shopdata",
+        element: <ShopData />
+      },
+      {
+        path: "userdata",
+        element: <UserData />
+      }
     ],
   },
 ];

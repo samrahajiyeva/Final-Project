@@ -73,7 +73,7 @@ function Login() {
                       )}
                       <button type='submit' disabled={!dirty}>Submit</button>
                       <p className="forgot-password text-right">
-                        Have an account? <Link onClick={() => navigate('/register')}>Register</Link>
+                        Don't have an account? <Link onClick={() => navigate('/register')}>Register</Link>
                       </p>
                     </form>
                   )
