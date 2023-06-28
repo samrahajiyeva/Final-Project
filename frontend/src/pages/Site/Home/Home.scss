@@ -991,6 +991,11 @@
   .hero .hero__wrapper__middle {
     background-color: transparent;
     border: none;
+    padding-bottom: 0;
+  }
+
+  .hero-main{
+    width: 50%;
   }
 
   .hero__wrapper__middle form {
@@ -999,6 +1004,10 @@
 
   .hero .hero__wrapper__middle form select {
     width: 100%;
+  }
+
+  .hero .hero__wrapper__title{
+    display: none;
   }
 }
 
@@ -1009,11 +1018,63 @@
 
   .adventures__gallery__left {
     width: 100%;
-    justify-content: start;
+    justify-content: center;
   }
 
   .adventures__gallery__left .gallery__div {
     margin: 10px 20px;
+  }
+
+  .statistic{
+    flex-wrap: wrap;
+  }
+
+  .statistic .s-card{
+    width: 100%;
+  }
+
+  .browse{
+    flex-wrap: wrap;
+  }
+
+  .browse__left,.browse__right{
+    width: 100%;
+  }
+
+  .footer{
+    padding: 40px 20px !important;
+  }
+
+  .footer__bottom{
+    padding: 20px 20px !important;
+  }
+  
+  .partners{
+    display: none;
+  }
+
+  .guides__cards {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer__contact ul div{
+    width: 100%;
+    align-items: center;
+  }
+
+  .f__contact{
+    flex-wrap: wrap;
+  }
+
+  .footer__bottom{
+    flex-wrap: wrap;
+    justify-content: center !important;
+  }
+
+  .footer__bottom span{
+    margin-bottom: 15px;
   }
 }
 

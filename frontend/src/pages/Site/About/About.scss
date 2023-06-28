@@ -151,14 +151,14 @@
 //sec-4 parallax
 .sec4 {
     width: 100%;
-    height: 575px;
     background-image: url(https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2019/04/tour-16-min.jpg);
     @include b-ground;
     background-attachment: fixed;
 
     &__wrapper {
         width: 100%;
-        height: 100%;
+        width: 100%;
+        padding: 20px 0px;
         background-color: rgba(0, 0, 0, 0.7);
         padding: 40px 150px;
         display: flex;
@@ -229,12 +229,10 @@
         padding: 20px 150px;
         display: flex;
         justify-content: center;
-        gap: 30px;
         align-items: center;
 
         &__left {
             width: 570px;
-            height: 430px;
             padding: 10px 0px;
             display: flex;
             flex-direction: column;
@@ -248,7 +246,7 @@
 
             p {
                 margin: 0;
-                padding: 0;
+                padding: 15px 0 0;
             }
         }
 
@@ -283,11 +281,11 @@
         justify-content: center;
 
         &__text {
-            width: 1100px;
-            height: 58px;
+            width: 75%;
             border-left: 7px solid white;
             display: flex;
             align-items: center;
+            padding-left: 30px;
             justify-content: center;
 
             span {
@@ -295,5 +293,33 @@
                 font-size: 28px;
             }
         }
+    }
+}
+
+
+
+//media queries
+
+
+@media screen and (max-width: 860px) {
+    .sec2__cards{
+        flex-wrap: wrap;
+    }
+
+    .sec3__text{
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .sec4__wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .sec5__cards {
+        flex-wrap: wrap;
     }
 }

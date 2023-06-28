@@ -51,6 +51,10 @@
         a {
           font-weight: 500;
           text-decoration: none;
+
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
     }
@@ -112,6 +116,10 @@
       transition: 0.3s;
     }
   }
+
+  .scrolled-header__hamburger .hamburger {
+    color: #5c5e62;
+  }
 }
 
 .header {
@@ -162,6 +170,10 @@
           font-weight: 500;
           text-decoration: none;
           color: white;
+
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
     }
