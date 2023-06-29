@@ -341,7 +341,6 @@
 //section 3 
 .block {
   width: 100%;
-  height: 191px;
   background-color: #474d4c;
   padding: 45px 0px;
   display: flex;
@@ -994,7 +993,7 @@
     padding-bottom: 0;
   }
 
-  .hero-main{
+  .hero-main {
     width: 50%;
   }
 
@@ -1006,7 +1005,7 @@
     width: 100%;
   }
 
-  .hero .hero__wrapper__title{
+  .hero .hero__wrapper__title {
     display: none;
   }
 }
@@ -1025,31 +1024,32 @@
     margin: 10px 20px;
   }
 
-  .statistic{
+  .statistic {
     flex-wrap: wrap;
   }
 
-  .statistic .s-card{
+  .statistic .s-card {
     width: 100%;
   }
 
-  .browse{
+  .browse {
     flex-wrap: wrap;
   }
 
-  .browse__left,.browse__right{
+  .browse__left,
+  .browse__right {
     width: 100%;
   }
 
-  .footer{
+  .footer {
     padding: 40px 20px !important;
   }
 
-  .footer__bottom{
+  .footer__bottom {
     padding: 20px 20px !important;
   }
-  
-  .partners{
+
+  .partners {
     display: none;
   }
 
@@ -1059,46 +1059,51 @@
 }
 
 @media screen and (max-width: 600px) {
-  .footer__contact ul div{
+  .footer__contact ul div {
     width: 100%;
     align-items: center;
   }
 
-  .f__contact{
+  .day {
+    display: none;
+    visibility: hidden;
+  }
+
+  .f__contact {
     flex-wrap: wrap;
   }
 
-  .footer__bottom{
+  .footer__bottom {
     flex-wrap: wrap;
     justify-content: center !important;
   }
 
-  .footer__bottom span{
+  .footer__bottom span {
     margin-bottom: 15px;
   }
 
-  .adventures__gallery__right{
+  .adventures__gallery__right {
     width: auto !important;
   }
 
-  .popular__datas__card__img__wrapper{
+  .popular__datas__card__img__wrapper {
     width: auto;
   }
 
-  .sec4__wrapper__cards{
+  .sec4__wrapper__cards {
     height: auto !important;
     width: 100% !important;
   }
 
-  .sec4__wrapper{
+  .sec4__wrapper {
     padding: 20px;
   }
 
-  .sec5__cards{
+  .sec5__cards {
     padding: 20px;
   }
 
-  .section2__text{
+  .section2__text {
     padding: 10px;
   }
 }
@@ -1107,5 +1112,23 @@
 @media screen and (max-width: 1370px) {
   .hero .hero__wrapper__bottom ul {
     justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .block p {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .block p {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .block p {
+    font-size: 17px;
   }
 }
