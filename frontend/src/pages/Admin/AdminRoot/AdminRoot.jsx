@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import Header from '../../../layout/Admin/Header/Header'
 import { Outlet, useNavigate  } from "react-router-dom";
 import Footer from '../../../layout/Admin/Footer/Footer';
+import Sidebar from '../../../components/Admin/Sidebar/Sidebar';
 // import axios from 'axios'
 // import {useCookies} from 'react-cookie'
 
@@ -28,7 +28,7 @@ function AdminRoot() {
   // }, [cookies, removeCookie, navigate]);
   return (
     <>
-    <Header />
+    <Sidebar />
     <Outlet />
     <Footer />
     </>

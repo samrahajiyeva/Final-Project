@@ -51,19 +51,26 @@ function Blog() {
                   data && data.map((item, index) => {
                     return (
                       <div className="posts__wrapper__card" key={index}>
-                        <div className="posts__wrapper__card__img">
-                          <img src={`http://localhost:8080/public/${item.image}`} alt="img" />
-                        </div>
-                        <div className="posts__wrapper__card__content">
-                          <Link>{item.title}</Link>
-                          <span>{item.date}</span>
-                          <p> {item.content}
-                          </p>
-                          <div className="spans">
-                            <span className='poster'>Post by <strong>{item.poster}</strong></span>
-                            <span>{item.comment} Comments</span>
+                        <div className="row">
+                          <div className="col-md-4">
+                            <div className="posts__wrapper__card__img">
+                              <img src={`http://localhost:8080/public/${item.image}`} alt="img" />
+                            </div>
+                          </div>
+                          <div className="col-md-8">
+                            <div className="posts__wrapper__card__content">
+                              <Link>{item.title}</Link>
+                              <span>{item.date}</span>
+                              <p> {item.content}
+                              </p>
+                              <div className="spans">
+                                <span className='poster'>Post by <strong>{item.poster}</strong></span>
+                                <span>{item.comment} Comments</span>
+                              </div>
+                            </div>
                           </div>
                         </div>
+
                       </div>
                     )
                   })
