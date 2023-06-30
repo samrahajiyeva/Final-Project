@@ -20,7 +20,7 @@ function Sidebar() {
 
   return (
     <div className={`main ${isSidebarOpen ? '' : 'close'}`} id="main">
-      <div className="sidebar">
+      <div className="sidebar fixed-sidebar">
         <div className="sidebar__top">
           <div>
             {isSidebarOpen ? (

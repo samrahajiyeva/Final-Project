@@ -1,0 +1,42 @@
+.diagrams {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    padding-top: 30px;
+    padding: 30px 20px;
+}
+
+.diagrams__5 {
+    width: 570px;
+    height: 380px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    padding-top: 70px;
+    background-color: #252525;
+}
+
+.diagrams__1 {
+    width: 570px;
+    height: 380px;
+    padding: 20px;
+    background-color: #252525;
+}
+
+.diagrams__2 {
+    display: flex;
+    background-color: #252525;
+    align-items: center;
+}
+
+.wrappers {
+    width: 100%;
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.diagrams__3 {
+    background-color: #252525;
+}

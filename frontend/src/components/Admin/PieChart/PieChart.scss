@@ -1,0 +1,9 @@
+.piecharts {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    .sparklines {
+        display: flex;
+        flex-direction: row;
+    }
+}

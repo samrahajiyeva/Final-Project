@@ -4,12 +4,12 @@
 }
 
 .sidebar {
-    height: 100vh;
-    width: 300px;
+    padding-bottom: 50px;
+    width: 350px;
     background: rgb(37, 37, 37);
     background: linear-gradient(90deg, rgba(37, 37, 37, 1) 0%, rgba(105, 105, 88, 1) 25%, rgba(71, 77, 72, 1) 92%);
     transition: all 0.5s ease-in-out;
-    
+
 
     .logo-div {
         width: 100%;
@@ -24,7 +24,8 @@
 
     .admin-items {
         width: 100%;
-        padding: 40px;
+        padding-top: 55px;
+        padding-left: 25px;
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -44,19 +45,25 @@
                 padding: 15px 0 15px 13px;
                 display: flex;
                 align-items: center;
-                color: white;
-                gap: 10px;
-                font-weight: bold;
+                color: #252525;
+                gap: 15px;
+                font-weight: bolder;
 
                 &:hover {
                     background-color: #252525b3;
                     transition: 0.6s;
+                    color: white;
+
+                    a {
+                        color: white;
+                        transition: 0.6s;
+                    }
                 }
 
 
                 a {
                     text-decoration: none;
-                    color: white;
+                    color: #252525;
                     font-size: 18px;
                 }
             }
@@ -90,11 +97,12 @@ header .toggle-btn {
     width: 30px;
     height: 20px;
     color: white;
+    cursor: pointer;
 }
 
 .header-logo {
     font-size: 30px;
-    font-weight: bold;
+    font-weight: bolder;
     color: #fff;
     margin-left: 10px;
 }
@@ -131,7 +139,7 @@ header .toggle-btn {
 #menu {
     color: purple;
 }
-    
+
 
 
 .container {
@@ -158,6 +166,8 @@ header .toggle-btn {
     text-decoration: none;
     color: white;
     font-size: 25px;
+    display: flex;
+    align-items: center;
 }
 
 .admin-header-links {
@@ -165,3 +175,15 @@ header .toggle-btn {
     align-items: center;
     gap: 10px;
 }
+
+
+// .fixed-sidebar {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     height: 100%;
+//     width: 280px;
+//     /* Adjust the width as needed */
+//     z-index: 999;
+// }
+
