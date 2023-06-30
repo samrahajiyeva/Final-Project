@@ -28,7 +28,6 @@ function AdminRoot() {
   return (
     <>
     <Sidebar />
-    <Outlet />
     </>
   )
 }

@@ -1,8 +1,11 @@
 import React from 'react'
+import './ListingData.scss'
 
 function ListingData() {
   return (
-    <div>ListingData</div>
+    <>
+    heqiqeten bezmisem
+    </>
   )
 }
 

@@ -18,6 +18,7 @@ import ActivityData from "../pages/Admin/ActivityTable/ActivityData";
 import BlogData from "../pages/Admin/BlogTable/BlogData";
 import ShopData from "../pages/Admin/ShopTable/ShopData";
 import UserData from "../pages/Admin/UsersTable/UserData";
+import Content from "../components/Admin/Content/Content";
 
 
 export const ROUTES = [
@@ -88,24 +89,30 @@ export const ROUTES = [
         element: <Dashboard />,
       },
       {
-        path: "listingdata",
-        element: <ListingData />
-      },
-      {
-        path: "activitydata",
-        element: <ActivityData />
-      },
-      {
-        path: "blogdata",
-        element: <BlogData />
-      },
-      {
-        path: "shopdata",
-        element: <ShopData />
-      },
-      {
-        path: "userdata",
-        element: <UserData />
+        path: "",
+        element: <Content />,
+        children: [
+          {
+            path: "listingdata",
+            element: <ListingData />
+          },
+          {
+            path: "activitydata",
+            element: <ActivityData />
+          },
+          {
+            path: "blogdata",
+            element: <BlogData />
+          },
+          {
+            path: "shopdata",
+            element: <ShopData />
+          },
+          {
+            path: "userdata",
+            element: <UserData />
+          }
+        ]
       }
     ],
   },

@@ -6,9 +6,10 @@ import { Link } from 'react-router-dom'
 import { AiFillDashboard } from 'react-icons/ai'
 import { BsCardChecklist } from 'react-icons/bs'
 import { TbActivityHeartbeat } from 'react-icons/tb'
-import { FaMicroblog, FaShopify } from 'react-icons/fa'
+import { FaMicroblog, FaShopify, FaGithub } from 'react-icons/fa'
 import img from '../../../images/pngwing.com.png'
 import { RiAdminFill } from 'react-icons/ri'
+import Content from '../Content/Content';
 
 function Sidebar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -62,9 +63,9 @@ function Sidebar() {
                 <FaShopify />
                 {isSidebarOpen && <Link to="shopdata">Shop</Link>}
               </li>
-              <li className='adminpage' className>
-              <RiAdminFill/>
-              {isSidebarOpen && <Link to="shopdata">Admin</Link>}
+              <li className='adminpage'>
+                <RiAdminFill />
+                {isSidebarOpen && <Link to="shopdata">Admin</Link>}
               </li>
             </ul>
           </div>
@@ -74,13 +75,25 @@ function Sidebar() {
 
       <div className="content">
         <header>
-          {!isSidebarOpen && (
-            <RxHamburgerMenu id="hamburger"
-              className="toggle-btn"
-              onClick={toggleSidebar}
-            />
-          )}
+          <div className="admin-header-links">
+            {!isSidebarOpen && (
+              <RxHamburgerMenu id="hamburger"
+                className="toggle-btn"
+                onClick={toggleSidebar}
+              />
+            )}
+
+            <Link to="https://github.com/" target='_blank' className='admin-github'>
+              <FaGithub />
+            </Link>
+          </div>
+
+
+          <div className="admin-img">
+            <img src="https://st3.depositphotos.com/4678277/31961/i/600/depositphotos_319611816-stock-photo-side-profile-photo-of-intelligent.jpg" alt="admin__img" />
+          </div>
         </header>
+        <Content />
       </div>
     </div>
   );
