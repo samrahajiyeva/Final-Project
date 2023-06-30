@@ -176,7 +176,7 @@ function About() {
                 </div>
 
                 <div className="sec5__cards__right">
-                  <img src={image} alt="img" />
+                <img src={image} alt="img" />
                 </div>
               </div>
             </div>
