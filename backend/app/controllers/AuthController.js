@@ -94,3 +94,12 @@ module.exports.login = async (req, res) => {
         res.json({ errors, created: false });
     }
 };
+
+module.exports.getMe=async (req, res) => {
+    const user = await req.user;
+    // Use the user object as needed
+    res.json({ user });
+};
+
+
+

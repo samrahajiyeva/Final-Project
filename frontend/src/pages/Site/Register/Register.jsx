@@ -51,10 +51,12 @@ function Register() {
                 })}
 
                 onSubmit={(values, { resetForm }) => {
-                  axios.post("", values).then(res => {
+                  console.log(values);
+                  axios.post("http://localhost:8080/auth", values).then(res => {
                     toast.success("Succesfully Registered!")
                   })
                   console.log(values);
+                  navigate('/login')
                   resetForm()
                 }}
               >

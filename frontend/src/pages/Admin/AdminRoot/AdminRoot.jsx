@@ -1,33 +1,36 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Outlet, useNavigate  } from "react-router-dom";
 import Sidebar from '../../../components/Admin/Sidebar/Sidebar';
-// import axios from 'axios'
-// import {useCookies} from 'react-cookie'
+import axios from 'axios'
+import {useCookies} from 'react-cookie'
 
 function AdminRoot() {
-  // const [cookies, setCookie, removeCookie] = useCookies(["jwt"]);
-  // const navigate = useNavigate();
+  const [datas, setdata] = useState({})
+  const [cookies, setCookie, removeCookie] = useCookies(["jwt"]);
+  const navigate = useNavigate();
+  const jwt = cookies.jwt
+  console.log(cookies);
+  useEffect(() => {
+    const verifyUser = async () => {
+      if (!cookies.jwt) {
+        navigate("/login");
+      } else {
+        await axios.get(
+          "http://localhost:8080/auth/getMe",
+          {
+            withCredentials: true,
+          }
+        ).then(res=>setdata(res.data.data))
+      }
+    };
 
-  // useEffect(() => {
-  //   const verifyUser = async () => {
-  //     if (!cookies.jwt) {
-  //       navigate("/login");
-  //     } else {
-  //       const { data } = await axios.post(
-  //         "http://localhost:8080/auth/login",
-  //         {},
-  //         {
-  //           withCredentials: true,
-  //         }
-  //       );
-  //     }
-  //   };
-
-  //   verifyUser();
-  // }, [cookies, removeCookie, navigate]);
+    verifyUser();
+  }, [cookies, removeCookie, navigate]);
   return (
     <>
-    <Sidebar />
+    {
+      (jwt&&datas.isAdmin)&&<Sidebar/>
+    }
     </>
   )
 }

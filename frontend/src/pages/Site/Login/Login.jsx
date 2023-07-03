@@ -49,9 +49,18 @@ function Login() {
                 })}
 
                 onSubmit={(values, { resetForm }) => {
-                  axios.post("http://localhost:8080/api/users/login", values).then(res => {
+                  axios.post("http://localhost:8080/auth/login", values,{
+                    withCredentials:true
+                  }).then(res => {
                     toast.success("Login Successful!")
-                    navigate('/login')
+                    console.log(res.data.data.isAdmin);
+                    if(res.data.data.isAdmin===true){
+                      console.log('admin');
+                      navigate('/admin')
+                    }
+                    else{
+                      navigate('/')
+                    }
                   })
                   resetForm()
                 }}

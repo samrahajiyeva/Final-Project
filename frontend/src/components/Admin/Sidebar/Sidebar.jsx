@@ -7,6 +7,7 @@ import { AiFillDashboard } from 'react-icons/ai'
 import { BsCardChecklist } from 'react-icons/bs'
 import { TbActivityHeartbeat } from 'react-icons/tb'
 import { FaMicroblog, FaShopify, FaGithub } from 'react-icons/fa'
+import { FaUser } from 'react-icons/fa'
 import img from '../../../images/pngwing.com.png'
 import { RiAdminFill } from 'react-icons/ri'
 import Content from '../Content/Content';
@@ -63,9 +64,13 @@ function Sidebar() {
                 <FaShopify />
                 {isSidebarOpen && <Link to="shopdata">Shop</Link>}
               </li>
+              <li className='userpage'>
+                <FaUser />
+                {isSidebarOpen && <Link to="userdata">Users</Link>}
+              </li>
               <li className='adminpage'>
                 <RiAdminFill />
-                {isSidebarOpen && <Link to="shopdata">Admin</Link>}
+                {isSidebarOpen && <Link to="admindata">Admin</Link>}
               </li>
             </ul>
           </div>

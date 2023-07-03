@@ -22,7 +22,7 @@ const path = require('path')
 const uploadPath = path.join(__dirname, 'public')
 app.use('/public', express.static(uploadPath))
 
-app.use(cors())
+app.use(cors({credentials:true,origin:'http://localhost:3000'}))
 app.use(express.json())
 
 //Db Connection

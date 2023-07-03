@@ -19,6 +19,20 @@ import BlogData from "../pages/Admin/BlogTable/BlogData";
 import ShopData from "../pages/Admin/ShopTable/ShopData";
 import UserData from "../pages/Admin/UsersTable/UserData";
 import Content from "../components/Admin/Content/Content";
+import AddListing from "../pages/Admin/AddListing/AddListing";
+import UpdateListing from "../pages/Admin/UpdateListing/UpdateListing";
+import DetailListing from "../pages/Admin/DetailListing/DetailListing";
+import DetailActivity from "../pages/Admin/DetailActivity/DetailActivity";
+import AddActivity from "../pages/Admin/AddActivity/AddActivity";
+import UpdateActivity from "../pages/Admin/UpdateActivity/UpdateActivity";
+import DetailShop from "../pages/Admin/DetailShop/DetailShop";
+import AddShop from "../pages/Admin/AddShop/AddShop";
+import UpdateShop from "../pages/Admin/UpdateShop/UpdateShop";
+import DetailBlog from "../pages/Admin/DetailBlog/DetailBlog";
+import AddBlog from "../pages/Admin/AddBlog/AddBlog";
+import UpdateBlog from "../pages/Admin/UpdateBlog/UpdateBlog";
+import DetailUser from "../pages/Admin/DetailUser/DetailUser";
+import AdminData from "../pages/Admin/AdminData/AdminData";
 
 
 export const ROUTES = [
@@ -111,6 +125,75 @@ export const ROUTES = [
           {
             path: "userdata",
             element: <UserData />
+          }
+          ,
+          {
+            path: "addlisting",
+            element: <AddListing />
+          }
+          ,
+          {
+            path: "updatelisting/:id",
+            element: <UpdateListing />
+          }
+          ,
+          {
+            path: "listing/:id",
+            element: <DetailListing />
+          }
+          ,
+          {
+            path: "activity/:id",
+            element: <DetailActivity />
+          }
+          ,
+          {
+            path: "addactivity",
+            element: <AddActivity />
+          }
+          ,
+          {
+            path: "updateactivity/:id",
+            element: <UpdateActivity />
+          }
+          ,
+          {
+            path: "shop/:id",
+            element: <DetailShop />
+          }
+          ,
+          {
+            path: "addshop",
+            element: <AddShop />
+          }
+          ,
+          {
+            path: "updateshop/:id",
+            element: <UpdateShop />
+          },
+          {
+            path: "blog/:id",
+            element: <DetailBlog />
+          }
+          ,
+          {
+            path: "addblog",
+            element: <AddBlog />
+          }
+          ,
+          {
+            path: "updateblog/:id",
+            element: <UpdateBlog />
+          }
+          ,
+          {
+            path: "user/:id",
+            element: <DetailUser />
+          }
+          ,
+          {
+            path: "admindata",
+            element: <AdminData />
           }
         ]
       }

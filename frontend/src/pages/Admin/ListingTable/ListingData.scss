@@ -1,0 +1,28 @@
+.table-datas {
+    padding: 60px 80px;
+    
+    .table__btn {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 30px;
+
+        button {
+            margin: 0;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+        }
+
+        input {
+            padding-left: 10px;
+        }
+    }
+}
+
+.table-dark {
+    tbody {
+        button {
+            background-color: transparent;
+        }
+    }
+}
