@@ -38,7 +38,7 @@ function AddListing() {
           validationSchema={CreateSchema}
           onSubmit={(values, { resetForm }) => {
             let newProduct = {
-              image: values.img,
+              image: values.image,
               day: values.day,
               title: values.title,
               tripType: values.tripType,
@@ -47,6 +47,7 @@ function AddListing() {
               content: values.content,
               price: values.price
             }
+            
             axios.post("http://localhost:8080/blogs", newProduct)
               .then(res => {
                 if (res.status === 200) {
@@ -73,6 +74,7 @@ function AddListing() {
               })
           }}
         >
+
 
           {({ errors }) => (
             <Form>

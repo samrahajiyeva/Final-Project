@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import Loading from '../../../components/Site/Loading/Loading'
+import './Cart.scss'
+
 
 function Cart() {
   const [loading, setLoading] = useState(false)
@@ -20,6 +22,9 @@ function Cart() {
           <Helmet>
             <title>Cart</title>
           </Helmet>
+          <div className="detailshop">
+
+          </div>
         </div>
       }
     </>

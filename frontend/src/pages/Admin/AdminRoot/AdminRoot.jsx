@@ -29,7 +29,7 @@ function AdminRoot() {
   return (
     <>
     {
-      (jwt&&datas.isAdmin)&&<Sidebar/>
+      (jwt&&datas.isAdmin)?(<Sidebar/>):(<button onClick={()=>navigate("/")}>Go Home</button>)
     }
     </>
   )

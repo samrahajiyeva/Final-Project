@@ -98,7 +98,7 @@ function Home() {
                       </select>
                     </form>
 
-                    <button>Go To Explore</button>
+                    <Link to="listings">Go To Explore</Link>
                   </div>
                 </div>
 
@@ -276,7 +276,7 @@ function Home() {
                         </div>
                         <div className="popular__datas__card__img__wrapper">
                           <div className="popular__icon">
-                            <Link><GiLobArrow /></Link>
+                            <Link to={`/${item._id}`}><GiLobArrow /></Link>
                           </div>
                           <div className="popular__cost">
                             <em>from</em>
@@ -332,17 +332,14 @@ function Home() {
                 {
                   data && data.map((item, index) => {
                     return (
-                      <div className="bestSeller__datas__card">
+                      <div className="bestSeller__datas__card" key={index}>
                         <div className="bestSeller__datas__card__img">
                           <img src={`http://localhost:8080/public/${item.image}`} alt="img" />
                         </div>
                         <div className="bestSeller__datas__card__title">
                           <Link>{item.title}</Link>
                           <div className="bestSeller__title__spans">
-                            <span className="bestSeller__trip"> {item.tripType.split(' ')[0]} </span>
-                            <span className="bestSeller__trip"> {item.tripType.split(' ')[1]} </span>
-                            <span className="bestSeller__trip"> {item.tripType.split(' ')[2]} </span>
-                            <span className="bestSeller__trip"> {item.tripType.split(' ')[3]} </span>
+                            <span className="bestSeller__trip"> {item.tripType} </span>
                           </div>
                           <div className="bestSeller__activity">
                             <span className="bestSeller__icon"><GiWorld /> {item.place} Places</span>
@@ -351,7 +348,7 @@ function Home() {
                         </div>
                         <div className="bestSeller__datas__card__text">
                           <p>{item.content}</p>
-                          <Link className="bestSeller__explore">Explore</Link>
+                          <Link className="bestSeller__explore" to={`/${item._id}`}>Explore</Link>
                         </div>
                         <div className="bestSeller__datas__card__count">
                           <span>${item.price}</span>

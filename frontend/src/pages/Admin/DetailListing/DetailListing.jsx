@@ -11,7 +11,7 @@ function DetailListing() {
   let { productsId } = useParams()
   const getProductById = async () => {
     await axios.get(`http://localhost:8080/listing/${productsId}`)
-      .then(res => setdDetailProduct(res.data))
+      .then(res => console.log(res.data))
   }
   useEffect(() => {
     getProductById()

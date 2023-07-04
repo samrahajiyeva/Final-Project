@@ -33,6 +33,7 @@ import AddBlog from "../pages/Admin/AddBlog/AddBlog";
 import UpdateBlog from "../pages/Admin/UpdateBlog/UpdateBlog";
 import DetailUser from "../pages/Admin/DetailUser/DetailUser";
 import AdminData from "../pages/Admin/AdminData/AdminData";
+import ShopDetail from "../pages/Site/ShopDetail/ShopDetail";
 
 
 export const ROUTES = [
@@ -75,6 +76,14 @@ export const ROUTES = [
       {
         path: "cart",
         element: <Cart />
+      },
+      {
+        path: "/:id",
+        element: <ShopDetail />
+      },
+      {
+        path: "/:id",
+        element: <DetailListing />
       },
       {
         path: "login",

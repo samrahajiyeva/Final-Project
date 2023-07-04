@@ -16,7 +16,7 @@ const blogController = {
     add: async (req, res) => {
         const { filename } = req.body
         let newBlogs = new Blog({
-            image: req.file.filename,
+            image: req.body.image,
             title: req.body.title,
             date: req.body.date,
             content: req.body.content,

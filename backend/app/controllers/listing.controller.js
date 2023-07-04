@@ -14,9 +14,8 @@ const listingController = {
     },
 
     add: async (req, res) => {
-        const {filename}= req.body
         let newListing = new Listing({
-            image: req.file.filename,
+            image: req.body.image,
             day: req.body.day,
             title: req.body.title,
             tripType: req.body.tripType,

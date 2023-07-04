@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Sidebar.scss';
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { GrClose } from 'react-icons/gr'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { AiFillDashboard } from 'react-icons/ai'
 import { BsCardChecklist } from 'react-icons/bs'
 import { TbActivityHeartbeat } from 'react-icons/tb'
@@ -11,9 +11,19 @@ import { FaUser } from 'react-icons/fa'
 import img from '../../../images/pngwing.com.png'
 import { RiAdminFill } from 'react-icons/ri'
 import Content from '../Content/Content';
+import { useCookies } from 'react-cookie';
 
 function Sidebar() {
+  const [cookies, setCookie, removeCookie] = useCookies(["jwt"]);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const navigate = useNavigate()
+
+  const handleLogout = ()=>{
+    console.log(cookies);
+    removeCookie("jwt")
+    navigate('/login')
+    
+  }
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -71,6 +81,10 @@ function Sidebar() {
               <li className='adminpage'>
                 <RiAdminFill />
                 {isSidebarOpen && <Link to="admindata">Admin</Link>}
+              </li>
+              <li className='adminpage' onClick={handleLogout}>
+                <RiAdminFill />
+                {isSidebarOpen && <Link to="admindata">Logout</Link>}
               </li>
             </ul>
           </div>

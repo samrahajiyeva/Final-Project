@@ -6,9 +6,19 @@ import { Link } from 'react-router-dom'
 import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { GiWorld } from "react-icons/gi";
 import { MdLocalActivity } from "react-icons/md";
-import Accordion from "../../../components/Site/Accordion/Accordion"
 import Loading from '../../../components/Site/Loading/Loading'
 import axios from 'axios'
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { FaGlobeAfrica, FaGlobeAsia, FaGlobeEurope } from 'react-icons/fa';
+import { TbJumpRope } from 'react-icons/tb';
+import { FaCity, FaBiking } from 'react-icons/fa';
+import { GiHiking, GiHuntingHorn, GiDeer } from 'react-icons/gi';
+import { MdSailing, MdScubaDiving } from 'react-icons/md';
+import Range from '../../../components/Site/Range/Range';
 
 
 function Listings() {
@@ -27,6 +37,46 @@ function Listings() {
       setData(res.data)
     })
   }, [data])
+
+  const [regions, setRegions] = useState([
+    { icon: <FaGlobeAfrica className='f-acc-icon' />, text: 'Africa' },
+    { icon: <FaGlobeAsia className='f-acc-icon' />, text: 'Asia' },
+    { icon: <FaGlobeEurope className='f-acc-icon' />, text: 'Europe' },
+    { icon: <GiWorld className='f-acc-icon' />, text: 'World' },
+  ]);
+
+  const [activityThemes, setActivityThemes] = useState([
+    { icon: <TbJumpRope className='s-acc-icon' />, title: 'BUNGEE JUMP' },
+    { icon: <FaCity className='s-acc-icon' />, title: 'CITY TOURS' },
+    { icon: <GiHiking className='s-acc-icon' />, title: 'HIKING TRIPS' },
+    { icon: <GiHuntingHorn className='s-acc-icon' />, title: 'HUNTING TRIP' },
+    { icon: <FaBiking className='s-acc-icon' />, title: 'MOUNTAIN BIKING' },
+    { icon: <MdSailing className='s-acc-icon' />, title: 'SAILING TRIPS' },
+    { icon: <MdScubaDiving className='s-acc-icon' />, title: 'SCUBA DIVING' },
+    { icon: <GiDeer className='s-acc-icon' />, title: 'WILDLIFE SAFARI' },
+  ]);
+
+
+  const [selectedRegions, setSelectedRegions] = useState([]);
+  const [selectedActivityThemes, setSelectedActivityThemes] = useState([]);
+
+  const handleRegionClick = (text) => {
+    console.log(text);
+    // if (selectedRegions.includes(text)) {
+    //   setSelectedRegions(selectedRegions.filter((region) => region !== text));
+    // } else {
+    //   setSelectedRegions([...selectedRegions, text]);
+    // }
+  };
+
+  const handleActivityThemeClick = (title) => {
+    if (selectedActivityThemes.includes(title)) {
+      setSelectedActivityThemes(selectedActivityThemes.filter((theme) => theme !== title));
+    } else {
+      setSelectedActivityThemes([...selectedActivityThemes, title]);
+    }
+  };
+
 
   return (
     <>
@@ -55,7 +105,73 @@ function Listings() {
                   <FaSort /><h3>FILTER</h3>
                 </div>
                 <div className="list__sidebar__filter">
-                  <Accordion />
+                  <div>
+                    {/* first */}
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon className='f-icon' />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                      >
+                        <Typography className='f-title'><strong>Select Region</strong></Typography>
+                      </AccordionSummary>
+                      <AccordionDetails className='f-details'>
+                        <Typography className='f-detail'>
+                          <ul>
+                            {regions.map((region, index) => (
+                              <li key={index}>
+                                {region.icon}
+                                <Link className='f-acc-region' onClick={() => handleRegionClick(region.text)}>
+                                  {region.text}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </Typography>
+                      </AccordionDetails>
+                    </Accordion>
+
+                    {/* second */}
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon className='s-icon' />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                      >
+                        <Typography className='s-title'><strong>Activity Theme</strong></Typography>
+                      </AccordionSummary>
+                      <AccordionDetails className='s-details'>
+                        <Typography className='s-detail'>
+                          <ul>
+                            {activityThemes.map((theme, index) => (
+                              <Link key={index}>
+                                <li onClick={() => handleActivityThemeClick(theme.title)}>
+                                  {theme.icon}
+                                  <span className='icon-title'>{theme.title}</span>
+                                </li>
+                              </Link>
+                            ))}
+                          </ul>
+                        </Typography>
+                      </AccordionDetails>
+                    </Accordion>
+
+                    {/* third */}
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon className='t-icon' />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                      >
+                        <Typography className='t-title'><strong>Price Range</strong></Typography>
+                      </AccordionSummary>
+                      <AccordionDetails className='t-details'>
+                        <Typography className='t-detail'>
+                          <Range />
+                        </Typography>
+                      </AccordionDetails>
+                    </Accordion>
+                  </div>
                 </div>
               </div>
 
@@ -75,17 +191,14 @@ function Listings() {
                   {
                     data && data.map((item, index) => {
                       return (
-                        <div className="list__datas__elements__card">
+                        <div className="list__datas__elements__card" key={index}>
                           <div className="list__datas__elements__card__img">
                             <img src={`http://localhost:8080/public/${item.image}`} alt="img" />
                           </div>
                           <div className="list__datas__elements__card__title">
                             <Link>{item.title}</Link>
                             <div className="list__title__spans">
-                              <span className="bestSeller__trip"> {item.tripType.split(' ')[0]} </span>
-                              <span className="bestSeller__trip"> {item.tripType.split(' ')[1]} </span>
-                              <span className="bestSeller__trip"> {item.tripType.split(' ')[2]} </span>
-                              <span className="bestSeller__trip"> {item.tripType.split(' ')[3]} </span>
+                              <span className="bestSeller__trip"> {item.tripType} </span>
                             </div>
                             <div className="list__activity">
                               <span className="list__icon"><GiWorld /> {item.place} Places</span>
@@ -94,7 +207,7 @@ function Listings() {
                           </div>
                           <div className="list__datas__elements__card__text">
                             <p>{item.content}</p>
-                            <Link className='list__explore'>Explore</Link>
+                            <Link className='list__explore' to={`/${item._id}`}>Explore</Link>
                           </div>
                           <div className="list__datas__elements__card__count">
                             <span>${item.price}</span>
