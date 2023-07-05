@@ -125,3 +125,13 @@ module.exports.deleteUser = async (req, res) => {
         res.status(500).json({ error: "An error occurred while deleting the user" });
     }
 };
+
+module.exports.getAdminUsers = async (req, res) => {
+    try {
+        const adminUsers = await userModel.find({ isAdmin: true });
+        res.status(200).json(adminUsers);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: "An error occurred while retrieving admin users" });
+    }
+};

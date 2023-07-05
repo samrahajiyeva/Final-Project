@@ -20,7 +20,7 @@ function DetailActivity() {
         <div id='productdetails'>
             <div className="productdetailform">
                 <div className="product-image">
-                    <img src={detailproduct.image} alt="img" />
+                    <img src={`http://localhost:8080/public/${detailproduct.image}`} alt="img" />
                 </div>
                 <div className="product-infoo">
                     <div className="product-infoo-title">
@@ -33,11 +33,11 @@ function DetailActivity() {
                     </div>
                     <div className="product-infoo-title">
                         <h4>SEASON :</h4>
-                        <h6>{detailproduct.poster}</h6>
+                        <h6>{detailproduct.season}</h6>
                     </div>
                     <div className="product-infoo-title">
                         <h4>LOCATION :</h4>
-                        <h6>{detailproduct.comment}</h6>
+                        <h6>{detailproduct.location}</h6>
                     </div>
                     <div className="product-infoo-title infoo-content">
                         <h4>CONTENT :</h4>

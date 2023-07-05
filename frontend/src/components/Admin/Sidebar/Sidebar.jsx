@@ -19,11 +19,11 @@ function Sidebar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate()
 
-  const handleLogout = ()=>{
+  const handleLogout = () => {
     console.log(cookies);
     removeCookie("jwt")
     navigate('/login')
-    
+
   }
 
   const toggleSidebar = () => {
@@ -110,7 +110,7 @@ function Sidebar() {
 
 
           <div className="admin-img">
-            <img src="https://st3.depositphotos.com/4678277/31961/i/600/depositphotos_319611816-stock-photo-side-profile-photo-of-intelligent.jpg" alt="admin__img" />
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="admin__img" />
           </div>
         </header>
         <Content />

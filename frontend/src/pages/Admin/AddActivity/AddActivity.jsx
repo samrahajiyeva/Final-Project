@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './AddActivity.scss'
 import { Formik, Form, Field } from 'formik'
 import axios from 'axios'
@@ -8,14 +8,21 @@ import { message } from 'antd'
 
 
 function AddActivity() {
-  const CreateSchema = Yup.object().shape({
-    title: Yup.string().required("Title is required "),
-    day: Yup.number().required("Day is required"),
-    content: Yup.string().required("Content is required"),
-    image: Yup.string().required("Image url is required"),
-    season: Yup.string().required("Season is required"),
-    location: Yup.string().required("Location is required"),
-  });
+  const [selectedFile1, setSelectedFile1] = useState(null);
+
+  const handleImageUpload1 = (event) => {
+    const file = event.target.files[0];
+    setSelectedFile1(file);
+  };
+
+  // const CreateSchema = Yup.object().shape({
+  //   title: Yup.string().required("Title is required "),
+  //   day: Yup.number().required("Day is required"),
+  //   content: Yup.string().required("Content is required"),
+  //   image: Yup.string().required("Image url is required"),
+  //   season: Yup.string().required("Season is required"),
+  //   location: Yup.string().required("Location is required"),
+  // });
 
 
   const navigate = useNavigate()
@@ -31,17 +38,28 @@ function AddActivity() {
             season: "",
             location: ""
           }}
-          validationSchema={CreateSchema}
+          //validationSchema={CreateSchema}
           onSubmit={(values, { resetForm }) => {
             let newProduct = {
               title: values.title,
-              day: values.day,
+              day: parseInt(values.day),
               content: values.content,
-              image: values.image,
+              image: selectedFile1,
               season: values.season,
               location: values.location
             }
-            axios.post("http://localhost:8080/activity", newProduct)
+
+            const formData = new FormData();
+              formData.append("title", newProduct.title);
+              formData.append("day", newProduct.day);
+              formData.append("content", newProduct.content);
+              formData.append("image", selectedFile1);
+              formData.append("season", newProduct.season);
+              formData.append("location", newProduct.location);
+             
+
+
+            axios.post("http://localhost:8080/activity", formData)
               .then(res => {
                 if (res.status === 200) {
                   message.open({
@@ -68,7 +86,7 @@ function AddActivity() {
           }}
         >
 
-          {({ errors }) => (
+          {({ errors , handleChange }) => (
             <Form>
               <div className="firstline">
                 <label className='col-3'>
@@ -92,8 +110,8 @@ function AddActivity() {
               <div className="secondline">
                 <label className='col-3'>
                   <span>Image URL: <span style={{ color: "red" }}>*</span></span>
-                  <Field name="image" placeholder="URL..." />
-                  {errors.image ? <p style={{ color: "red" }}>{errors.image}</p> : null}
+                  <Field type="file" name="image" onChange={handleImageUpload1} />
+                  {/* {errors.image ? <p style={{ color: "red" }}>{errors.image}</p> : null} */}
                 </label>
                 <label className='col-3'>
                   <span>Season: <span style={{ color: "red" }}>*</span></span>
