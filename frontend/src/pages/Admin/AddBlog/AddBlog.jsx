@@ -34,7 +34,7 @@ function AddBlog() {
           validationSchema={CreateSchema}
           onSubmit={(values, { resetForm }) => {
             let newProduct = {
-              image: values.img,
+              image: values.image,
               title: values.title,
               date: values.date,
               content: values.content,
@@ -71,17 +71,17 @@ function AddBlog() {
           {({ errors }) => (
             <Form>
               <div className="firstline">
-                <label>
+                <label className='col-3'>
                   <span>Image URL: <span style={{ color: "red" }}>*</span></span>
                   <Field name="image" placeholder="URL..." />
                   {errors.image ? <p style={{ color: "red" }}>{errors.image}</p> : null}
                 </label>
-                <label>
+                <label className='col-3'>
                   <span>Title: <span style={{ color: "red" }}>*</span></span>
                   <Field name="title" placeholder="TITLE..." />
                   {errors.title ? <p style={{ color: "red" }}>{errors.title}</p> : null}
                 </label>
-                <label>
+                <label className='col-3'>
                   <span>Date: <span style={{ color: "red" }}>*</span></span>
 
                   <Field name="date" placeholder="DATE..." />
@@ -90,17 +90,17 @@ function AddBlog() {
                 </label>
               </div>
               <div className="secondline">
-                <label>
+                <label className='col-3'>
                   <span>Content: <span style={{ color: "red" }}>*</span></span>
                   <Field name="content" placeholder="CONTENT..." />
                   {errors.content ? <p style={{ color: "red" }}>{errors.content}</p> : null}
                 </label>
-                <label>
+                <label className='col-3'>
                   <span>Poster: <span style={{ color: "red" }}>*</span></span>
                   <Field name="poster" placeholder="POSTER..." />
                   {errors.poster ? <p style={{ color: "red" }}>{errors.poster}</p> : null}
                 </label>
-                <label>
+                <label className='col-3'>
                   <span>Comment: <span style={{ color: "red" }}>*</span></span>
                   <Field name="comment" placeholder="COMMENT..." />
                   {errors.comment ? <p style={{ color: "red" }}>{errors.comment}</p> : null}

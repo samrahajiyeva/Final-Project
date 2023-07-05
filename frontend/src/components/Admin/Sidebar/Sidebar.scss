@@ -9,7 +9,7 @@
     background: rgb(37, 37, 37);
     background: linear-gradient(90deg, rgba(37, 37, 37, 1) 0%, rgba(105, 105, 88, 1) 25%, rgba(71, 77, 72, 1) 92%);
     transition: all 0.5s ease-in-out;
-
+    
 
     .logo-div {
         width: 100%;
@@ -24,7 +24,7 @@
 
     .admin-items {
         width: 100%;
-        padding-top: 55px;
+        padding-top: 25px;
         padding-left: 25px;
         display: flex;
         flex-direction: column;
@@ -91,6 +91,7 @@ header {
     align-items: center;
     height: 80px;
     padding: 0px 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 header .toggle-btn {

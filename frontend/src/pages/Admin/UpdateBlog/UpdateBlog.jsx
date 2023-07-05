@@ -45,7 +45,7 @@ function UpdateBlog() {
             date: "",
             content: "",
             poster: "",
-            comment: ""
+            comment: 0
           }}
 
           onSubmit={(values) => {
@@ -55,7 +55,7 @@ function UpdateBlog() {
               date: datee,
               content: contentt,
               poster: posterr,
-              comment: 0
+              comment: commentt
             }
 
             axios.put(`http://localhost:8080/blogs/${id}`, UpdateProduct)
@@ -78,36 +78,36 @@ function UpdateBlog() {
           {({ errors }) => (
             <Form>
               <div className="firstline">
-                <label>
+                <label className='col-3'>
                   <span>Image URL: <span style={{ color: "red" }}>*</span></span>
                   <Field name="image" placeholder="URL..." value={imagee} onChange={(e) => setImage(e.target.value)} />
-                  {errors.image ? <p style={{ color: "red" }}>{errors.imagee}</p> : null}
+                  {errors.image ? <p style={{ color: "red" }}>{errors.image}</p> : null}
                 </label>
-                <label>
+                <label className='col-3'>
                   <span>Title: <span style={{ color: "red" }}>*</span></span>
                   <Field name="title" placeholder="TITLE..." value={titlee} onChange={(e) => setTitle(e.target.value)} />
                   {errors.title ? <p style={{ color: "red" }}>{errors.title}</p> : null}
                 </label>
-                <label>
+                <label className='col-3'>
                   <span>Date: <span style={{ color: "red" }}>*</span></span>
-                  <Field name="date" placeholder="DATE..." value={datee} onChange={(e) => setTitle(e.target.value)} />
+                  <Field name="date" placeholder="DATE..." value={datee} onChange={(e) => setDate(e.target.value)} />
                   {errors.date ? <p style={{ color: "red" }}>{errors.date}</p> : null}
                 </label>
               </div>
               <div className="secondline">
-                <label>
+                <label className='col-3'>
                   <span>Content: <span style={{ color: "red" }}>*</span></span>
-                  <Field name="content" placeholder="CONTENT..." value={contentt} onChange={(e) => setTitle(e.target.value)} />
+                  <Field name="content" placeholder="CONTENT..." value={contentt} onChange={(e) => setContent(e.target.value)} />
                   {errors.content ? <p style={{ color: "red" }}>{errors.content}</p> : null}
                 </label>
-                <label>
+                <label className='col-3'>
                   <span>Poster: <span style={{ color: "red" }}>*</span></span>
-                  <Field name="poster" placeholder="POSTER..." value={posterr} onChange={(e) => setTitle(e.target.value)} />
+                  <Field name="poster" placeholder="POSTER..." value={posterr} onChange={(e) => setPoster(e.target.value)} />
                   {errors.poster ? <p style={{ color: "red" }}>{errors.poster}</p> : null}
                 </label>
-                <label>
-                  <span>: <span style={{ color: "red" }}>*</span></span>
-                  <Field name="comment" placeholder="COMMENT..." value={commentt} onChange={(e) => setTitle(e.target.value)} />
+                <label className='col-3'>
+                  <span>Comment: <span style={{ color: "red" }}>*</span></span>
+                  <Field name="comment" placeholder="COMMENT..." value={commentt} onChange={(e) => setComment(e.target.value)} />
                   {errors.comment ? <p style={{ color: "red" }}>{errors.comment}</p> : null}
                 </label>
               </div>

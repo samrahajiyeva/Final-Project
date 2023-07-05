@@ -3,6 +3,7 @@ import './Content.scss'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
+import { Helmet } from 'react-helmet'
 
 function Content() {
   const [datas, setdata] = useState({})
@@ -28,6 +29,9 @@ function Content() {
   }, [cookies, removeCookie, navigate]);
   return (
     <div>
+      <Helmet>
+        <title>Admin Panel</title>
+      </Helmet>
       {
         (jwt&&datas.isAdmin)&&<div className="coontent" >
         <Outlet />

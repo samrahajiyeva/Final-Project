@@ -11,14 +11,14 @@
     background: rgb(37, 37, 37);
     background: linear-gradient(90deg, rgba(37, 37, 37, 1) 0%, rgba(105, 105, 88, 1) 25%, rgba(71, 77, 72, 1) 92%);
     display: flex;
-    width: 90%;
+    width: 85%;
     align-items: stretch;
     justify-content: space-between;
     border-radius: 20px;
-    padding: 4%;
+    padding: 3% !important;
     gap: 20px;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-}
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset !important;
+} 
 
 #productdetails .productdetailform .product-image {
     width: 40%;

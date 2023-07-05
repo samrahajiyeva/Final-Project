@@ -48,7 +48,7 @@ function AddListing() {
               price: values.price
             }
             
-            axios.post("http://localhost:8080/blogs", newProduct)
+            axios.post("http://localhost:8080/listing", newProduct)
               .then(res => {
                 if (res.status === 200) {
                   message.open({
@@ -78,47 +78,47 @@ function AddListing() {
 
           {({ errors }) => (
             <Form>
-              <div className="firstline">
-                <label>
+              <div className="listing-firstline">
+                <label className='col-3'>
                   <span>Image URL: <span style={{ color: "red" }}>*</span></span>
                   <Field name="image" placeholder="URL..." />
                   {errors.image ? <p style={{ color: "red" }}>{errors.image}</p> : null}
                 </label>
-                <label>
+                <label className='col-3'>
                   <span>Day: <span style={{ color: "red" }}>*</span></span>
                   <Field name="day" placeholder="DAY..." />
                   {errors.day ? <p style={{ color: "red" }}>{errors.day}</p> : null}
                 </label>
-                <label>
+                <label className='col-3'>
                   <span>Title: <span style={{ color: "red" }}>*</span></span>
                   <Field name="title" placeholder="TITLE..." />
                   {errors.title ? <p style={{ color: "red" }}>{errors.title}</p> : null}
                 </label>
               </div>
-              <div className="secondline">
-                <label>
+              <div className="listing-secondline">
+                <label className='col-3'>
                   <span>Trip Type: <span style={{ color: "red" }}>*</span></span>
                   <Field name="tripType" placeholder="TRIP TYPE..." />
                   {errors.tripType ? <p style={{ color: "red" }}>{errors.tripType}</p> : null}
                 </label>
-                <label>
+                <label className='col-3'>
                   <span>Place: <span style={{ color: "red" }}>*</span></span>
                   <Field name="place" placeholder="PLACE..." />
                   {errors.place ? <p style={{ color: "red" }}>{errors.place}</p> : null}
                 </label>
-                <label>
+                <label className='col-3'>
                   <span>Activity: <span style={{ color: "red" }}>*</span></span>
                   <Field name="activity" placeholder="ACTIVITY..." />
                   {errors.activity ? <p style={{ color: "red" }}>{errors.activity}</p> : null}
                 </label>
               </div>
-              <div className="secondline">
-                <label>
+              <div className="listing-secondline">
+                <label className='col-3'>
                   <span>Content: <span style={{ color: "red" }}>*</span></span>
                   <Field name="content" placeholder="CONTENT..." />
                   {errors.content ? <p style={{ color: "red" }}>{errors.content}</p> : null}
                 </label>
-                <label>
+                <label className='col-3'>
                   <span>Price: <span style={{ color: "red" }}>*</span></span>
                   <Field name="price" placeholder="PRICE..." />
                   {errors.price ? <p style={{ color: "red" }}>{errors.price}</p> : null}

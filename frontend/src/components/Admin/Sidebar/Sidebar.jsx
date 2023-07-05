@@ -12,6 +12,7 @@ import img from '../../../images/pngwing.com.png'
 import { RiAdminFill } from 'react-icons/ri'
 import Content from '../Content/Content';
 import { useCookies } from 'react-cookie';
+import { LuLogOut } from 'react-icons/lu'
 
 function Sidebar() {
   const [cookies, setCookie, removeCookie] = useCookies(["jwt"]);
@@ -83,7 +84,7 @@ function Sidebar() {
                 {isSidebarOpen && <Link to="admindata">Admin</Link>}
               </li>
               <li className='adminpage' onClick={handleLogout}>
-                <RiAdminFill />
+                <LuLogOut />
                 {isSidebarOpen && <Link to="admindata">Logout</Link>}
               </li>
             </ul>

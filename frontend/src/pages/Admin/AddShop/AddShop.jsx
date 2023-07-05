@@ -64,23 +64,25 @@ function AddShop() {
 
           {({ errors }) => (
             <Form>
-              <div className="firstline">
-                <label>
+              <div className="shop-firstline">
+                <label className='col-5'>
                   <span>Image URL: <span style={{ color: "red" }}>*</span></span>
                   <Field name="image" placeholder="URL..." />
                   {errors.image ? <p style={{ color: "red" }}>{errors.image}</p> : null}
                 </label>
-                <label>
+                <label className='col-5'>
                   <span>Title: <span style={{ color: "red" }}>*</span></span>
                   <Field name="title" placeholder="TITLE..." />
                   {errors.title ? <p style={{ color: "red" }}>{errors.title}</p> : null}
                 </label>
-                <label>
+              </div>
+              <div className="shop-secondline">
+                <label className='col-5'>
                   <span>Content: <span style={{ color: "red" }}>*</span></span>
                   <Field name="content" placeholder="CONTENT..." />
                   {errors.content ? <p style={{ color: "red" }}>{errors.content}</p> : null}
                 </label>
-                <label>
+                <label className='col-5'>
                   <span>Price: <span style={{ color: "red" }}>*</span></span>
                   <Field name="price" placeholder="PRICE..." />
                   {errors.price ? <p style={{ color: "red" }}>{errors.price}</p> : null}

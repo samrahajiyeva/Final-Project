@@ -59,20 +59,20 @@ function ListingData() {
             {
               data.filter(x => x.tripType.toLowerCase().includes(search.toLowerCase())).map(item => (
                 <tr>
-                  <th scope="row">{item.title}</th>
+                  <td>{item.title}</td>
                   <td>{item.day}</td>
                   <td>{item.price}</td>
                   <td>{item.activity}</td>
                   <td>{item.tripType}</td>
                   <td>
                     <button onClick={() => handleDelete(item._id)}>
-                      <MdDelete />
+                      <MdDelete className='act-icon-delete'/>
                     </button>
                     <button onClick={() => handleUpdate(item._id)}>
-                      <MdEditSquare />
+                      <MdEditSquare className='act-icon-edit' />
                     </button>
-                    <button onClick={() => handleDetail(item._id)}>
-                      <BiDetail />
+                    <button  onClick={() => handleDetail(item._id)}>
+                      <BiDetail className='act-icon-detail'/>
                     </button>
                   </td>
                 </tr>
