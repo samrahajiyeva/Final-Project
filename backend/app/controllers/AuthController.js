@@ -102,4 +102,26 @@ module.exports.getMe=async (req, res) => {
 };
 
 
+module.exports.getAllUsers = async (req, res) => {
+    try {
+        const users = await userModel.find({});
+        res.status(200).json(users);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: "An error occurred while retrieving users" });
+    }
+};
 
+module.exports.deleteUser = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const deletedUser = await userModel.findByIdAndDelete(id);
+        if (!deletedUser) {
+            throw new Error("User not found");
+        }
+        res.status(200).json({ message: "User deleted successfully" });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: "An error occurred while deleting the user" });
+    }
+};
