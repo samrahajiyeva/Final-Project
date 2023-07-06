@@ -3,7 +3,6 @@ import './AddShop.scss'
 import { Formik, Form, Field } from 'formik'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import * as Yup from 'yup'
 import { message } from 'antd'
 
 
@@ -23,6 +22,7 @@ function AddShop() {
   };
 
   const navigate = useNavigate()
+  
   return (
     <div id='addnewproduct'>
       <div className="addnewproduct-form">

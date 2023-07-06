@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './AddListing.scss'
 import { Formik, Form, Field } from 'formik'
 import axios from 'axios'
@@ -8,16 +8,23 @@ import { message } from 'antd'
 
 
 function AddListing() {
-  const CreateSchema = Yup.object().shape({
-    image: Yup.string().required("Image url is required"),
-    day: Yup.number().required("Day is required "),
-    title: Yup.string().required("Title is required"),
-    tripType: Yup.string().required("Trip Type is required"),
-    place: Yup.number().required("Place is required"),
-    activity: Yup.number().required("Activity is required"),
-    content: Yup.string().required("Content is required!"),
-    price: Yup.number().required("Price is required!")
-  });
+  const [selectedFile1, setSelectedFile1] = useState(null);
+
+  const handleImageUpload1 = (event) => {
+    const file = event.target.files[0];
+    setSelectedFile1(file);
+  };
+
+  // const CreateSchema = Yup.object().shape({
+  //   image: Yup.string().required("Image url is required"),
+  //   day: Yup.number().required("Day is required "),
+  //   title: Yup.string().required("Title is required"),
+  //   tripType: Yup.string().required("Trip Type is required"),
+  //   place: Yup.number().required("Place is required"),
+  //   activity: Yup.number().required("Activity is required"),
+  //   content: Yup.string().required("Content is required!"),
+  //   price: Yup.number().required("Price is required!")
+  // });
 
 
   const navigate = useNavigate()
@@ -26,29 +33,44 @@ function AddListing() {
       <div className="addnewproduct-form">
         <Formik
           initialValues={{
-            image: "",
-            day: 0,
+            image: null,
+            day: Number,
             title: "",
             tripType: "",
-            place: 0,
-            activity: 0,
+            place: Number,
+            activity: Number,
             content: "",
-            price: 0
+            price: Number
           }}
-          validationSchema={CreateSchema}
+
+          // validationSchema={CreateSchema}
+
+
           onSubmit={(values, { resetForm }) => {
             let newProduct = {
-              image: values.image,
-              day: values.day,
+              image: selectedFile1,
+              day: Number(values.day),
               title: values.title,
               tripType: values.tripType,
-              place: values.place,
-              activity: values.activity,
+              place: Number(values.place),
+              activity: Number(values.activity),
               content: values.content,
-              price: values.price
+              price: Number(values.price)
             }
-            
-            axios.post("http://localhost:8080/listing", newProduct)
+
+            const formData = new FormData();
+            formData.append("image", selectedFile1);
+            formData.append("day", newProduct.day);
+            formData.append("title", newProduct.title);
+            formData.append("tripType", newProduct.tripType);
+            formData.append("place", newProduct.place);
+            formData.append("activity", newProduct.activity);
+            formData.append("content", newProduct.content);
+            formData.append("price", newProduct.price);
+           
+
+
+            axios.post("http://localhost:8080/listing", formData)
               .then(res => {
                 if (res.status === 200) {
                   message.open({
@@ -76,13 +98,13 @@ function AddListing() {
         >
 
 
-          {({ errors }) => (
+          {({ errors , handleChange }) => (
             <Form>
               <div className="listing-firstline">
                 <label className='col-3'>
                   <span>Image URL: <span style={{ color: "red" }}>*</span></span>
-                  <Field name="image" placeholder="URL..." />
-                  {errors.image ? <p style={{ color: "red" }}>{errors.image}</p> : null}
+                  <Field type="file" name="image" onChange={handleImageUpload1}/>
+                  {/* {errors.image ? <p style={{ color: "red" }}>{errors.image}</p> : null} */}
                 </label>
                 <label className='col-3'>
                   <span>Day: <span style={{ color: "red" }}>*</span></span>

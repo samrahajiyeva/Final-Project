@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './AddBlog.scss'
 import { Formik, Form, Field } from 'formik'
 import axios from 'axios'
@@ -8,40 +8,60 @@ import { message } from 'antd'
 
 
 function AddBlog() {
-  const CreateSchema = Yup.object().shape({
-    image: Yup.string().required("Image url is required"),
-    title: Yup.string().required("Title is required "),
-    date: Yup.string().required("Date is required"),
-    content: Yup.string().required("Content is required"),
-    poster: Yup.string().required("Poster is required"),
-    comment: Yup.number().required("Comment is required"),
-  });
+  const [selectedFile1, setSelectedFile1] = useState(null);
+
+  const handleImageUpload1 = (event) => {
+    const file = event.target.files[0];
+    setSelectedFile1(file);
+  };
+
+  // const CreateSchema = Yup.object().shape({
+  //   image: Yup.string().required("Image url is required"),
+  //   title: Yup.string().required("Title is required "),
+  //   date: Yup.string().required("Date is required"),
+  //   content: Yup.string().required("Content is required"),
+  //   poster: Yup.string().required("Poster is required"),
+  //   comment: Yup.number().required("Comment is required"),
+  // });
 
 
   const navigate = useNavigate()
+  
   return (
     <div id='addnewproduct'>
       <div className="addnewproduct-form">
         <Formik
           initialValues={{
-            image: "",
+            image: null,
             title: "",
             date: "",
             content: "",
             poster: "",
-            comment: 0
+            comment: Number
           }}
-          validationSchema={CreateSchema}
+          // validationSchema={CreateSchema}
+
           onSubmit={(values, { resetForm }) => {
             let newProduct = {
-              image: values.image,
+              image: selectedFile1,
               title: values.title,
               date: values.date,
               content: values.content,
               poster: values.poster,
-              comment: values.comment
+              comment: Number(values.comment),
             }
-            axios.post("http://localhost:8080/blogs", newProduct)
+
+            const formData = new FormData();
+            formData.append("image", selectedFile1);
+            formData.append("title", newProduct.title);
+            formData.append("date", newProduct.date);
+            formData.append("content", newProduct.content);
+            formData.append("poster", newProduct.poster);
+            formData.append("comment", newProduct.comment);
+           
+
+
+            axios.post("http://localhost:8080/blogs", formData)
               .then(res => {
                 if (res.status === 200) {
                   message.open({
@@ -64,6 +84,7 @@ function AddBlog() {
                   }
 
                 })
+                console.log(err);
               })
           }}
         >
@@ -73,8 +94,8 @@ function AddBlog() {
               <div className="firstline">
                 <label className='col-3'>
                   <span>Image URL: <span style={{ color: "red" }}>*</span></span>
-                  <Field name="image" placeholder="URL..." />
-                  {errors.image ? <p style={{ color: "red" }}>{errors.image}</p> : null}
+                  <Field type="file" name="image" onChange={handleImageUpload1} />
+                  {/* {errors.image ? <p style={{ color: "red" }}>{errors.image}</p> : null} */}
                 </label>
                 <label className='col-3'>
                   <span>Title: <span style={{ color: "red" }}>*</span></span>

@@ -7,7 +7,7 @@ import './DetailShop.scss'
 
 
 function DetailShop() {
-    const [detailproduct, setdDetailProduct] = useState("")
+    const [detailproduct, setdDetailProduct] = useState([])
     const { id } = useParams()
     const getProductById = async () => {
         await axios.get(`http://localhost:8080/shop/${id}`)

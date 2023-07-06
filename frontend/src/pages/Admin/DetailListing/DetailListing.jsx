@@ -6,55 +6,57 @@ import { HiOutlineX } from 'react-icons/hi'
 import './DetailListing.scss'
 
 
-function DetailListing() {
-  const [detailproduct, setdDetailProduct] = useState("")
-  let { productsId } = useParams()
-  const getProductById = async () => {
-    await axios.get(`http://localhost:8080/listing/${productsId}`)
-      .then(res => console.log(res.data))
-  }
-  useEffect(() => {
-    getProductById()
-  }, [])
-  return (
-    <div id='productdetails'>
-      <div className="productdetailform">
-        <div className="product-image">
-          <img src={detailproduct.image} alt="img" />
+function DetailShop() {
+    const [detailproduct, setdDetailProduct] = useState([])
+    const { id } = useParams()
+    const getProductById = async () => {
+        await axios.get(`http://localhost:8080/listing/${id}`)
+            .then(res => setdDetailProduct(res.data))
+    }
+    useEffect(() => {
+        getProductById()
+    }, [])
+
+    
+    return (
+        <div id='productdetails'>
+            <div className="productdetailform">
+                <div className="product-image">
+                    <img src={`http://localhost:8080/public/${detailproduct.image}`} alt="img" />
+                </div>
+                <div className="product-infoo">
+                    <div className="product-infoo-title">
+                        <h4>DAY :</h4>
+                        <h6>{detailproduct.day}</h6>
+                    </div>
+                    <div className="product-infoo-title">
+                        <h4>TITLE :</h4>
+                        <h6>{detailproduct.title}</h6>
+                    </div>
+                    <div className="product-infoo-title">
+                        <h4>TRIP TYPE :</h4>
+                        <h6>{detailproduct.tripType}</h6>
+                    </div>
+                    <div className="product-infoo-title">
+                        <h4>PLACE :</h4>
+                        <h6>{detailproduct.place}</h6>
+                    </div>
+                    <div className="product-infoo-title">
+                        <h4>ACTIVITY :</h4>
+                        <h6>{detailproduct.activity}</h6>
+                    </div>
+                    <div className="product-infoo-title">
+                        <h4>PRICE :</h4>
+                        <h6>{detailproduct.price}</h6>
+                    </div>
+                    <div className="product-infoo-title infoo-content">
+                        <h4>CONTENT :</h4>
+                        <h6 className='infoo-content-title'>{detailproduct.content}</h6>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div className="product-infoo">
-          <div className="product-infoo-title">
-            <h4>DAY :</h4>
-            <h6>{detailproduct.day}</h6>
-          </div>
-          <div className="product-infoo-title">
-            <h4>Title :</h4>
-            <h6>{detailproduct.title}</h6>
-          </div>
-          <div className="product-infoo-title">
-            <h4>Trip Type :</h4>
-            <h6>{detailproduct.tripType}</h6>
-          </div>
-          <div className="product-infoo-title">
-            <h4>Place :</h4>
-            <h6>{detailproduct.place}</h6>
-          </div>
-          <div className="product-infoo-title">
-            <h4>Activity :</h4>
-            <h6>{detailproduct.activity}</h6>
-          </div>
-          <div className="product-infoo-title">
-            <h4>Price :</h4>
-            <h6>{detailproduct.price}</h6>
-          </div>
-          <div className="product-infoo-title">
-            <h4>Content :</h4>
-            <h6>{detailproduct.content}</h6>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
+    )
 }
 
-export default DetailListing
+export default DetailShop

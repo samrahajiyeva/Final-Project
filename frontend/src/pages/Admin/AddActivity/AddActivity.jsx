@@ -32,9 +32,9 @@ function AddActivity() {
         <Formik
           initialValues={{
             title: "",
-            day: 0,
+            day: Number,
             content: "",
-            image: "",
+            image: null,
             season: "",
             location: ""
           }}
@@ -42,7 +42,7 @@ function AddActivity() {
           onSubmit={(values, { resetForm }) => {
             let newProduct = {
               title: values.title,
-              day: parseInt(values.day),
+              day: Number(values.day),
               content: values.content,
               image: selectedFile1,
               season: values.season,
