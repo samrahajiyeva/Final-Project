@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './AddShop.scss'
 import { Formik, Form, Field } from 'formik'
 import axios from 'axios'
@@ -8,13 +8,19 @@ import { message } from 'antd'
 
 
 function AddShop() {
-  const CreateSchema = Yup.object().shape({
-    image: Yup.string().required("Image url is required"),
-    title: Yup.string().required("Title is required"),
-    content: Yup.string().required("Content is required!"),
-    price: Yup.number().required("Price is required!")
-  });
+  const [selectedFile1, setSelectedFile1] = useState(null);
 
+  // const CreateSchema = Yup.object().shape({
+  //   image: Yup.string().required("Image url is required"),
+  //   title: Yup.string().required("Title is required"),
+  //   content: Yup.string().required("Content is required!"),
+  //   price: Yup.number().required("Price is required!")
+  // });
+
+  const handleImageUpload1 = (event) => {
+    const file = event.target.files[0];
+    setSelectedFile1(file);
+  };
 
   const navigate = useNavigate()
   return (
@@ -22,20 +28,30 @@ function AddShop() {
       <div className="addnewproduct-form">
         <Formik
           initialValues={{
-            image: "",
+            image: null,
             title: "",
             content: "",
-            price: 0
+            price: Number
           }}
-          validationSchema={CreateSchema}
+
+          // validationSchema={CreateSchema}
           onSubmit={(values, { resetForm }) => {
             let newProduct = {
-              image: values.img,
+              image: selectedFile1,
               title: values.title,
               content: values.content,
-              price: values.price
+              price: Number(values.price),
             }
-            axios.post("http://localhost:8080/shop", newProduct)
+
+            const formData = new FormData();
+            formData.append("image", selectedFile1);
+            formData.append("title", newProduct.title);
+            formData.append("content", newProduct.content);
+            formData.append("price", newProduct.price);
+            console.log(selectedFile1);
+
+
+            axios.post("http://localhost:8080/shop", formData)
               .then(res => {
                 if (res.status === 200) {
                   message.open({
@@ -62,13 +78,13 @@ function AddShop() {
           }}
         >
 
-          {({ errors }) => (
+          {({ errors , handleChange }) => (
             <Form>
               <div className="shop-firstline">
                 <label className='col-5'>
                   <span>Image URL: <span style={{ color: "red" }}>*</span></span>
-                  <Field name="image" placeholder="URL..." />
-                  {errors.image ? <p style={{ color: "red" }}>{errors.image}</p> : null}
+                  <Field type="file" name="image" onChange={handleImageUpload1} />
+                  {/* {errors.image ? <p style={{ color: "red" }}>{errors.image}</p> : null} */}
                 </label>
                 <label className='col-5'>
                   <span>Title: <span style={{ color: "red" }}>*</span></span>

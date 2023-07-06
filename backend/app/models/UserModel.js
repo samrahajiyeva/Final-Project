@@ -18,12 +18,24 @@ const userSchema = new mongoose.Schema(
         },
         isAdmin: {
             type: Boolean,
-            default:false
+            default: false
         },
-        image:{
-            type:String,
-            default:"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-        }
+        image: {
+            type: String,
+            default: "https://www.dailywisely.com/wp-content/uploads/2022/05/What-type-of-Traveler-are-you-and-where-do-you-love-to-travel.jpg"
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now
+        },
+        lastLoggedIn: {
+            type: Date,
+            default: null
+        },
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+        },
     },
     { timestamps: true }
 );

@@ -64,7 +64,7 @@ function Register() {
                   ({ values, handleSubmit, handleChange, handleBlur , dirty, touched, errors }) => (
                     <form onSubmit={handleSubmit}>
                       <div className="userprofile">
-                        <FaUserAlt className='user' />
+                        <FaUserAlt className='user-icn' />
                       </div>
                       <input type="text" placeholder='Username' id='username' value={values.username} onChange={handleChange} onBlur={handleBlur}/>
 

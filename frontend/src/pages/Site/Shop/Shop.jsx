@@ -59,7 +59,7 @@ function Shop() {
                                             </div>
                                             <div className="shop-sec__2__card__text">
                                                 <p>{item.content}</p>
-                                                <Link className="shop__explore">Explore</Link>
+                                                <Link className="shop__explore">Buy</Link>
                                             </div>
                                             <div className="shop-sec__2__card__count">
                                                 <span>${item.price}</span>

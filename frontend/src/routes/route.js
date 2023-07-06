@@ -196,7 +196,7 @@ export const ROUTES = [
           }
           ,
           {
-            path: "user/:id",
+            path: "users/:id",
             element: <DetailUser />
           }
           ,

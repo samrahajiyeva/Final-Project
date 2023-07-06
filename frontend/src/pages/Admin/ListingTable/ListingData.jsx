@@ -57,7 +57,7 @@ function ListingData() {
           </thead>
           <tbody>
             {
-              data.filter(x => x.tripType.toLowerCase().includes(search.toLowerCase())).map(item => (
+              data.filter(x => x.title.toLowerCase().includes(search.toLowerCase())).map(item => (
                 <tr>
                   <td>{item.title}</td>
                   <td>{item.day}</td>

@@ -16,11 +16,13 @@ function DetailShop() {
     useEffect(() => {
         getProductById()
     }, [])
+
+    
     return (
         <div id='productdetails'>
             <div className="productdetailform">
                 <div className="product-image">
-                    <img src={detailproduct.image} alt="img" />
+                    <img src={`http://localhost:8080/public/${detailproduct.image}`} alt="img" />
                 </div>
                 <div className="product-infoo">
                     <div className="product-infoo-title">

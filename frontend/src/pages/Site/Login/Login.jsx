@@ -59,7 +59,7 @@ function Login() {
                       navigate('/admin')
                     }
                     else{
-                      navigate('/')
+                      navigate('/user')
                     }
                   })
                   resetForm()
@@ -69,7 +69,7 @@ function Login() {
                   ({ values, handleSubmit, handleChange, handleBlur, dirty, touched, errors }) => (
                     <form onSubmit={handleSubmit}>
                       <div className="userprofile">
-                        <FaUserAlt className='user' />
+                        <FaUserAlt className='user-icn' />
                       </div>
                       <input type="email" placeholder='Email' id='email' value={values.email} onChange={handleChange} onBlur={handleBlur} />
                       {touched.email && errors.email && (
