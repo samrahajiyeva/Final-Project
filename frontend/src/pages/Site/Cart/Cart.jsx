@@ -39,13 +39,15 @@ function Cart() {
     dispatch(addToCart({ id: item.id, count: item.count + 1 }));
   };
 
-  const handleDecrement = (item) => {
-    if (item.count === 1) {
-      dispatch(removeFromCart(item.id));
-    } else {
-      dispatch(addToCart({ id: item.id, count: item.count - 1 }));
-    }
-  };
+  
+  // const handleDecrement = (item) => {
+  //   if (item.count === 1) {
+  //     dispatch(removeFromCart(item.id));
+  //   } else {
+  //     dispatch(addToCart({ id: item.id, count: item.count - 1 }));
+  //   }
+  // };
+  
 
   return (
     <>
@@ -121,7 +123,9 @@ function Cart() {
                           <div className="count">
                             <button
                               className="counter-btn"
-                              onClick={() => handleDecrement(item)}
+                              onClick={() => {
+                                dispatch(removeFromCart(item.id));
+                              }}
                             >
                               <FaMinus />
                             </button>
