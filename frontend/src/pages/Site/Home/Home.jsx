@@ -383,7 +383,7 @@ function Home() {
               <div className="guides__cards">
                 <div className="guides__cards__card">
                   <div className="guide__img">
-                    <img src="	https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/05/guide-03.jpg" alt="img" />
+                    <img src="https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/05/guide-03.jpg" alt="img" />
                   </div>
                   <div className="guides__cards__card__wrapper">
                     <div className="guides__cards__card__wrapper__icon">

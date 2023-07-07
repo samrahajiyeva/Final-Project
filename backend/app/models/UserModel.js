@@ -28,10 +28,6 @@ const userSchema = new mongoose.Schema(
             type: Date,
             default: Date.now
         },
-        lastLoggedIn: {
-            type: Date,
-            default: null
-        },
         id: {
             type: mongoose.Schema.Types.ObjectId,
             required: true,

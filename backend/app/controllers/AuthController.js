@@ -84,7 +84,7 @@ module.exports.login = async (req, res) => {
 
         // Update the lastLoggedIn field
         user.lastLoggedIn = new Date();
-        await user.save();
+        // await user.save();
 
         const token = createToken(user._id);
 
@@ -101,10 +101,9 @@ module.exports.login = async (req, res) => {
 };
 
 module.exports.getMe = async (req, res) => {
-    const user = await req.user;
-    // Use the user object as needed
-    res.json({ user });
-};
+    const user = req.user;
+    res.send(user)
+}
 
 
 module.exports.getAllUsers = async (req, res) => {
@@ -141,26 +140,6 @@ module.exports.getAdminUsers = async (req, res) => {
         res.status(500).json({ error: "An error occurred while retrieving admin users" });
     }
 };
-
-module.exports.getLastRegisteredUser = async (req, res) => {
-    try {
-        const lastRegisteredUser = await userModel.findOne({}, {}, { sort: { createdAt: -1 } });
-        res.status(200).json(lastRegisteredUser);
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({ error: "An error occurred while retrieving the last registered user" });
-    }
-};
-
-module.exports.getLastLoggedInUser = async (req, res) => {
-    try {
-      const lastLoggedInUser = await userModel.findOne({}, {}, { sort: { lastLoggedIn: -1 } });
-      res.status(200).json(lastLoggedInUser);
-    } catch (err) {
-      console.log(err);
-      res.status(500).json({ error: "An error occurred while retrieving the last logged-in user" });
-    }
-  };
   
 
   module.exports.getUserById = async (req, res) => {

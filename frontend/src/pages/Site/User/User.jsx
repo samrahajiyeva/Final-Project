@@ -26,9 +26,10 @@ function User() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/auth/last-logged-in-user')
+      .get('http://localhost:8080/auth/getMe')
       .then((res) => {
-        setUserData(res.data);
+        setUserData(res.data)
+        console.log(res.data)
       })
       .catch((error) => {
         console.log(error);
@@ -77,7 +78,7 @@ function User() {
 
                 </ul>
                 <div className="bottom-user-acc">
-                  <span>© Copyright entrada</span>
+                  <span>©Copyright 2023 - Entrada</span>
                 </div>
               </div>
 
