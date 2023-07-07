@@ -5,10 +5,16 @@ import { Link } from "react-router-dom";
 import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { Helmet } from 'react-helmet'
 import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../../../redux/ShoppingSlice/ShoppingSlice';
+import { Toaster , toast } from 'react-hot-toast';
+
 
 function Shop() {
     const [loading, setLoading] = useState(false)
     const [data, setData] = useState([])
+    const items = useSelector(state => state.shoppingcart.items)
+    const dispatch = useDispatch()
 
     useEffect(() => {
         setLoading(true)
@@ -59,7 +65,10 @@ function Shop() {
                                             </div>
                                             <div className="shop-sec__2__card__text">
                                                 <p>{item.content}</p>
-                                                <Link className="shop__explore">Buy</Link>
+                                                <button className='btn' onClick={() => {
+                                                    dispatch(addToCart({ id: item._id, image: item.image ,  title: item.title, price: item.price }))
+                                                    toast.success("Added to Cart")
+                                                }}>Add to Basket</button>
                                             </div>
                                             <div className="shop-sec__2__card__count">
                                                 <span>${item.price}</span>
@@ -75,6 +84,7 @@ function Shop() {
                         </div>
                     </div>
             }
+            <Toaster />
         </>
     )
 }

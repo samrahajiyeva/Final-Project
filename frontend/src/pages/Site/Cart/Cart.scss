@@ -134,6 +134,7 @@
         font-size: 22px;
         font-weight: bolder;
         letter-spacing: 1px;
+        padding-bottom: 10px;
     }
 
     table {
@@ -150,7 +151,7 @@
         }
 
         thead th {
-            padding: 10px 0;
+            padding: 6px 0;
             font-size: 20px;
             letter-spacing: 2px;
         }
@@ -209,4 +210,19 @@ tbody tr td {
 
 .counter-btn {
     background-color: rgba(0, 0, 0, 0.418);
+}
+
+.no-items {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 20px;
+    border-bottom: 3px solid #b0a377;
+    margin-bottom: 40px;
+
+    em {
+        font-size: 18px;
+        font-weight: bold;
+        color: #5c5e62;
+    }
 }

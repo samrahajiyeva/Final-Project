@@ -3,7 +3,7 @@ import './ShopDetail.scss'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
-import toast, { Toaster } from 'react-hot-toast';
+import { toast , Toaster } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart } from '../../../redux/ShoppingSlice/ShoppingSlice'
 

@@ -125,16 +125,21 @@
             font-size: 14px;
           }
   
-          a {
-            @include center;
+          button {
+            border: none;
             text-decoration: none;
             background-color: #6b6957;
             width: 150px;
-            height: 27.6px;
             font-size: 16px;
             font-weight: 700;
             color: white;
             border-radius: 3px;
+
+            &:hover {
+              background-color: #5c5e62 !important;
+              transition: 0.3s;
+              color: white !important;
+            }
           }
         }
   
