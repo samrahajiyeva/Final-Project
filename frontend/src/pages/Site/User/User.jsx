@@ -70,7 +70,7 @@ function User() {
                     <MdAttachEmail /><Link to="mailto:email@example.com">Email</Link>
                   </li>
                   <li>
-                    <BsFillTelephoneFill /><Link to="https://www.facebook.com/">Contact</Link>
+                    <BsFillTelephoneFill /><Link to="tel: +123456789">Contact</Link>
                   </li>
 
                 </ul>

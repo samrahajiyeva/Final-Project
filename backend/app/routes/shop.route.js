@@ -22,15 +22,21 @@ router.route('/:id').get(shopController.getById)
 //Add
 router.post(
     '/',
-    upload.single('image'),
+    upload.fields([
+        { name: 'image', maxCount: 1 },
+      ]),
     shopController.add,
 )
+
 //edit
 router.put(
     '/:id',
-    upload.single('image'),
+    upload.fields([
+        { name: 'image', maxCount: 1 },
+      ]),
     shopController.edit,
 )
+
 //delete
 router.route('/:id').delete(shopController.delete)
 module.exports = router

@@ -22,17 +22,20 @@ router.route('/:id').get(blogController.getById)
 //Add
 router.post(
     '/',
-    upload.single('image'),
+    upload.fields([
+        { name: 'image', maxCount: 1 },
+      ]),
     blogController.add,
 )
 
 //edit
 router.put(
     '/:id',
-    upload.single('image'),
+    upload.fields([
+        { name: 'image', maxCount: 1 },
+      ]),
     blogController.edit,
 )
-
 //delete
 router.route('/:id').delete(blogController.delete)
 module.exports = router

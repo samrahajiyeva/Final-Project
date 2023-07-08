@@ -22,14 +22,18 @@ router.route('/:id').get(listingController.getById)
 //Add
 router.post(
     '/',
-    upload.single('image'),
+    upload.fields([
+        { name: 'image', maxCount: 1 },
+      ]),
     listingController.add,
 )
 
 //edit
 router.put(
     '/:id',
-    upload.single('image'),
+    upload.fields([
+        { name: 'image', maxCount: 1 },
+      ]),
     listingController.edit,
 )
 

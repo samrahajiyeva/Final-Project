@@ -22,14 +22,18 @@ router.route('/:id').get(activityController.getById)
 //Add
 router.post(
     '/',
-    upload.single('image'),
+    upload.fields([
+        { name: 'image', maxCount: 1 },
+      ]),
     activityController.add,
 )
 
 //edit
 router.put(
     '/:id',
-    upload.single('image'),
+    upload.fields([
+        { name: 'image', maxCount: 1 },
+      ]),
     activityController.edit,
 )
 
