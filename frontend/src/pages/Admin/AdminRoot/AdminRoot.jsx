@@ -20,7 +20,7 @@ function AdminRoot() {
           {
             withCredentials: true,
           }
-        ).then(res=>setdata(res.data.data))
+        ).then(res=>setdata(res.data))
       }
     };
 

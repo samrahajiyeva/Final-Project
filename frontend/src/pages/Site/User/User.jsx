@@ -11,30 +11,27 @@ import { RiPagesLine } from 'react-icons/ri'
 import { MdAttachEmail } from 'react-icons/md'
 
 function User() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
     window.scrollTo({ top: 0 });
-    setTimeout(() => {
-      setLoading(false);
-    }, 1500);
+    fetchUserData();
   }, []);
 
-
-
-  useEffect(() => {
+  const fetchUserData = () => {
     axios
-      .get('http://localhost:8080/auth/getMe')
+      .get('http://localhost:8080/auth/getMe' , {withCredentials: true})
       .then((res) => {
-        setUserData(res.data)
-        console.log(res.data)
+        setUserData(res.data);
       })
       .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
-  }, []);
+  };
 
   return (
     <>
