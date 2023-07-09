@@ -44,7 +44,7 @@ function Activities() {
             </div>
 
             {/* section 2 */}
-            <div className="section2">
+            {/* <div className="section2">
               <div className="section2__text">
                 <h2>Top Hunting Trips of 2023</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -53,10 +53,10 @@ function Activities() {
                   nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
                   reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
               </div>
-            </div>
+            </div> */}
 
             {/* card */}
-            <div className="card">
+            {/* <div className="card">
               <div className="card__img">
                 <img src="https://themes.waituk.com/entrada-default/wp-content/uploads/sites/3/2016/06/hunting-landing.png" alt="img" />
               </div>
@@ -66,7 +66,7 @@ function Activities() {
                 <strong>Location:</strong>
                 <span>ALL WORLD</span>
               </div>
-            </div>
+            </div> */}
 
             <div className="section3">
               {

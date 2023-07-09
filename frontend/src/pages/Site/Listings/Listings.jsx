@@ -28,6 +28,7 @@ function Listings() {
   const [sortOption, setSortOption] = useState('');
   const [priceRange, setPriceRange] = useState([0, 10000]);
   const [showMore, setShowMore] = useState(false); // State for "Load More" functionality
+  const [loadingMore, setLoadingMore] = useState(false); // State for "Load More" button loading
 
   useEffect(() => {
     setLoading(true);
@@ -110,7 +111,7 @@ function Listings() {
     { icon: <TbJumpRope className="s-acc-icon" />, title: 'BUNGEE JUMP' },
     { icon: <FaCity className="s-acc-icon" />, title: 'CITY TOURS' },
     { icon: <GiHiking className="s-acc-icon" />, title: 'HIKING TRIPS' },
-    { icon: <GiHuntingHorn className="s-acc-icon" />, title: 'HUNTINGTRIP' },
+    { icon: <GiHuntingHorn className="s-acc-icon" />, title: 'HUNTING TRIP' },
     { icon: <FaBiking className="s-acc-icon" />, title: 'MOUNTAIN BIKING' },
     { icon: <MdSailing className="s-acc-icon" />, title: 'SAILING TRIPS' },
     { icon: <MdScubaDiving className="s-acc-icon" />, title: 'SCUBA DIVING' },
@@ -126,7 +127,11 @@ function Listings() {
   };
 
   const handleLoadMore = () => {
-    setShowMore(true);
+    setLoadingMore(true);
+    setTimeout(() => {
+      setShowMore(true);
+      setLoadingMore(false);
+    }, 1500);
   };
 
   return (
@@ -285,11 +290,15 @@ function Listings() {
                 ))}
               </div>
 
-              {/* Render "Load More" button if the number of elements is greater than the initial number */}
+              {/* Load More */}
               {data.length > 9 && !showMore && (
                 <div className="list__load-more">
-                  <button onClick={handleLoadMore} className="load-more">
-                    Load More
+                  <button
+                    onClick={handleLoadMore}
+                    className={`btn ${loadingMore ? 'btn-loading' : 'btn-load-more'}`}
+                    disabled={loadingMore}
+                  >
+                    {loadingMore ? 'Loading...' : 'Load More'}
                   </button>
                 </div>
               )}

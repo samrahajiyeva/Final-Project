@@ -1,207 +1,231 @@
-
 @mixin b-ground {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-@mixin center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
 //section 1
 .shop-sec__1 {
+  width: 100%;
+  height: 470px;
+  background-image: url(https://img.freepik.com/free-photo/full-shot-woman-taking-selfie_23-2149153257.jpg?1&w=1380&t=st=1687506843~exp=1687507443~hmac=b59d2da4a8e041d99eb97b8d3a1275444de0368606659f514f7670045b901674);
+  @include b-ground;
+
+
+  &__wrapper {
     width: 100%;
-    height: 470px;
-    background-image: url(https://img.freepik.com/free-photo/full-shot-woman-taking-selfie_23-2149153257.jpg?1&w=1380&t=st=1687506843~exp=1687507443~hmac=b59d2da4a8e041d99eb97b8d3a1275444de0368606659f514f7670045b901674);
-    @include b-ground;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    @include center;
+    color: rgb(255, 255, 255, 0.7);
 
+    &__text {
+      padding-top: 60px;
+      width: 76%;
 
-    &__wrapper {
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.75);
-        @include center;
-        color: rgb(255, 255, 255 , 0.7);
+      h2 {
+        font-size: 45px;
+      }
 
-        &__text{
-            padding-top: 60px;
-            width: 76%;
-
-            h2{
-                font-size: 45px;
-            }
-            p{
-                font-size: 24px;
-            }
-        }
+      p {
+        font-size: 24px;
+      }
     }
+  }
 }
 
 .shop-sec__2 {
   background-color: #f8f8f8;
-    width: 100%;
-    padding: 60px 70px;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+  width: 100%;
+  padding: 60px 100px;
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
 
-    &__card {
-        background-color: white;
-        padding: 40px;
-        width: 350px;
-        height: 510px;
+  &__card {
+    background-color: white;
+    padding: 20px;
+    width: 350px;
+    height: 510px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 30px;
+
+
+    &__title {
+      padding: 15px 0 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+
+      a {
+        color: #5c5e62;
+        text-decoration: none;
+        font-size: 25px;
+        font-weight: 700;
+      }
+
+      .shop__activity {
         display: flex;
-        flex-direction: column;
-        gap: 10px;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-        border-radius: 30px;
-  
-  
-        &__title {
-          padding: 15px 0 10px;
+        align-items: center;
+        gap: 15px;
+
+        span {
+          font-size: 14px;
+          gap: 4px;
+          display: block;
           display: flex;
-          flex-direction: column;
-          gap: 3px;
-  
-          a {
-            color: #5c5e62;
-            text-decoration: none;
-            font-size: 25px;
-            font-weight: 700;
-          }
-  
-          .shop__activity {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-  
-            span {
-              font-size: 14px;
-              gap: 4px;
-              display: block;
-              display: flex;
-              align-items: center;
-              color: #1f2933;
-            }
-          }
-  
-          .shop__title__spans {
-            span {
-              color: #7b8794;
-              font-size: 15px;
-              font-weight: 500;
-  
-              &:hover {
-                cursor: pointer;
-                color: #565335;
-              }
-  
-            }
-  
-          }
-  
+          align-items: center;
+          color: #1f2933;
         }
-  
-        &__text {
-          padding-bottom: 14px;
-          display: flex;
-          flex-direction: column;
-          border-bottom: 1px solid #dedede;
-          gap: 25px;
-  
-          .shop__explore:hover {
-            background-color: #b0a377;
-            transition: 0.3s;
+      }
+
+      .shop__title__spans {
+        span {
+          color: #7b8794;
+          font-size: 15px;
+          font-weight: 500;
+
+          &:hover {
+            cursor: pointer;
+            color: #565335;
           }
-  
-          p {
-            margin-bottom: 0px;
-            color: #1f2933;
-            font-size: 14px;
-          }
-  
-          button {
-            border: none;
-            text-decoration: none;
-            background-color: #6b6957;
-            width: 150px;
-            font-size: 16px;
-            font-weight: 700;
-            color: white;
-            border-radius: 3px;
+
+        }
+
+      }
+
+    }
+
+    &__text {
+      padding-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid #dedede;
+      gap: 25px;
+
+      .shop__explore:hover {
+        background-color: #b0a377;
+        transition: 0.3s;
+      }
+
+      p {
+        margin-bottom: 0px;
+        color: #1f2933;
+        font-size: 14px;
+      }
+
+      button {
+        border: none;
+        text-decoration: none;
+        background-color: #6b6957;
+        width: 150px;
+        font-size: 16px;
+        font-weight: 700;
+        color: white;
+        border-radius: 3px;
+
+        &:hover {
+          background-color: #5c5e62 !important;
+          transition: 0.3s;
+          color: white !important;
+        }
+      }
+    }
+
+    &__count {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &__icons {
+        @include center;
+        gap: 15px;
+        font-size: 18px;
+
+        a {
+          text-decoration: none;
+
+          .shop__countIcon {
+            color: #565335;
 
             &:hover {
-              background-color: #5c5e62 !important;
-              transition: 0.3s;
-              color: white !important;
+              color: #0000ee;
+              transition: 0.4s;
             }
-          }
-        }
-  
-        &__count {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-  
-          &__icons {
-            @include center;
-            gap: 15px;
-            font-size: 18px;
-  
-            a {
-              text-decoration: none;
-  
-              .shop__countIcon {
-                color: #565335;
-  
-                &:hover {
-                  color: #0000ee;
-                  transition: 0.4s;
-                }
-              }
-            }
-          }
-  
-          span {
-            font-size: 18px;
-            font-weight: 800;
-          }
-        }
-  
-        &:hover {
-          transition: 0.5s;
-          background-color: white;
-          box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  
-          img {
-            transform: scale(1.2);
-            transition: 0.3s;
-          }
-
-          span {
-            color: #b0a377;
-            transition: 0.3s;
-          }
-  
-        }
-  
-  
-        &__img {
-          width: 100%;
-          height: 228px;
-          overflow: hidden;
-  
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
           }
         }
       }
+
+      span {
+        font-size: 18px;
+        font-weight: 800;
+      }
+    }
+
+    &:hover {
+      transition: 0.5s;
+      background-color: white;
+      box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+      img {
+        transform: scale(1.2);
+        transition: 0.3s;
+      }
+
+      span {
+        color: #b0a377;
+        transition: 0.3s;
+      }
+
+    }
+
+
+    &__img {
+      width: 100%;
+      height: 228px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
 }
 
+.btn-sec {
+  padding: 0 100px 40px;
+
+  button {
+    width: 100%;
+    background-color: #6b6957;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    height: 52px;
+    border-radius: 3px;
+
+    &:hover {
+      background-color: #b0a377;
+      color: white;
+    }
+  }
+}
+
+.btn-loading {
+  background-color: #b0a377;
+  color: white;
+}

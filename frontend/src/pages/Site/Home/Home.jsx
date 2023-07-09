@@ -31,6 +31,15 @@ function Home() {
     })
   }, [data])
 
+  const sortedData = data.sort((a, b) => b.activity - a.activity);
+
+  // Select the top 6 cards
+  const topCards = sortedData.slice(0, 6);
+
+  //top 6 popular tours
+  const sortedTour = data.sort((a, b) => b.place - a.place);
+  const topTours = sortedTour.slice(0, 6);
+
   return (
     <>
       {
@@ -268,7 +277,7 @@ function Home() {
               {/* API-den gelecek data-1 */}
               <div className="popular__datas">
                 {
-                  data && data.map((item, index) => {
+                  topTours.map((item, index) => {  
                     return (
                       <div className="popular__datas__card" key={index}>
                         <div className="popular__datas__card__img">
@@ -276,7 +285,7 @@ function Home() {
                         </div>
                         <div className="popular__datas__card__img__wrapper">
                           <div className="popular__icon">
-                            <Link to={`/${item._id}`}><GiLobArrow className="gilobarrow"/></Link>
+                            <Link to={`/${item._id}`}><GiLobArrow className="gilobarrow" /></Link>
                           </div>
                           <div className="popular__cost">
                             <em>from</em>
@@ -329,38 +338,35 @@ function Home() {
                 <p>Our collection of the most popular adventures in 2023.</p>
               </div>
               <div className="bestSeller__datas">
-                {
-                  data && data.map((item, index) => {
-                    return (
-                      <div className="bestSeller__datas__card" key={index}>
-                        <div className="bestSeller__datas__card__img">
-                          <img src={`http://localhost:8080/public/${item.image}`} alt="img" />
-                        </div>
-                        <div className="bestSeller__datas__card__title">
-                          <Link>{item.title}</Link>
-                          <div className="bestSeller__title__spans">
-                            <span className="bestSeller__trip"> {item.tripType} </span>
-                          </div>
-                          <div className="bestSeller__activity">
-                            <span className="bestSeller__icon"><GiWorld /> {item.place} Places</span>
-                            <span className="bestSeller__icon"><MdLocalActivity /> {item.activity} Activities</span>
-                          </div>
-                        </div>
-                        <div className="bestSeller__datas__card__text">
-                          <p>{item.content}</p>
-                          <Link className="bestSeller__explore" to={`/${item._id}`}>Explore</Link>
-                        </div>
-                        <div className="bestSeller__datas__card__count">
-                          <span>${item.price}</span>
-                          <div className="bestSeller__datas__card__count__icons">
-                            <Link to="https://www.facebook.com/" target="_blank"><FaFacebookF className="bestSeller__countIcon" /></Link>
-                            <Link to="https://twitter.com/?lang=en" target="_blank"><FaTwitter className="bestSeller__countIcon" /></Link>
-                          </div>
-                        </div>
+                {topCards.map((item, index) => (
+                  <div className="bestSeller__datas__card" key={index}>
+
+                    <div className="bestSeller__datas__card__img">
+                      <img src={`http://localhost:8080/public/${item.image}`} alt="img" />
+                    </div>
+                    <div className="bestSeller__datas__card__title">
+                      <Link>{item.title}</Link>
+                      <div className="bestSeller__title__spans">
+                        <span className="bestSeller__trip"> {item.tripType} </span>
                       </div>
-                    )
-                  })
-                }
+                      <div className="bestSeller__activity">
+                        <span className="bestSeller__icon"><GiWorld /> {item.place} Places</span>
+                        <span className="bestSeller__icon"><MdLocalActivity /> {item.activity} Activities</span>
+                      </div>
+                    </div>
+                    <div className="bestSeller__datas__card__text">
+                      <p>{item.content}</p>
+                      <Link className="bestSeller__explore" to={`/${item._id}`}>Explore</Link>
+                    </div>
+                    <div className="bestSeller__datas__card__count">
+                      <span>${item.price}</span>
+                      <div className="bestSeller__datas__card__count__icons">
+                        <Link to="https://www.facebook.com/" target="_blank"><FaFacebookF className="bestSeller__countIcon" /></Link>
+                        <Link to="https://twitter.com/?lang=en" target="_blank"><FaTwitter className="bestSeller__countIcon" /></Link>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -454,3 +460,4 @@ function Home() {
 }
 
 export default Home;
+
