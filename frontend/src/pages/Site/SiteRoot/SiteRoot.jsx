@@ -7,7 +7,7 @@ function SiteRoot() {
   const location = useLocation();
   const { id } = useParams();
 
-  const excludedPaths = ['/login', '/register', '/user', `/${id}`];
+  const excludedPaths = ['/login', '/register', '/user', '/buy' , `/${id}`];
 
   const shouldShowHeaderFooter = !excludedPaths.includes(location.pathname);
 

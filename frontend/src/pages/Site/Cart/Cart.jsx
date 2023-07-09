@@ -174,7 +174,7 @@ function Cart() {
                   </thead>
                 </table>
                 <div className="total-btn">
-                  <button>Proceed to Checkout</button>
+                  <button onClick={() => navigate('/buy')} disabled={totalPrice === 0}>Proceed to Checkout</button>
                 </div>
               </div>
             </div>

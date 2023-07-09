@@ -27,10 +27,14 @@ const shoppingSlice = createSlice({
                 }
             }
         },
+        empty: (state, action) => {
+            state.count = 0;
+            state.value = [];
+        }
     },
 });
 
-export const { addToCart, removeFromCart } = shoppingSlice.actions;
+export const { addToCart, removeFromCart , empty } = shoppingSlice.actions;
 export default shoppingSlice.reducer;
 
 

@@ -34,6 +34,7 @@ import UpdateBlog from "../pages/Admin/UpdateBlog/UpdateBlog";
 import DetailUser from "../pages/Admin/DetailUser/DetailUser";
 import AdminData from "../pages/Admin/AdminData/AdminData";
 import ShopDetail from "../pages/Site/ShopDetail/ShopDetail";
+import PayCart from "../pages/Site/PayCart/PayCart";
 
 
 export const ROUTES = [
@@ -94,13 +95,13 @@ export const ROUTES = [
         element: <Register />
       },
       {
+        path: "buy",
+        element: <PayCart />
+      },
+      {
         path: "*",
         element: <NotFound />
-      }
-      // {
-      //   path: ":id",
-      //   element: <Detail />
-      // }
+      },
     ],
   },
   {
