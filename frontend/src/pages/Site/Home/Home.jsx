@@ -276,7 +276,7 @@ function Home() {
                         </div>
                         <div className="popular__datas__card__img__wrapper">
                           <div className="popular__icon">
-                            <Link to={`/${item._id}`}><GiLobArrow /></Link>
+                            <Link to={`/${item._id}`}><GiLobArrow className="gilobarrow"/></Link>
                           </div>
                           <div className="popular__cost">
                             <em>from</em>

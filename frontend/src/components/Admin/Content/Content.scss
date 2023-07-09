@@ -1,8 +1,27 @@
 .content {
     width: 100%;
-    padding-bottom: 50px;
     min-height: 100vh;
     background: rgb(37, 37, 37);
     background: linear-gradient(90deg, rgba(37, 37, 37, 1) 0%, rgba(105, 105, 88, 1) 25%, rgba(71, 77, 72, 1) 92%);
     overflow: hidden;
+}
+
+.content__wrapper {
+    width: 100%;
+    height: calc(100vh - 80px);
+    overflow-y: scroll;
+
+    ::-webkit-scrollbar {
+        width: 0.5em;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background-color: #888;
+    }
 }

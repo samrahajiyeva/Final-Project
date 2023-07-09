@@ -47,7 +47,7 @@ function ShopDetail() {
                             toast.success("Added to Cart");
                             setTimeout(() => {
                                 navigate('/cart');
-                            }, 1500);
+                            }, 1200);
                         }}
                     >
                         Book Now

@@ -17,7 +17,7 @@ function DetailBlog() {
     return (
         <div id='productdetails'>
             <div className="productdetailform">
-                <div className="product-image">
+                <div className="product-image blog-detail-img">
                     <img src={`http://localhost:8080/public/${detailproduct.image}`} alt="img" />
                 </div>
                 <div className="product-infoo">

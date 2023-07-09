@@ -21,7 +21,7 @@ function Content() {
           {
             withCredentials: true,
           }
-        ).then(res=>setdata(res.data))
+        ).then(res => setdata(res.data))
       }
     };
 
@@ -33,9 +33,11 @@ function Content() {
         <title>Admin Panel</title>
       </Helmet>
       {
-        (jwt&&datas.isAdmin)&&<div className="coontent" >
-        <Outlet />
-      </div>
+        (jwt && datas.isAdmin) && <div className="content__wrapper">
+          <div className="coontent" >
+            <Outlet />
+          </div>
+        </div>
       }
     </div>
   )

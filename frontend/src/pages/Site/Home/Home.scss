@@ -418,6 +418,11 @@
 
         .popular__icon {
           display: block;
+
+          .gilobarrow:hover {
+                color: #b0a377;
+                transition: 0.2s;
+          }
         }
 
         .popular__cost {

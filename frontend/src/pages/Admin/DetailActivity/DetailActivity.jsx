@@ -19,7 +19,7 @@ function DetailActivity() {
     return (
         <div id='productdetails'>
             <div className="productdetailform">
-                <div className="product-image">
+                <div className="product-image activity-detail-img">
                     <img src={`http://localhost:8080/public/${detailproduct.image}`} alt="img" />
                 </div>
                 <div className="product-infoo">
