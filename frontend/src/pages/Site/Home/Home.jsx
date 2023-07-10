@@ -55,10 +55,12 @@ function Home() {
               <div className="hero__wrapper">
                 <div className="hero-main">
                   <div className="hero__wrapper__title">
-                    <FaHiking /> ... <FaCity />
-                    <p>
-                      <span>FIND</span> ADVENTURES
-                    </p>
+                    <span className="find-adventures-animation">
+                      <FaHiking /> ... <FaCity />
+                      <p>
+                        <span>FIND </span> ADVENTURES
+                      </p>
+                    </span>
                   </div>
 
                   <div className="hero__wrapper__middle">

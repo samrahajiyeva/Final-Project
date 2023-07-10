@@ -90,7 +90,7 @@ function Listings() {
           filteredData.sort((a, b) => a.price - b.price);
           break;
         case '3': // Popularity
-          filteredData.sort((a, b) => a.activity - b.activity);
+          filteredData.sort((a, b) => b.activity - a.activity);
           break;
         default:
           break;
@@ -249,45 +249,52 @@ function Listings() {
                   <option value="3">Popular</option>
                 </select>
               </div>
+
               <div className="list__datas__elements">
-                {data.slice(0, showMore ? data.length : 9).map((item) => (
-                  <div className="list__datas__elements__card" key={item._id}>
-                    <div className="list__datas__elements__card__img">
-                      <img src={`http://localhost:8080/public/${item.image}`} alt="img" />
-                    </div>
-                    <div className="list__datas__elements__card__title">
-                      <Link to={`/${item._id}`}>{item.title}</Link>
-                      <div className="list__title__spans">
-                        <span className="bestSeller__trip">{item.tripType}</span>
+                {data.length > 0 ? (
+                  data.slice(0, showMore ? data.length : 9).map((item) => (
+                    <div className="list__datas__elements__card" key={item._id}>
+                      <div className="list__datas__elements__card__img">
+                        <img src={`http://localhost:8080/public/${item.image}`} alt="img" />
                       </div>
-                      <div className="list__activity">
-                        <span className="list__icon">
-                          <GiWorld /> {item.place} Places
-                        </span>
-                        <span className="list__icon">
-                          <MdLocalActivity /> {item.activity} Activities
-                        </span>
+                      <div className="list__datas__elements__card__title">
+                        <Link to={`/${item._id}`}>{item.title}</Link>
+                        <div className="list__title__spans">
+                          <span className="bestSeller__trip">{item.tripType}</span>
+                        </div>
+                        <div className="list__activity">
+                          <span className="list__icon">
+                            <GiWorld /> {item.place} Places
+                          </span>
+                          <span className="list__icon">
+                            <MdLocalActivity /> {item.activity} Activities
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <div className="list__datas__elements__card__text">
-                      <p>{item.content}</p>
-                      <Link className="list__explore" to={`/${item._id}`}>
-                        Explore
-                      </Link>
-                    </div>
-                    <div className="list__datas__elements__card__count">
-                      <span>${item.price}</span>
-                      <div className="list__datas__elements__card__count__icons">
-                        <Link to="https://www.facebook.com/" target="_blank">
-                          <FaFacebookF className="list__countIcon" />
-                        </Link>
-                        <Link to="https://twitter.com/?lang=en" target="_blank">
-                          <FaTwitter className="list__countIcon" />
+                      <div className="list__datas__elements__card__text">
+                        <p>{item.content}</p>
+                        <Link className="list__explore" to={`/${item._id}`}>
+                          Explore
                         </Link>
                       </div>
+                      <div className="list__datas__elements__card__count">
+                        <span>${item.price}</span>
+                        <div className="list__datas__elements__card__count__icons">
+                          <Link to="https://www.facebook.com/" target="_blank">
+                            <FaFacebookF className="list__countIcon" />
+                          </Link>
+                          <Link to="https://twitter.com/?lang=en" target="_blank">
+                            <FaTwitter className="list__countIcon" />
+                          </Link>
+                        </div>
+                      </div>
                     </div>
+                  ))
+                ) : (
+                  <div className="list__datas__elements__no-items">
+                    <em>There are no items that match your search criteria.</em>
                   </div>
-                ))}
+                )}
               </div>
 
               {/* Load More */}

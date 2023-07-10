@@ -3,9 +3,13 @@ import './ShopDetail.scss'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
-import { toast , Toaster } from 'react-hot-toast';
+import { toast, Toaster } from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart } from '../../../redux/ShoppingSlice/ShoppingSlice'
+import { FaFacebookF, FaTwitter , FaHiking } from 'react-icons/fa'
+import { GiWorld } from 'react-icons/gi'
+import { BsFillAirplaneEnginesFill } from 'react-icons/bs'
+import { TbActivityHeartbeat } from 'react-icons/tb'
 
 
 function ShopDetail() {
@@ -34,11 +38,21 @@ function ShopDetail() {
                     <ul>
                         <li>
                             <h4>Vacation Style</h4>
-                            <span>{data?.tripType}</span>
+                            <div className='activity-div'>
+                                <span>{data?.tripType}</span>
+                                <div className="activity-icons">
+                                    <GiWorld /> <BsFillAirplaneEnginesFill />
+                                </div>
+                            </div>
                         </li>
                         <li>
                             <h4>Activity Level</h4>
-                            <p>{data?.activity}</p>
+                            <div className='activity-div'>
+                                <span>{data?.activity}</span>
+                                <div className="activity-icons">
+                                    <FaHiking /><TbActivityHeartbeat />
+                                </div>
+                            </div>
                         </li>
                     </ul>
                     <button
@@ -52,7 +66,10 @@ function ShopDetail() {
                     >
                         Book Now
                     </button>
-
+                    <div className="share-icons">
+                        <p><FaFacebookF className='fb-icon' /><span>Share</span></p>
+                        <p><FaTwitter /><span>Tweet</span></p>
+                    </div>
                 </div>
             </div>
             <Toaster />

@@ -49,8 +49,8 @@ function ActivityData() {
             <tr>
               <th className="col-3" scope="col">Title</th>
               <th className="col-3" scope="col">Season</th>
-              <th className="col-2" scope="col">Location</th>
-              <th className="col-2" scope="col">Day</th>
+              <th className="col-3" scope="col">Location</th>
+              <th className="col-1" scope="col">Day</th>
               <th className="col-2" scope="col">Actions</th>
             </tr>
           </thead>
