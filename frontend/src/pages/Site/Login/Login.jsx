@@ -53,8 +53,8 @@ function Login() {
                     withCredentials:true
                   }).then(res => {
                     toast.success("Login Successful!")
-                    console.log(res.data.data.isAdmin);
-                    if(res.data.data.isAdmin===true){
+                    console.log(res.data.isAdmin);
+                    if(res.data.isAdmin===true){
                       console.log('admin');
                       navigate('/admin')
                     }
