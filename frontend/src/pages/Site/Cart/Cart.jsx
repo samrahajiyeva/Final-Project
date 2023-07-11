@@ -500,7 +500,9 @@ function Cart() {
                           </td>
                           <td className="col-3">
                             <span>{item?.title}</span>
-                            <p className='date-picker'>Date: {item?.date.toLocaleDateString()}</p>
+                            {item.date && (
+                              <p className="date-picker">Date: {item.date.toLocaleDateString()}</p>
+                            )}
                           </td>
                           <td className="col-2">
                             <span>${item?.price}</span>
