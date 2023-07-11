@@ -55,7 +55,7 @@ function ShopDetail() {
         <div className="shopdetail__right">
           <h1>{data?.title}</h1>
           <strong>${data?.price}</strong>
-          <p>{data?.content}</p>
+          <p className='detail-content'>{data?.content}</p>
           <ul>
             <li>
               <h4>Vacation Style</h4>
@@ -78,12 +78,12 @@ function ShopDetail() {
           </ul>
           <div>
             <h4>Select Date</h4>
-            <DatePicker
+            <DatePicker className='date-picker-input'
               selected={selectedDate}
               onChange={(date) => setSelectedDate(date)}
               dateFormat="dd/MM/yyyy"
               minDate={new Date()} // Set minimum date to today
-              placeholderText="Select a date"
+              placeholderText="Select a date for reservation"
             />
           </div>
           <button className='book-now' onClick={handleBookNow}>
